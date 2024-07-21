@@ -1,22 +1,22 @@
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterLink, RouterModule } from '@angular/router';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import {  NzFormModule } from 'ng-zorro-antd/form';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzButtonComponent } from "ng-zorro-antd/button";
+import { NzFormModule } from "ng-zorro-antd/form";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzInputNumberModule } from "ng-zorro-antd/input-number";
+import { NzLayoutModule } from "ng-zorro-antd/layout";
+import { NzMenuModule } from "ng-zorro-antd/menu";
+import { NzSelectModule } from "ng-zorro-antd/select";
+import { NzTypographyModule } from "ng-zorro-antd/typography";
 
-export const APP_IMPORTS = [
-    CommonModule,
-    RouterModule,
-    RouterLink,
-    FormsModule,
-    ReactiveFormsModule,
-    NzButtonModule,
+ export const APP_IMPORT = [
+    NzIconModule, 
+    NzLayoutModule, 
+    NzMenuModule,
+    NzButtonComponent,
     NzInputModule,
+    NzInputNumberModule,
     NzFormModule,
-    NzSelectModule,
-    NzIconModule
+    NzTypographyModule,
+    NzIconModule,
+    NzSelectModule
 ]

@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { CommonDesignComponent } from './components/common-design/common-design.component';
-import { APP_IMPORTS } from './app.import';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { APP_IMPORT } from './app.import';
+import { SideMenuComponent } from "./components/sample-component/side-menu/side-menu.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonDesignComponent,APP_IMPORTS],
+  imports: [CommonModule, RouterOutlet, APP_IMPORT, SideMenuComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sipLeaveApplication';
 }

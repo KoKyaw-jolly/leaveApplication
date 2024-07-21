@@ -1,0 +1,14 @@
+.element-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    
+    div{
+      display: flex;
+      gap: 30px;
+    }
+  }
+  
