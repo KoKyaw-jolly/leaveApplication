@@ -7,11 +7,12 @@
   flex-wrap: nowrap;
 
   .main-content {
-    flex-grow: 1;
+    flex: 1;
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    overflow-y: auto;
 
     .main-header {
       display: flex;
@@ -47,6 +48,7 @@
           }
         }
       }
+
       .header-action-wrapper {
         width: max-content;
         display: flex;
@@ -58,6 +60,10 @@
           height: 18px;
         }
       }
+    }
+
+    .inner-content{
+      width: 100%;
     }
   }
 }

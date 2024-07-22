@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "assets/styles/custom-ant-design.scss";
+@import "assets/styles/colors.scss";
 
 * {
   font-family: "SF pro Display", sans-serif;
@@ -24,4 +25,25 @@ span.fi:before,
 span.fi:before {
   display: inline-block;
   transform: translateY(-10%);
+}
+
+.page-wrapper-card{
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+
+  .card-header{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+}
+
+a{
+  color: $primary-color;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
 }
