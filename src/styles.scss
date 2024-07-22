@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/styles/custom-ant-design.scss';
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "assets/styles/custom-ant-design.scss";
 
-*{
-    font-family: 'SF pro Display', sans-serif;
+* {
+  font-family: "SF pro Display", sans-serif;
+}
+body{
+  background-color: #f2f2f2;
+  font-size: 14px;
+}
+p{
+  font-size: 14px;
+}
+//for flat-icon
+.fi {
+  display: inline-block;
+
+}
+
+i.fi:before,
+i.fi:before,
+span.fi:before,
+span.fi:before {
+  display: inline-block;
+  transform: translateY(-10%);
 }

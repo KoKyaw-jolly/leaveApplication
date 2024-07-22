@@ -1,0 +1,38 @@
+[
+    {
+        "id": "dashboard",
+        "name": "Dashboard",
+        "icon": "fi fi-rr-home",
+        "routelink": "/user/dashboard"
+    },
+    {
+        "id": "applyLeave",
+        "name": "Apply Leave",
+        "icon": "fi fi-rr-calendar-xmark",
+        "routelink": "/user/apply-leave"
+    },
+    {
+        "id": "leaveTransaction",
+        "name": "Leave Transaction",
+        "icon": "fi fi-rr-folder-open",
+        "routelink": "/user/leave-transaction"
+    },
+    {
+        "id": "leaveDetails",
+        "name": "Leave Details",
+        "icon": "fi fi-rr-document",
+        "routelink": "/user/leave-details"
+    },
+    {
+        "id": "medicalClaim",
+        "name": "Medical Claim",
+        "icon": "fi fi-rr-file-medical-alt",
+        "routelink": "/user/medical-claim"
+    },
+    {
+        "id": "leaveCalendar",
+        "name": "Leave Calendar",
+        "icon": "fi fi-rr-calendar-clock",
+        "routelink": "/user/leave-calendar"
+    }
+]

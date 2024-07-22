@@ -10,7 +10,11 @@ import { SideMenuComponent } from "./components/sample-component/side-menu/side-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, APP_IMPORT, SideMenuComponent],
+  imports: [ 
+    RouterOutlet, 
+    APP_IMPORT, 
+    SideMenuComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

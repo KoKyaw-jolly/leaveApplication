@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { APP_IMPORT } from '../../../app.import';
+import { APP_IMPORT } from '../../app.import';
 import { RouterModule } from '@angular/router';
-import { IMAGES } from '../../../core/constants/images-url';
+import { ICONS, IMAGES } from '../../core/constants/images-url';
+import { SideMenuComponent } from "../../components/sample-component/side-menu/side-menu.component";
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-side-menu',
+  selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterModule, APP_IMPORT],
-  templateUrl: './side-menu.component.html',
-  styleUrl: './side-menu.component.scss'
+  imports: [
+    APP_IMPORT,
+    RouterModule,
+    SideMenuComponent
+],
+  templateUrl: './main-layout.component.html',
+  styleUrl: './main-layout.component.scss'
 })
-export class SideMenuComponent implements OnInit {
+export class MainLayoutComponent implements OnInit{
   images = IMAGES;
   isCollapsed = false;
   menuList: any[] = [];

@@ -1,0 +1,63 @@
+@import "../../../assets/styles/custom-sidebar-menu.scss";
+
+.main-layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .main-content {
+    flex-grow: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 15px 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+
+      .avatar-wrapper {
+        display: flex;
+        gap: 15px;
+
+        img {
+          height: 40px;
+          width: 40px;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+        .avatar-content {
+          display: flex;
+          flex-direction: column;
+
+          .name {
+            margin: 0;
+            font-weight: bold;
+          }
+
+          .position {
+            font-size: 12px;
+            color: gray;
+            margin: 0;
+          }
+        }
+      }
+      .header-action-wrapper {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        span{
+          font-size: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}

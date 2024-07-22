@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { NzButtonComponent } from "ng-zorro-antd/button";
 import { NzFormModule } from "ng-zorro-antd/form";
 import { NzIconModule } from "ng-zorro-antd/icon";
@@ -9,6 +10,7 @@ import { NzSelectModule } from "ng-zorro-antd/select";
 import { NzTypographyModule } from "ng-zorro-antd/typography";
 
  export const APP_IMPORT = [
+    CommonModule,
     NzIconModule, 
     NzLayoutModule, 
     NzMenuModule,
