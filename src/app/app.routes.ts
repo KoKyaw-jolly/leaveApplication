@@ -9,7 +9,7 @@ import { MedicalClaimComponent } from './components/medical-claim/medical-claim.
 import { LeaveCalendarComponent } from './components/leave-calendar/leave-calendar.component';
 
 export const APP_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/user' },
+  { path: '', pathMatch: 'full', redirectTo: '/user/dashboard' },
   {path:'user',component:MainLayoutComponent,
     children:[
       {path:'dashboard',component:UserDashboardComponent},

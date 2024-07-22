@@ -9,5 +9,9 @@ import { APP_IMPORT } from '../../../app.import';
   styleUrl: './elements.component.scss'
 })
 export class ElementsComponent {
+  date:any;
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
 
 }

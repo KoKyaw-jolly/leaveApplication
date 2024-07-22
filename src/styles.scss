@@ -6,17 +6,16 @@
 * {
   font-family: "SF pro Display", sans-serif;
 }
-body{
+body {
   background-color: #f2f2f2;
   font-size: 14px;
 }
-p{
+p {
   font-size: 14px;
 }
 //for flat-icon
 .fi {
   display: inline-block;
-
 }
 
 i.fi:before,
@@ -27,23 +26,38 @@ span.fi:before {
   transform: translateY(-10%);
 }
 
-.page-wrapper-card{
+.page-wrapper-card {
   padding: 30px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
 
-  .card-header{
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
+  .card-header {
+    margin-bottom: 30px;
+
+    .header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .description{
+      font-size: 12px;
+      margin-bottom: 0;
+      color: gray;
+    }
   }
 }
 
-a{
+a {
   color: $primary-color;
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
+}
+
+.label-small{
+  font-size: 12px;
+  color: gray;
+  margin-left: 5px;
 }
