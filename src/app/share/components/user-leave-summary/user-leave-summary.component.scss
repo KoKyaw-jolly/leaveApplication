@@ -1,0 +1,62 @@
+@import "../../../../assets/styles/colors.scss";
+@import "../../../../assets/styles/variable.scss";
+
+.leave-summary-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .days-remain-wrapper {
+    display: flex;
+    gap: 30px;
+
+    .days-remain-card {
+      flex: 1;
+      padding: 20px 15px 15px 15px;
+      border-top: 10px solid $primary-color;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 0 0 10px 10px;
+      box-shadow: $main-card-shadow;
+
+      .leave-type-text {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 0;
+      }
+
+      .days {
+        font-size: 40px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      .description {
+        font-size: 12px;
+        text-align: center;
+        color: gray;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .days-used-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .days-used-item {
+      flex: 1;
+      padding: 0px 10px;
+      text-align: center;
+
+      p {
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

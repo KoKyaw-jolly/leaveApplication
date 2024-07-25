@@ -1,0 +1,33 @@
+<div class="leave-summary-wrapper">
+    <div class="days-remain-wrapper">
+        <ng-container *ngFor="let item of leaveSummary">
+            <div class="days-remain-card">
+                <p class="leave-type-text">{{item.leaveType}}</p>
+                <p class="days">{{item.remainDays}}</p>
+                <p class="description">days reamain for {{ today | date:'yyyy' }}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="page-wrapper-card">
+        <div class="card-header">
+            <p class="header">Leave in 2024</p>
+        </div>
+        <div class="days-used-wrapper">
+            <div class="days-used-item">
+                <nz-progress [nzPercent]="20" nzType="circle" nzStrokeColor="#83002C" [nzWidth]="150" nzStrokeWidth="15"
+                    [nzFormat]="annualLeave"></nz-progress>
+                <p class="days-used-title">Annual Leave</p>
+            </div>
+            <div class="days-used-item">
+                <nz-progress [nzPercent]="75" nzType="circle" nzStrokeColor="#83002C" [nzWidth]="150" nzStrokeWidth="15"
+                    [nzFormat]="offInLieu"></nz-progress>
+                <p class="days-used-title">Of In Lieu</p>
+            </div>
+            <div class="days-used-item">
+                <nz-progress [nzPercent]="50" nzType="circle" nzStrokeColor="#83002C" [nzWidth]="150" nzStrokeWidth="15"
+                    [nzFormat]="medicalLeave"></nz-progress>
+                <p class="days-used-title">Medical Leave</p>
+            </div>
+        </div>
+    </div>
+</div>

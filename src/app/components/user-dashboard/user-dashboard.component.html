@@ -1,4 +1,21 @@
-<div class="page-wrapper-card">
-    <p class="card-header">Dashboard</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni laudantium exercitationem omnis facilis nam hic ullam officiis, harum praesentium? Mollitia esse minima vel sapiente, quisquam quaerat omnis consectetur! Iure.</p>
+<div class="dashboard-wrapper">
+    <div class="dashboard-user-summary-wrapper">
+        <app-user-leave-summary></app-user-leave-summary>
+    </div>
+    <div class="page-wrapper-card dashboard-holiday-wrapper">
+        <div class="card-header mb-3">
+            <p class="header">Upcoming Public Holiday</p>
+        </div>
+        <ul class="dashboard-holiday-body">
+            <ng-container *ngFor="let holiday of holidays">
+                <li class="dashboard-holiday-item">
+                    <span>
+                        <span>{{holiday.date | date:'dd MMM yyyy'}}</span>
+                        <span>{{holiday.date | date:'EEEE'}}</span>
+                    </span>
+                    <span>{{holiday.name}}</span>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
 </div>

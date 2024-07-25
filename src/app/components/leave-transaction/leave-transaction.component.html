@@ -1,4 +1,35 @@
 <div class="page-wrapper-card">
-    <p class="card-header">Leave Transaction</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni laudantium exercitationem omnis facilis nam hic ullam officiis, harum praesentium? Mollitia esse minima vel sapiente, quisquam quaerat omnis consectetur! Iure.</p>
+    <div class="card-header">
+        <p class="header">Leave Transaction</p>
+    </div>
+
+    <nz-table #basicTable [nzData]="listOfData">
+        <thead>
+            <tr>
+                <th nzAlign="center">Apply Date</th>
+                <th nzAlign="center">Leave Type</th>
+                <th nzAlign="center">Taken</th>
+                <th nzAlign="center">Start Date</th>
+                <th nzAlign="center">End Date</th>
+                <th nzAlign="center">Medical Claim</th>
+                <th nzAlign="center">Status</th>
+                <th nzAlign="center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.leaveType }}</td>
+                <td nzAlign="center">{{ data.taken }}</td>
+                <td nzAlign="center">{{ data.startDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.endDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.medicalClaim == null ? '-' : data.medicalClaim }}</td>
+                <td nzAlign="center">{{ data.status }}</td>
+                <td nzAlign="center">
+                    edit
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+
 </div>

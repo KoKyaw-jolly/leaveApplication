@@ -8,7 +8,9 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzInputNumberModule } from "ng-zorro-antd/input-number";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzMenuModule } from "ng-zorro-antd/menu";
+import { NzProgressModule } from "ng-zorro-antd/progress";
 import { NzSelectModule } from "ng-zorro-antd/select";
+import { NzTableModule } from "ng-zorro-antd/table";
 import { NzTypographyModule } from "ng-zorro-antd/typography";
 
  export const APP_IMPORT = [
@@ -24,5 +26,7 @@ import { NzTypographyModule } from "ng-zorro-antd/typography";
     NzTypographyModule,
     NzIconModule,
     NzSelectModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    NzProgressModule,
+    NzTableModule
 ]

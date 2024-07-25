@@ -1,0 +1,43 @@
+.dashboard-wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  .dashboard-user-summary-wrapper {
+    width: calc(70% - 15px);
+  }
+
+  .dashboard-holiday-wrapper {
+    width: calc(30% - 15px);
+    min-width: 300px;
+
+    .dashboard-holiday-body {
+      display: flex;
+      flex-direction: column;
+      padding: 0px 1px;
+
+      .dashboard-holiday-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 5px;
+        border-bottom: 1px solid #e2e2e2;
+
+        span:first-child {
+          display: flex;
+          flex-direction: column;
+
+          span:last-child {
+            font-size: 12px;
+            color: gray;
+          }
+        }
+
+        span:last-child {
+            font-weight: bold;
+        }
+      }
+    }
+  }
+}

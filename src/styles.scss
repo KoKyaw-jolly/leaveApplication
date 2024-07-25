@@ -2,7 +2,7 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "assets/styles/custom-ant-design.scss";
 @import "assets/styles/colors.scss";
-
+@import "assets/styles/variable.scss";
 * {
   font-family: "SF pro Display", sans-serif;
 }
@@ -30,7 +30,7 @@ span.fi:before {
   padding: 30px;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.15);
+  box-shadow: $main-card-shadow;
 
   .card-header {
     margin-bottom: 30px;
@@ -60,4 +60,18 @@ a {
   font-size: 12px;
   color: gray;
   margin-left: 5px;
+}
+
+//fix margin
+.mt-30{
+  margin-top: 30px;
+}
+.mb-30{
+  margin-bottom: 30px;
+}
+.ml-30{
+  margin-left: 30px;
+}
+.mr-30{
+  margin-right: 30px;
 }
