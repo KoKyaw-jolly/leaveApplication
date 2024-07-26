@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
+import { LeaveRecord, LeaveTypeDetails } from '../../core/models/leave.interface';
 
 @Component({
   selector: 'app-leave-transaction',
@@ -9,71 +10,132 @@ import { APP_IMPORT } from '../../app.import';
   styleUrl: './leave-transaction.component.scss'
 })
 export class LeaveTransactionComponent {
-
-  listOfData:any[] = [
+  myLeaveSummaryData: LeaveTypeDetails[] = [
     {
-      applyDate: "2024-07-01",
-      leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-01",
-      endDate: "2024-07-01",
-      medicalClaim: null,
-      status: "approve"
+      leaveType: 'Annual',
+      totalDays: 10,
+      remainingDays: 8
     },
     {
-      applyDate: "2024-07-02",
-      leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-02",
-      endDate: "2024-07-02",
-      medicalClaim: null,
-      status: "approve"
+      leaveType: 'Off-In-Lieu',
+      totalDays: 12,
+      remainingDays: 3
     },
     {
-      applyDate: "2024-07-03",
+      leaveType: 'Medical',
+      totalDays: 15,
+      remainingDays: 12
+    },
+  ];
+  listOfData: LeaveRecord[] = [
+    {
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
       leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-03",
-      endDate: "2024-07-03",
-      medicalClaim: null,
-      status: "approve"
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
     },
     {
-      applyDate: "2024-07-04",
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
       leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-04",
-      endDate: "2024-07-04",
-      medicalClaim: null,
-      status: "approve"
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
     },
     {
-      applyDate: "2024-07-05",
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
       leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-05",
-      endDate: "2024-07-05",
-      medicalClaim: null,
-      status: "approve"
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
     },
     {
-      applyDate: "2024-07-06",
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
       leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-06",
-      endDate: "2024-07-06",
-      medicalClaim: null,
-      status: "approve"
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
     },
     {
-      applyDate: "2024-07-07",
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
       leaveType: "Off-In-Lieu",
-      taken: 1,
-      startDate: "2024-07-07",
-      endDate: "2024-07-07",
-      medicalClaim: null,
-      status: "approve"
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
+    },
+    {
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
+      leaveType: "Off-In-Lieu",
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
+    },
+    {
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
+      leaveType: "Off-In-Lieu",
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
+    },
+    {
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
+      leaveType: "Off-In-Lieu",
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
+    },
+    {
+      id: "1",
+      staffId: "1",
+      fullName: "Ko Ko Kyaw",
+      applyDate: new Date("2024-07-01"),
+      leaveType: "Off-In-Lieu",
+      takenDays: 1,
+      startDate: new Date("2024-07-01"),
+      endDate: new Date("2024-07-01"),
+      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
+      leaveStatus: "Approved"
     }
   ];
-  
+
 }

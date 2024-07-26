@@ -1,0 +1,23 @@
+.calendar-container{
+    max-width: calc(100vw - 370px);
+    margin: auto;
+}
+
+.calendar-modal-content{
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+
+    &:first-child{
+        padding-top: 0;
+    }
+
+    .title{
+        font-weight: bold;
+        width: 150px;
+    }
+
+    .description{
+        width: 100%;
+    }
+}

@@ -1,0 +1,69 @@
+@import "../../assets/styles/colors.scss";
+
+.fc .fc-bg-event {
+  opacity: 1;
+  background: rgba(red, 0.3);
+
+  .fc-event-title {
+    font-weight: bold;
+    color: $primary-color;
+    font-style: normal;
+  }
+}
+
+.fc .fc-button-primary {
+  line-height: 1.5715;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: #fff;
+  background: $primary-color;
+
+  &:hover {
+    color: #fff;
+    border-color: #991d18;
+    background: #991d18;
+  }
+
+  &:disabled {
+    border-color: $primary-color;
+    background: $primary-color;
+    opacity: 0.5;
+  }
+}
+
+.fc-button-group{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  color: #fff;
+  border-color: $primary-color;
+  background: $primary-color;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active:focus,
+.fc .fc-button-primary:focus,
+.fc .fc-button-primary:not(:disabled):active:focus {
+  box-shadow: none;
+}
+
+.fc .fc-popover{
+  z-index: 9;
+}

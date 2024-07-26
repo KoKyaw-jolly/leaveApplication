@@ -3,6 +3,7 @@
 @import "assets/styles/custom-ant-design.scss";
 @import "assets/styles/colors.scss";
 @import "assets/styles/variable.scss";
+@import "assets/styles/custom-full-calendar-design.scss";
 * {
   font-family: "SF pro Display", sans-serif;
 }
@@ -74,4 +75,23 @@ a {
 }
 .mr-30{
   margin-right: 30px;
+}
+
+// Table
+.table-action-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  span{
+    font-size: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &:hover{
+      color: $primary-color;
+    }
+  }
 }

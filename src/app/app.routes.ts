@@ -15,8 +15,8 @@ export const APP_ROUTES: Routes = [
       {path:'dashboard',component:UserDashboardComponent},
       {path:'apply-leave',component:ApplyLeaveComponent},
       {path:'leave-transaction',component:LeaveTransactionComponent},
-      {path:'leave-details',component:LeaveDetailComponent},
-      {path:'medical-claim',component:MedicalClaimComponent},
+      // {path:'leave-details',component:LeaveDetailComponent},
+      // {path:'medical-claim',component:MedicalClaimComponent},
       {path:'leave-calendar',component:LeaveCalendarComponent},
       {path:'elements',component:ElementsComponent}
     ]

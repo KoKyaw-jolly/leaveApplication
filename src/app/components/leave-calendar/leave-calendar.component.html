@@ -1,4 +1,39 @@
 <div class="page-wrapper-card">
-    <p class="card-header">Leave Calendar</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni laudantium exercitationem omnis facilis nam hic ullam officiis, harum praesentium? Mollitia esse minima vel sapiente, quisquam quaerat omnis consectetur! Iure.</p>
+    <div class="card-header">
+        <p class="header">Leave Calendar</p>
+    </div>
+    <div class="calendar-container">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
 </div>
+
+<nz-modal [(nzVisible)]="holidayModal" [nzFooter]="null" nzTitle="Holiday" (nzOnCancel)="closeAllModal()"
+    (nzOnOk)="closeAllModal()">
+    <ng-container *nzModalContent>
+        <div class="calendar-modal-content">
+            <span class="title">Name</span>:
+            <span class="description">{{holidayModalData.name}}</span>
+        </div>
+        <div class="calendar-modal-content">
+            <span class="title">Description</span>:
+            <span class="description">{{holidayModalData.description}}</span>
+        </div>
+    </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="leaveDetailsModal" [nzFooter]="null" nzTitle="Leave Details" (nzOnCancel)="closeAllModal()" (nzOnOk)="closeAllModal()">
+    <ng-container *nzModalContent>
+        <div class="calendar-modal-content">
+            <span class="title">Staff Name</span>:
+            <span class="description">{{leaveDetailsModalData.fullName}}</span>
+        </div>
+        <div class="calendar-modal-content">
+            <span class="title">Leave Type</span>:
+            <span class="description">{{leaveDetailsModalData.leaveType}}</span>
+        </div>
+        <div class="calendar-modal-content">
+            <span class="title">Phone</span>:
+            <span class="description">{{leaveDetailsModalData.phone}}</span>
+        </div>
+    </ng-container>
+</nz-modal>

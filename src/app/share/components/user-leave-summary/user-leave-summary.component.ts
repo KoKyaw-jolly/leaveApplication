@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { APP_IMPORT } from '../../../app.import';
+import { LeaveTypeDetails } from '../../../core/models/leave.interface';
 
 @Component({
   selector: 'app-user-leave-summary',
@@ -10,21 +11,26 @@ import { APP_IMPORT } from '../../../app.import';
 })
 export class UserLeaveSummaryComponent {
 
+  @Input() leaveSummaryYear: boolean = false;
+
   today: Date = new Date();
-  
-  leaveSummary: any[] = [
+
+  leaveSummary: LeaveTypeDetails[] = [
     {
-      leaveType: 'Annual Leave',
-      remainDays: 6
+      leaveType: 'Annual',
+      totalDays: 10,
+      remainingDays: 8
     },
     {
       leaveType: 'Off-In-Lieu',
-      remainDays: 3
+      totalDays: 12,
+      remainingDays: 3
     },
     {
-      leaveType: 'Medical Leave',
-      remainDays: 12
-    }
+      leaveType: 'Medical',
+      totalDays: 15,
+      remainingDays: 12
+    },
   ];
 
   annualLeave = (percent: number): string => `2/10`;
