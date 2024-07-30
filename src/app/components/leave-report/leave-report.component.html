@@ -1,0 +1,68 @@
+
+<div class="page-wrapper-card">
+    <div class="card-header">
+        <p class="header">Leave Report</p>
+    </div>
+    
+    <form nz-form [nzLayout]="'vertical'">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <nz-form-item>
+                    <nz-form-label nzFor="Date Range">Date Range</nz-form-label>
+                    <nz-form-control>
+                        <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"
+                            name="Date Range"></nz-range-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <nz-form-item>
+                    <nz-form-label nzFor="Leave Type">Leave Type</nz-form-label>
+                    <nz-form-control>
+                        <nz-select name="Leave Type" nzShowSearch>
+                            <nz-option nzValue="Annual Leave" nzLabel="Annual Leave"></nz-option>
+                            <nz-option nzValue="Unpaid Leave" nzLabel="Unpaid Leave"></nz-option>
+                            <nz-option nzValue="Medical Leave" nzLabel="Medical Leave"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <button nz-button nzType="primary" class="mt-30">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <nz-table #leaveTransation [nzData]="listOfData" [nzScroll]="{x: '1000px'}">
+        <thead>
+            <tr>
+                <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
+                <th nzAlign="center" nzWidth="110px">Apply Date</th>
+                <th nzAlign="center" nzWidth="110px">Leave Type</th>
+                <th nzAlign="center" nzWidth="80px">Taken</th>
+                <th nzAlign="center" nzWidth="110px">Start Date</th>
+                <th nzAlign="center" nzWidth="110px">End Date</th>
+                <th nzAlign="center" nzWidth="330px">Reason</th>
+                <th nzAlign="center" nzWidth="100px">Status</th>
+                <th nzAlign="center" nzWidth="90px"nzRight>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of leaveTransation.data">
+                <td nzAlign="left" nzLeft>{{ data.fullName }}</td>
+                <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.leaveType }}</td>
+                <td nzAlign="center">{{ data.takenDays }}</td>
+                <td nzAlign="center">{{ data.startDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.endDate | date:'dd MMM yyy' }}</td>
+                <td nzAlign="center">{{ data.reason }}</td>
+                <td nzAlign="center">{{ data.leaveStatus }}</td>
+                <td nzAlign="center" nzRight>
+                    <div class="table-action-wrapper">
+                        <span class="fi fi-rr-info"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

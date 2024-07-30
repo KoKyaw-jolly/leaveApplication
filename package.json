@@ -25,6 +25,7 @@
     "@fullcalendar/interaction": "^6.1.15",
     "bootstrap": "^5.3.3",
     "ng-zorro-antd": "^18.0.1",
+    "ngx-quill": "^26.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NzButtonComponent } from "ng-zorro-antd/button";
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
@@ -15,12 +15,19 @@ import { NzTableModule } from "ng-zorro-antd/table";
 import { NzTabsModule } from "ng-zorro-antd/tabs";
 import { NzTypographyModule } from "ng-zorro-antd/typography";
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { TruncatePipe } from "./core/pipes/truncate.pipe";
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
-  
- export const APP_IMPORT = [
+export const APP_IMPORT = [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FullCalendarModule,
+    TruncatePipe,
     NzIconModule, 
     NzLayoutModule, 
     NzMenuModule,
@@ -35,5 +42,10 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzProgressModule,
     NzTableModule,
     NzTabsModule,
-    NzModalModule
+    NzModalModule,
+    NzPopoverModule,
+    NzStepsModule,
+    NzRadioModule,
+    NzTagModule,
+    NzCheckboxModule
 ]

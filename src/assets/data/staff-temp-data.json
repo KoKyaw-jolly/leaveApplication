@@ -1,0 +1,422 @@
+[
+    {
+        "staffId": 1,
+        "fullName": "John Doe",
+        "image": "sample.png",
+        "email": "john.doe@example.com",
+        "phone": "123-456-7890",
+        "address": "123 Main St, Cityville, CA 12345",
+        "position": "Software Engineer",
+        "department": "Engineering",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 15,
+                "remainingDays": 10
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 5
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 8
+            }
+        ]
+    },
+    {
+        "staffId": 2,
+        "fullName": "Jane Smith",
+        "image": "sample.png",
+        "email": "jane.smith@example.com",
+        "phone": "123-456-7891",
+        "address": "456 Elm St, Townsville, CA 12345",
+        "position": "Marketing Manager",
+        "department": "Marketing",
+        "role": "Admin",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 20,
+                "remainingDays": 15
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 2
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 12,
+                "remainingDays": 10
+            }
+        ]
+    },
+    {
+        "staffId": 3,
+        "fullName": "Alice Johnson",
+        "image": "sample.png",
+        "email": "alice.johnson@example.com",
+        "phone": "123-456-7892",
+        "address": "789 Oak St, Villagetown, CA 12345",
+        "position": "HR Specialist",
+        "department": "Human Resources",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 18,
+                "remainingDays": 12
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 3,
+                "remainingDays": 1
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 15,
+                "remainingDays": 13
+            }
+        ]
+    },
+    {
+        "staffId": 4,
+        "fullName": "Bob Brown",
+        "image": "sample.png",
+        "email": "bob.brown@example.com",
+        "phone": "123-456-7893",
+        "address": "123 Pine St, Smalltown, CA 12345",
+        "position": "Finance Manager",
+        "department": "Finance",
+        "role": "Admin",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 25,
+                "remainingDays": 20
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 3
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 7
+            }
+        ]
+    },
+    {
+        "staffId": 5,
+        "fullName": "Chris Green",
+        "image": "sample.png",
+        "email": "chris.green@example.com",
+        "phone": "123-456-7894",
+        "address": "456 Maple St, Uptown, CA 12345",
+        "position": "Product Manager",
+        "department": "Product",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 20,
+                "remainingDays": 15
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 4,
+                "remainingDays": 4
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 8,
+                "remainingDays": 6
+            }
+        ]
+    },
+    {
+        "staffId": 6,
+        "fullName": "Dana White",
+        "image": "sample.png",
+        "email": "dana.white@example.com",
+        "phone": "123-456-7895",
+        "address": "789 Birch St, Downtown, CA 12345",
+        "position": "Operations Manager",
+        "department": "Operations",
+        "role": "Admin",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 18,
+                "remainingDays": 14
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 6,
+                "remainingDays": 4
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 8
+            }
+        ]
+    },
+    {
+        "staffId": 7,
+        "fullName": "Eve Black",
+        "image": "sample.png",
+        "email": "eve.black@example.com",
+        "phone": "123-456-7896",
+        "address": "123 Cedar St, Midtown, CA 12345",
+        "position": "Sales Executive",
+        "department": "Sales",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 15,
+                "remainingDays": 10
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 3
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 12,
+                "remainingDays": 11
+            }
+        ]
+    },
+    {
+        "staffId": 8,
+        "fullName": "Frank Brown",
+        "image": "sample.png",
+        "email": "frank.brown@example.com",
+        "phone": "123-456-7897",
+        "address": "456 Elm St, Townsville, CA 12345",
+        "position": "Engineering Manager",
+        "department": "Engineering",
+        "role": "Admin",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 22,
+                "remainingDays": 18
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 4,
+                "remainingDays": 2
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 9
+            }
+        ]
+    },
+    {
+        "staffId": 9,
+        "fullName": "Grace Blue",
+        "image": "sample.png",
+        "email": "grace.blue@example.com",
+        "phone": "123-456-7898",
+        "address": "789 Oak St, Villagetown, CA 12345",
+        "position": "Designer",
+        "department": "Design",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 18,
+                "remainingDays": 12
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 6,
+                "remainingDays": 4
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 8
+            }
+        ]
+    },
+    {
+        "staffId": 10,
+        "fullName": "Henry Gray",
+        "image": "sample.png",
+        "email": "henry.gray@example.com",
+        "phone": "123-456-7899",
+        "address": "123 Pine St, Smalltown, CA 12345",
+        "position": "QA Engineer",
+        "department": "Quality Assurance",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 20,
+                "remainingDays": 16
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 4,
+                "remainingDays": 4
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 8,
+                "remainingDays": 6
+            }
+        ]
+    },
+    {
+        "staffId": 11,
+        "fullName": "Ivy Orange",
+        "image": "sample.png",
+        "email": "ivy.orange@example.com",
+        "phone": "123-456-7800",
+        "address": "456 Maple St, Uptown, CA 12345",
+        "position": "Support Engineer",
+        "department": "Support",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 15,
+                "remainingDays": 12
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 5
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 8
+            }
+        ]
+    },
+    {
+        "staffId": 12,
+        "fullName": "Jack Yellow",
+        "image": "sample.png",
+        "email": "jack.yellow@example.com",
+        "phone": "123-456-7801",
+        "address": "789 Birch St, Downtown, CA 12345",
+        "position": "Network Administrator",
+        "department": "IT",
+        "role": "Admin",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 20,
+                "remainingDays": 15
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 3
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 12,
+                "remainingDays": 10
+            }
+        ]
+    },
+    {
+        "staffId": 13,
+        "fullName": "Kevin White",
+        "image": "sample.png",
+        "email": "kevin.white@example.com",
+        "phone": "123-456-7802",
+        "address": "123 Cedar St, Midtown, CA 12345",
+        "position": "Data Analyst",
+        "department": "Data",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 15,
+                "remainingDays": 10
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 4,
+                "remainingDays": 4
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 9
+            }
+        ]
+    },
+    {
+        "staffId": 14,
+        "fullName": "Lily Green",
+        "image": "sample.png",
+        "email": "lily.green@example.com",
+        "phone": "123-456-7803",
+        "address": "456 Oak St, Villagetown, CA 12345",
+        "position": "UX Designer",
+        "department": "Design",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 18,
+                "remainingDays": 14
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 5
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 8,
+                "remainingDays": 6
+            }
+        ]
+    },
+    {
+        "staffId": 15,
+        "fullName": "Mike Brown",
+        "image": "sample.png",
+        "email": "mike.brown@example.com",
+        "phone": "123-456-7804",
+        "address": "789 Pine St, Smalltown, CA 12345",
+        "position": "Backend Developer",
+        "department": "Engineering",
+        "role": "Staff",
+        "leaveBalance": [
+            {
+                "leaveType": "Annual",
+                "totalDays": 20,
+                "remainingDays": 17
+            },
+            {
+                "leaveType": "OffInLieu",
+                "totalDays": 5,
+                "remainingDays": 2
+            },
+            {
+                "leaveType": "Medical",
+                "totalDays": 10,
+                "remainingDays": 9
+            }
+        ]
+    }
+]

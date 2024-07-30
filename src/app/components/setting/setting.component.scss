@@ -1,0 +1,15 @@
+quill-editor{
+    width: 100%;
+    height: 350px;
+
+    &.disabled{
+        opacity: 0.5;
+    }
+}
+
+.action-wrapper{
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+    gap: 15px;
+}

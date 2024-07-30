@@ -1,0 +1,47 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/variable.scss";
+
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0px 30px;
+    padding: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: $main-card-shadow;
+
+    .login-logo{
+        width: 150px;
+        margin-bottom: 5px;
+    }
+
+    .login-header {
+      margin-bottom: 10px;
+      font-size: 26px;
+      color: $primary-color;
+    }
+
+    .login-description {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: $primary-color;
+    }
+
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

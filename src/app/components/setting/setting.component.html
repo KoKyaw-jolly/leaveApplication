@@ -1,0 +1,94 @@
+<div class="page-wrapper-card">
+    <div class="card-header">
+        <p class="header">General Setting</p>
+    </div>
+    <nz-tabset>
+        <nz-tab nzTitle="Notification Setting">
+
+            <form nz-form [nzLayout]="'vertical'">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <nz-form-item>
+                            <label nz-checkbox class="pb-2" [(ngModel)]="notiScheduled"
+                                [ngModelOptions]="{standalone: true}">Scheduled</label>
+                            <nz-form-control>
+                                <nz-date-picker [nzDisabled]="!notiScheduled" [nzDisabledDate]="disabledDate"
+                                    name="Date Range"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <nz-form-item>
+                            <nz-form-label nzFor="Notify To">Notify To</nz-form-label>
+                            <nz-form-control>
+                                <nz-select name="Notify To" nzShowSearch>
+                                    <nz-option nzValue="All" nzLabel="All"></nz-option>
+                                    <nz-option nzValue="Admin" nzLabel="Admin"></nz-option>
+                                    <nz-option nzValue="Staff" nzLabel="Staff"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <nz-form-item>
+                            <nz-form-label nzFor="Title">Title</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input name="Title" type="text" />
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-sm-12">
+                        <nz-form-item>
+                            <nz-form-label nzFor="Title">Description</nz-form-label>
+                            <nz-form-control>
+                                <textarea rows="3" nz-input name="Title" type="text"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button nz-button nzType="default" class=" me-3">Clear</button>
+                        <button nz-button nzType="primary">Sent</button>
+                    </div>
+                </div>
+            </form>
+            <nz-form-label>Notifications</nz-form-label>
+            <nz-table #leaveTransation [nzData]="listOfData" [nzPageSize]="10" [nzScroll]="{ x: '1000px' }">
+                <thead>
+                    <tr>
+                        <th nzAlign="center" nzWidth="100px">Date</th>
+                        <th nzAlign="center" nzWidth="200px">Title</th>
+                        <th nzAlign="center" nzWidth="300px">Description</th>
+                        <th nzAlign="center" nzWidth="100px">Notify To</th>
+                        <th nzAlign="center" nzWidth="80px" nzRight>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of leaveTransation.data">
+                        <td nzAlign="center">{{ data.date | date:'dd MMM yyy' }}</td>
+                        <td nzAlign="center">{{ data.title | appTruncate:50 }}</td>
+                        <td nzAlign="center">{{ data.description | appTruncate:100 }}</td>
+                        <td nzAlign="center">
+                            <nz-tag [nzColor]="'cyan'">{{ data.notifyTo }}</nz-tag>
+                        </td>
+                        <td nzAlign="center" nzRight>
+                            <div class="table-action-wrapper">
+                                <span class="fi fi-rr-info"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </nz-tab>
+        <nz-tab nzTitle="Leave Policy">
+            <quill-editor [(ngModel)]="content" [modules]="quillConfig.modules" [theme]="quillConfig.theme"
+                [disabled]="!editState" [class.disabled]="!editState">
+            </quill-editor>
+            <div class="action-wrapper">
+                <button nz-button nzType="default" *ngIf="editState"
+                    (click)="editState = false;content=oldContent">Cancel</button>
+                <button nz-button nzType="primary" *ngIf="!editState" (click)="editState = true">Edit</button>
+                <button nz-button nzType="primary" *ngIf="editState" (click)="leavePolicySave()">Save</button>
+            </div>
+        </nz-tab>
+    </nz-tabset>
+</div>

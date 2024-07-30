@@ -22,5 +22,29 @@
         "name": "Leave Calendar",
         "icon": "fi fi-rr-calendar-clock",
         "routelink": "/user/leave-calendar"
+    },
+    {
+        "id": "staffManagement",
+        "name": "Staff Management",
+        "icon": "fi fi-rr-users",
+        "routelink": "/admin/staff-management"
+    },
+    {
+        "id": "leaveReport",
+        "name": "Leave Report",
+        "icon": "fi fi-rr-chart-histogram",
+        "routelink": "/admin/leave-report"
+    },
+    {
+        "id": "leavePolicy",
+        "name": "Leave Ploicy",
+        "icon": "fi fi-rr-compliance-document",
+        "routelink": "/user/leave-policy"
+    },
+    {
+        "id": "generalSetting",
+        "name": "General Setting",
+        "icon": "fi fi-rr-settings-sliders",
+        "routelink": "/admin/general-setting"
     }
 ]

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import '../node_modules/quill/dist/quill.snow.css';
 @import "assets/styles/custom-ant-design.scss";
 @import "assets/styles/colors.scss";
 @import "assets/styles/variable.scss";
@@ -28,7 +29,7 @@ span.fi:before {
 }
 
 .page-wrapper-card {
-  padding: 30px;
+  padding: 30px 40px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: $main-card-shadow;
@@ -94,4 +95,9 @@ a {
       color: $primary-color;
     }
   }
+}
+
+//bootstrap overwrite
+img, svg{
+  vertical-align: unset;
 }

@@ -32,24 +32,41 @@
 }
 
 .ant-select-single.ant-select-show-arrow .ant-select-selection-search,
-.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector{
-    height: 38px;
+.ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  height: 38px;
 }
-.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector{
-    min-width: 200px;
+.ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  min-width: 200px;
 }
 
 //date
-.ant-picker{
+.ant-picker {
   height: 38px;
   width: 100%;
 }
 
 //modal
-.ant-modal-content{
+.ant-modal-content {
   border-radius: 10px;
 
-  .ant-modal-header{
+  .ant-modal-header {
     border-radius: 10px 10px 0 0;
+  }
+}
+
+//form
+.ant-form-item {
+  width: 100%;
+}
+
+//popover
+.ant-popover-inner {
+  border-radius: 10px;
+
+  .ant-popover-inner-content {
+    padding: 0px;
+    border: 10px;
   }
 }
