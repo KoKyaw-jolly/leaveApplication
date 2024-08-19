@@ -47,5 +47,6 @@ export const APP_IMPORT = [
     NzStepsModule,
     NzRadioModule,
     NzTagModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NzPopoverModule
 ]

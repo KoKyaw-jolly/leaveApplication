@@ -30,6 +30,12 @@
         "routelink": "/admin/staff-management"
     },
     {
+        "id": "holidayManagement",
+        "name": "Holiday Management",
+        "icon": "fi fi-rr-umbrella-beach",
+        "routelink": "/admin/holiday-management"
+    },
+    {
         "id": "leaveReport",
         "name": "Leave Report",
         "icon": "fi fi-rr-chart-histogram",

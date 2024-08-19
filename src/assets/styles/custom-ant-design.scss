@@ -1,5 +1,6 @@
-// button
+@import "../../assets/styles/colors.scss";
 
+// button
 .ant-btn {
   min-height: 38px;
   min-width: 100px;
@@ -19,6 +20,12 @@
   input:-internal-autofill-selected {
     background-color: transparent !important;
   }
+}
+.ant-input:focus,
+.ant-input-focused,
+.ant-input:hover {
+  border-color: $input-active-border-color;
+  box-shadow: 0 0 0 2px rgba($input-active-border-color, 0.2);
 }
 
 // select
@@ -41,10 +48,26 @@
   min-width: 200px;
 }
 
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector,
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  border-color: $input-active-border-color;
+  box-shadow: 0 0 0 2px rgba($input-active-border-color, 0.2);
+}
+
 //date
 .ant-picker {
   height: 38px;
   width: 100%;
+
+  &:hover,
+  &:focus,
+  &.ant-picker-focused {
+    border-color: $input-active-border-color;
+    box-shadow: 0 0 0 2px rgba($input-active-border-color, 0.2);
+  }
 }
 
 //modal
@@ -69,4 +92,12 @@
     padding: 0px;
     border: 10px;
   }
+
+  .ant-popover-title {
+    padding: 10px 20px;
+  }
+}
+
+.ant-popover-placement-bottomRight .ant-popover-arrow {
+  right: 5px;
 }

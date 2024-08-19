@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "name": "New Year's Day",
+    "date": "2024-01-01",
+    "description": "The first day of the year, celebrated with various festivities and traditions."
+  },
+  {
+    "id": "2",
+    "name": "Union Day",
+    "date": "2024-02-12",
+    "description": "Commemorates the signing of the Panglong Agreement in 1947, which paved the way for independence."
+  },
+  {
+    "id": "3",
+    "name": "Peasants' Day",
+    "date": "2024-03-02",
+    "description": "A day to honor and recognize the contributions of farmers and agricultural workers."
+  },
+  {
+    "id": "4",
+    "name": "Full Moon Day of Tabaung",
+    "date": "2024-03-25",
+    "description": "A Buddhist festival marking the end of the month of Tabaung."
+  },
+  {
+    "id": "5",
+    "name": "Armed Forces Day",
+    "date": "2024-03-27",
+    "description": "Celebrates the founding of the modern Myanmar military in 1945."
+  },
+  {
+    "id": "6",
+    "name": "Thingyan Festival",
+    "date": "2024-04-13",
+    "description": "The Myanmar New Year Water Festival, celebrated with water throwing and various cultural activities."
+  },
+  {
+    "id": "7",
+    "name": "Labor Day",
+    "date": "2024-05-01",
+    "description": "An international holiday to celebrate workers and labor movements."
+  },
+  {
+    "id": "8",
+    "name": "Full Moon Day of Kason",
+    "date": "2024-05-23",
+    "description": "Marks the day when Buddha was born, attained enlightenment, and passed away."
+  },
+  {
+    "id": "9",
+    "name": "Martyrs' Day",
+    "date": "2024-07-19",
+    "description": "Commemorates the assassination of General Aung San and eight others in 1947."
+  },
+  {
+    "id": "10",
+    "name": "Full Moon Day of Waso",
+    "date": "2024-07-21",
+    "description": "Marks the beginning of the Buddhist Lent, a time of retreat and meditation."
+  },
+  {
+    "id": "11",
+    "name": "Full Moon Day of Thadingyut",
+    "date": "2024-10-15",
+    "description": "Marks the end of the Buddhist Lent, celebrated with lighting festivals and merit-making."
+  },
+  {
+    "id": "12",
+    "name": "Full Moon Day of Tazaungmone",
+    "date": "2024-11-13",
+    "description": "Celebrates the offering of new robes to monks and the lighting of oil lamps."
+  },
+  {
+    "id": "13",
+    "name": "National Day",
+    "date": "2024-11-23",
+    "description": "Commemorates the start of the student-led protests against British rule in 1920."
+  },
+  {
+    "id": "14",
+    "name": "Christmas Day",
+    "date": "2024-12-25",
+    "description": "Celebrates the birth of Jesus Christ, observed by the Christian community in Myanmar."
+  }
+]

@@ -8,7 +8,7 @@ export interface LeaveRecord {
   startDate: Date;
   endDate: Date;
   reason?: string;
-  leaveStatus: 'Pendding' | 'Approved' | 'Rejected';
+  leaveStatus: 'Pending' | 'Approved' | 'Rejected';
 }
 
 export interface LeaveTypeDetails {

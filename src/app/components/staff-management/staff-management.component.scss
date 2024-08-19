@@ -118,7 +118,7 @@
     .top-wrapper {
       display: flex;
 
-      .image-wrapper{
+      .image-wrapper {
         flex: 1;
         text-align: center;
 
@@ -219,22 +219,25 @@
 }
 
 //step
-.steps-content{
+.step-container{
+  padding: 0px 50px 15px 50px;
+}
+
+.steps-content {
   margin-top: 30px;
 }
 
-.steps-action{
+.steps-action {
   display: flex;
   justify-content: end;
-  gap: 30px;
+  gap: 16px;
 }
 
 //custom form for staff modal
-::ng-deep{
-
-.steps-content{
-  .ant-form-item-label > label{
-    width: 100px;;
+::ng-deep {
+  .steps-content {
+    .ant-form-item-label > label {
+      width: 100px;
+    }
   }
-}
 }

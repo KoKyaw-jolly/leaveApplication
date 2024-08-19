@@ -10,6 +10,21 @@ import { LeaveRecord, LeaveTypeDetails } from '../../core/models/leave.interface
   styleUrl: './leave-transaction.component.scss'
 })
 export class LeaveTransactionComponent {
+
+  leaveDetailsModal:boolean = false;
+  leaveDetailsObj: LeaveRecord = {
+    id: '',
+    staffId: '',
+    fullName: '',
+    applyDate: new Date(),
+    leaveType: 'Annual',
+    takenDays: 0,
+    startDate: new Date(),
+    endDate: new Date(),
+    reason: '',
+    leaveStatus: 'Pending'
+  }
+
   myLeaveSummaryData: LeaveTypeDetails[] = [
     {
       leaveType: 'Annual',
@@ -50,7 +65,7 @@ export class LeaveTransactionComponent {
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
+      leaveStatus: "Pending"
     },
     {
       id: "1",
@@ -62,7 +77,7 @@ export class LeaveTransactionComponent {
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
+      leaveStatus: "Rejected"
     },
     {
       id: "1",
@@ -138,4 +153,11 @@ export class LeaveTransactionComponent {
     }
   ];
 
+  leaveDetails(data:LeaveRecord){
+    this.leaveDetailsModal=true;
+    this.leaveDetailsObj = data;
+  }
+  closeModal(){
+    this.leaveDetailsModal=false;
+  }
 }

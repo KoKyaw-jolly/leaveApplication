@@ -1,0 +1,89 @@
+<div class="page-wrapper-card">
+    <div class="card-header">
+        <p class="header">Holiday Management</p>
+    </div>
+
+    <div class="mb-4">
+        <button nz-button nzType="primary" (click)="holidayCreate()">Create Holiday</button>
+    </div>
+    <nz-table #holidayList [nzData]="holidayListData">
+        <thead>
+            <tr>
+                <th nzAlign="center">Holiday Name</th>
+                <th nzAlign="center">Date</th>
+                <th nzAlign="center">Description</th>
+                <th nzAlign="center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let holiday of holidayList.data">
+                <td nzAlign="center">{{ holiday.name }}</td>
+                <td nzAlign="center">{{ holiday.date | date:'dd MMM yyyy'}}</td>
+                <td nzAlign="center">{{ holiday.description }}</td>
+                <td nzAlign="center">
+                    <div class="action-wrapper">
+                        <span class="fi fi-rr-trash" (click)="deleteHolidayConfirm(holiday)"></span>
+                        <span class="fi fi-rr-info" (click)="openHolidayDetails(holiday)"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+<nz-modal [(nzVisible)]="holidayCreateEditModal" nzTitle="Holiday" (nzOnCancel)="closeModal()" (nzOnOk)="closeModal()"
+[nzFooter]="null">
+    <ng-container *nzModalContent>
+        <form nz-form [nzLayout]="'vertical'" [formGroup]="holidayForm">
+            <nz-form-item>
+                <nz-form-label nzFor="name">Name</nz-form-label>
+                <nz-form-control nzErrorTip="Please fill name for holiday!">
+                    <input nz-input name="name" type="text" placeholder="holiday name" formControlName="name">
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="Date">Date</nz-form-label>
+                <nz-form-control nzErrorTip="Please fill the date for holiday!">
+                    <nz-date-picker formControlName="date" 
+                        name="Date"></nz-date-picker>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="name">Name</nz-form-label>
+                <nz-form-control nzErrorTip="Please fill name for holiday!">
+                    <input nz-input name="name" type="text" placeholder="holiday name" formControlName="name">
+                </nz-form-control>
+            </nz-form-item>
+            <div class="d-flex justify-content-end">
+                <button nz-button nzType="default" class="me-3" (click)="closeModal()">
+                    Cancel
+                </button>
+                <button nz-button nzType="primary" (click)="saveHoliday()" [disabled]="!holidayForm.valid">
+                    Save
+                </button>
+            </div>
+        </form>
+    </ng-container>
+</nz-modal>
+<nz-modal [(nzVisible)]="holidayDetailsModal" [nzFooter]="null" nzTitle="Holiday Details" (nzOnCancel)="closeModal()"
+    (nzOnOk)="closeModal()">
+    <ng-container *nzModalContent>
+        <div class="modal-conent-list">
+            <div class="content-row">
+                <span class="title">Holiday ID</span><span>:</span>
+                <span class="description">{{holidayDetailsObj.id}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Name</span><span>:</span>
+                <span class="description">{{holidayDetailsObj.name}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Date</span><span>:</span>
+                <span class="description">{{holidayDetailsObj.date | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Description</span><span>:</span>
+                <span class="description">{{holidayDetailsObj.description}}</span>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>

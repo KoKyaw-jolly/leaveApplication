@@ -3,21 +3,37 @@
         <img [src]="images.SIP_LOGO" class="login-logo" alt="">
         <!-- <div class="login-header">Login</div> -->
         <div class="login-description">Login to Leave Application</div>
-        <form nz-form [nzLayout]="'vertical'" class="login-form">
+        <form nz-form [formGroup]="staffForm" (submit)="submitForm()" [nzLayout]="'vertical'" class="login-form">
             <nz-form-item>
                 <nz-form-label nzFor="User Name">User Name</nz-form-label>
-                <nz-form-control>
-                    <input nz-input name="User Name" type="text" />
+                <nz-form-control [nzErrorTip]="usernameError">
+                    <input nz-input name="User Name" formControlName="username" type="text" />
                 </nz-form-control>
+                <ng-template #usernameError let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        User Name is required.
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('email')">
+                        User Name must be valid Email.
+                    </ng-container>
+                </ng-template>
             </nz-form-item>
             <nz-form-item>
                 <nz-form-label nzFor="Password">Passowrd</nz-form-label>
-                <nz-form-control>
-                    <input nz-input name="Password" type="password" />
+                <nz-form-control [nzErrorTip]="passwordError">
+                    <input nz-input name="Password" type="password" formControlName="password" />
                 </nz-form-control>
+                <ng-template #passwordError let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        Password is required.
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        Password must be at least 6 characters.
+                    </ng-container>
+                </ng-template>
             </nz-form-item>
             <button nz-button nzType="primary" type="submit" class="mt-1 mb-3">Submit</button>
         </form>
-        <a href="www.startinpoint.com">Forget Password</a>
+        <a href="www.startinpoint.com">Forget Password?</a>
     </div>
 </div>

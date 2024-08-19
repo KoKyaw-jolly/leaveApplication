@@ -56,7 +56,10 @@
                 <td nzAlign="center">{{ data.startDate | date:'dd MMM yyy' }}</td>
                 <td nzAlign="center">{{ data.endDate | date:'dd MMM yyy' }}</td>
                 <td nzAlign="center">{{ data.reason }}</td>
-                <td nzAlign="center">{{ data.leaveStatus }}</td>
+                <td nzAlign="center">
+                    <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
+                            data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
+                </td>
                 <td nzAlign="center" nzRight>
                     <div class="table-action-wrapper">
                         <span class="fi fi-rr-info"></span>

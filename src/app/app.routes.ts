@@ -12,20 +12,23 @@ import { LeaveReportComponent } from './components/leave-report/leave-report.com
 import { StaffManagementComponent } from './components/staff-management/staff-management.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { LeavePolicyComponent } from './components/leave-policy/leave-policy.component';
+import { HolidayManagementComponent } from './components/holiday-management/holiday-management.component';
+import { ErrorComponent } from './share/components/error/error.component';
+import { TestNgrxComponent } from './components/sample-component/test-ngrx/test-ngrx.component';
+import { AuthGuard } from './share/guard/auth.guard';
 export const APP_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
   {
     path: 'user', component: MainLayoutComponent,
     children: [
-      { path: 'dashboard', component: UserDashboardComponent },
+      { path: 'dashboard', component: UserDashboardComponent ,canActivate: [AuthGuard]},
       { path: 'apply-leave', component: ApplyLeaveComponent },
       { path: 'leave-transaction', component: LeaveTransactionComponent },
-      // {path:'leave-details',component:LeaveDetailComponent},
-      // {path:'medical-claim',component:MedicalClaimComponent},
       { path: 'leave-calendar', component: LeaveCalendarComponent },
       { path: 'leave-policy', component: LeavePolicyComponent },
-      { path: 'elements', component: ElementsComponent }
+      { path: 'elements', component: ElementsComponent },
+      { path: 'testRx', component: TestNgrxComponent }
     ]
   },
   {
@@ -33,8 +36,10 @@ export const APP_ROUTES: Routes = [
     children: [
       { path: 'staff-management', component: StaffManagementComponent },
       { path: 'leave-report', component: LeaveReportComponent },
-      { path: 'general-setting', component: SettingComponent }
+      { path: 'general-setting', component: SettingComponent },
+      { path: 'holiday-management', component: HolidayManagementComponent }
     ]
-  }
+  },
+  { path: '**', component: ErrorComponent }
   // { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.routes').then(m => m.WELCOME_ROUTES) }
 ];

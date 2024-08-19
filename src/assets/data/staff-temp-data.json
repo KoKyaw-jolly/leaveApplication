@@ -2,6 +2,7 @@
     {
         "staffId": 1,
         "fullName": "John Doe",
+        "gender": "male",
         "image": "sample.png",
         "email": "john.doe@example.com",
         "phone": "123-456-7890",
@@ -30,6 +31,7 @@
     {
         "staffId": 2,
         "fullName": "Jane Smith",
+        "gender": "male",
         "image": "sample.png",
         "email": "jane.smith@example.com",
         "phone": "123-456-7891",
@@ -58,6 +60,7 @@
     {
         "staffId": 3,
         "fullName": "Alice Johnson",
+        "gender": "male",
         "image": "sample.png",
         "email": "alice.johnson@example.com",
         "phone": "123-456-7892",
@@ -86,6 +89,7 @@
     {
         "staffId": 4,
         "fullName": "Bob Brown",
+        "gender": "male",
         "image": "sample.png",
         "email": "bob.brown@example.com",
         "phone": "123-456-7893",
@@ -114,6 +118,7 @@
     {
         "staffId": 5,
         "fullName": "Chris Green",
+        "gender": "male",
         "image": "sample.png",
         "email": "chris.green@example.com",
         "phone": "123-456-7894",
@@ -142,6 +147,7 @@
     {
         "staffId": 6,
         "fullName": "Dana White",
+        "gender": "male",
         "image": "sample.png",
         "email": "dana.white@example.com",
         "phone": "123-456-7895",
@@ -170,6 +176,7 @@
     {
         "staffId": 7,
         "fullName": "Eve Black",
+        "gender": "male",
         "image": "sample.png",
         "email": "eve.black@example.com",
         "phone": "123-456-7896",
@@ -198,6 +205,7 @@
     {
         "staffId": 8,
         "fullName": "Frank Brown",
+        "gender": "male",
         "image": "sample.png",
         "email": "frank.brown@example.com",
         "phone": "123-456-7897",
@@ -226,6 +234,7 @@
     {
         "staffId": 9,
         "fullName": "Grace Blue",
+        "gender": "male",
         "image": "sample.png",
         "email": "grace.blue@example.com",
         "phone": "123-456-7898",
@@ -254,6 +263,7 @@
     {
         "staffId": 10,
         "fullName": "Henry Gray",
+        "gender": "male",
         "image": "sample.png",
         "email": "henry.gray@example.com",
         "phone": "123-456-7899",
@@ -282,6 +292,7 @@
     {
         "staffId": 11,
         "fullName": "Ivy Orange",
+        "gender": "male",
         "image": "sample.png",
         "email": "ivy.orange@example.com",
         "phone": "123-456-7800",
@@ -310,6 +321,7 @@
     {
         "staffId": 12,
         "fullName": "Jack Yellow",
+        "gender": "male",
         "image": "sample.png",
         "email": "jack.yellow@example.com",
         "phone": "123-456-7801",
@@ -338,6 +350,7 @@
     {
         "staffId": 13,
         "fullName": "Kevin White",
+        "gender": "male",
         "image": "sample.png",
         "email": "kevin.white@example.com",
         "phone": "123-456-7802",
@@ -366,6 +379,7 @@
     {
         "staffId": 14,
         "fullName": "Lily Green",
+        "gender": "male",
         "image": "sample.png",
         "email": "lily.green@example.com",
         "phone": "123-456-7803",
@@ -394,6 +408,7 @@
     {
         "staffId": 15,
         "fullName": "Mike Brown",
+        "gender": "male",
         "image": "sample.png",
         "email": "mike.brown@example.com",
         "phone": "123-456-7804",
