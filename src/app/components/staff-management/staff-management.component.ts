@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { StaffService } from '../../core/services/staff.service';
 import { selectStaff } from '../../store/selector/staff.selector';
 import * as staffAction from '../../store/action/staff.action';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-staff-management',
@@ -29,7 +30,7 @@ export class StaffManagementComponent implements OnInit {
   staffCreateEditModal: boolean = false;
   staffDetailsModal: boolean = false;
   staffDetailsObj: Staff = {
-    staffId: 0,
+    staffId: '',
     fullName: '',
     image: '',
     gender: '',
@@ -38,7 +39,7 @@ export class StaffManagementComponent implements OnInit {
     email: '',
     phone: '',
     address: '',
-    role: 'Staff',
+    role: '',
     leaveBalance: []
   }
   //staff create/edit step
@@ -54,27 +55,32 @@ export class StaffManagementComponent implements OnInit {
     email: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
-    role: new FormControl('Staff')
+    role: new FormControl('', [Validators.required]),
+    annual: new FormControl(0, [Validators.required]),
+    offInLieu: new FormControl(0, [Validators.required]),
+    medical: new FormControl(0, [Validators.required]),
   });
+
+  createEditBtnLoading: boolean = false;
+  createEditBtnError = {
+    visable: false,
+    message: ''
+  };
 
   constructor(
     private staffService: StaffService,
     private store: Store<AppState>,
     private http: HttpClient,
-    private modal: NzModalService
+    private modal: NzModalService,
+    private message: NzMessageService
   ) { }
 
   ngOnInit(): void {
-    // this.http.get<any[]>('assets/data/staff-temp-data.json').subscribe((data) => {
-    //   this.staffListData = data;
-    //   console.log(data);
-    // });
-
+    this.listStyle = 'loading';
     this.store.dispatch(staffAction.loadStaff());
     this.store.select(selectStaff).subscribe(res => {
-      this.staffListData = res.staffData;
-      this.staffListLoading = res.loading;
-      console.log(res);
+      this.staffListData = res.staffList;
+      this.listStyle = res.loading ? 'loading' : 'card';
     })
   }
 
@@ -87,7 +93,10 @@ export class StaffManagementComponent implements OnInit {
       email: '',
       phone: '',
       address: '',
-      role: 'Staff'
+      role: '',
+      annual: 0,
+      offInLieu: 0,
+      medical: 0,
     });
     this.staffForm.markAsUntouched();
     this.staffForm.markAsPristine();
@@ -102,6 +111,7 @@ export class StaffManagementComponent implements OnInit {
     this.staffCreateEditModal = true;
     this.resetStaffForm();
     this.setpCurrent = 0;
+    this.createEditBtnError.visable = false;
   }
 
   //step
@@ -114,18 +124,60 @@ export class StaffManagementComponent implements OnInit {
   }
 
   saveStaff(): void {
+    this.createEditBtnLoading = true
     if (this.staffForm.invalid) {
       this.staffForm.markAllAsTouched();
       return;
     }
-    // Handle form submission
-    console.log(this.staffForm.value);
+    const StaffData: Staff = {
+      staffId: '',
+      fullName: this.undefinedCheck(this.staffForm.get('fullName')?.value),
+      image: '',
+      gender: this.undefinedCheck(this.staffForm.get('gender')?.value),
+      position: this.undefinedCheck(this.staffForm.get('position')?.value),
+      department: this.undefinedCheck(this.staffForm.get('department')?.value),
+      email: this.undefinedCheck(this.staffForm.get('email')?.value),
+      phone: this.undefinedCheck(this.staffForm.get('phone')?.value),
+      address: this.undefinedCheck(this.staffForm.get('address')?.value),
+      role: this.undefinedCheck(this.staffForm.get('role')?.value),
+      leaveBalance: [
+        {
+          leaveType: 'Annual',
+          totalDays: this.undefinedCheck(this.staffForm.get('annual')?.value),
+          remainingDays: this.undefinedCheck(this.staffForm.get('annual')?.value)
+        },
+        {
+          leaveType: 'Off-In-Lieu',
+          totalDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value),
+          remainingDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value)
+        },
+        {
+          leaveType: 'Medical',
+          totalDays: this.undefinedCheck(this.staffForm.get('medical')?.value),
+          remainingDays: this.undefinedCheck(this.staffForm.get('medical')?.value)
+        },
+      ]
+    }
+
+    // this.store.dispatch(staffAction.createStaff({ staff: StaffData }));
+    this.staffService.createStaff(StaffData).subscribe(
+      (res) => {
+        this.createEditBtnLoading = false;
+        this.staffCreateEditModal = false;
+        this.message.create('success', `Staff Create Successfully!`);
+        this.store.dispatch(staffAction.loadStaff());
+      },
+      (err) => {
+        this.createEditBtnLoading = false;
+        this.createEditBtnError.visable = true;
+        this.createEditBtnError.message = err.error.message;
+      }
+    )
   }
 
   editStaff(staffData: Staff): void {
     this.staffCreateEditModal = true;
     this.setpCurrent = 0;
-    console.log(staffData);
     this.staffForm.setValue({
       fullName: staffData.fullName,
       gender: staffData.gender,
@@ -134,7 +186,10 @@ export class StaffManagementComponent implements OnInit {
       email: staffData.email,
       phone: staffData.phone,
       address: staffData.address,
-      role: staffData.role
+      role: staffData.role,
+      annual: 0,
+      offInLieu: 0,
+      medical: 0,
     });
   }
 
@@ -151,5 +206,12 @@ export class StaffManagementComponent implements OnInit {
         console.log('Name - ', staffData.fullName)
       }
     });
+  }
+
+  undefinedCheck(value: any) {
+    if (value === undefined) {
+      return '';
+    }
+    return value;
   }
 }

@@ -1,4 +1,12 @@
-[
+
+export interface Menu {
+  id: string;
+  name: string;
+  icon: string;
+  routelink: string;
+}
+
+export const SideMenuList: Menu[]=[
     {
         "id": "dashboard",
         "name": "Dashboard",

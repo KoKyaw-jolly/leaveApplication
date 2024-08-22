@@ -10,7 +10,8 @@
                 (click)="listStyle='card'"></span>
         </div>
     </div>
-
+    <!-- Loading -->
+    <div *ngIf="listStyle == 'loading'"> Load </div>
     <!-- row list view -->
     <div class="staff-row-list-wrapper" *ngIf="listStyle == 'row'">
         <ng-container *ngFor="let staff of staffListData">
@@ -69,6 +70,13 @@
 <nz-modal [(nzVisible)]="staffCreateEditModal" [nzFooter]="null" nzTitle="Staff" (nzOnCancel)="closeModal()"
     (nzOnOk)="closeModal()">
     <ng-container *nzModalContent>
+        <nz-alert class="mb-4" *ngIf="createEditBtnError.visable"
+         nzType="error" [nzMessage]="createEditBtnError.message" [nzAction]="errorAlertClose">
+            <ng-template #errorAlertClose>
+                <span class="fi fi-br-cross" (click)="createEditBtnError.visable = !createEditBtnError.visable"></span>
+            </ng-template>
+        </nz-alert>
+        <!-- <p style="color:red" >{{createEditBtnError.message}}</p> -->
         <form nz-form [nzLayout]="'horizontal'" [formGroup]="staffForm">
             <div class="step-container">
                 <nz-steps [nzCurrent]="setpCurrent" [nzSize]="'small'">
@@ -153,19 +161,19 @@
                     <nz-form-item>
                         <nz-form-label nzFor="annual">Annual</nz-form-label>
                         <nz-form-control>
-                            <input nz-input name="annual" type="number" value="10" />
+                            <input nz-input name="annual" type="number" formControlName="annual" />
                         </nz-form-control>
                     </nz-form-item>
                     <nz-form-item>
                         <nz-form-label nzFor="offInLieu">Off-In-Lieu</nz-form-label>
                         <nz-form-control>
-                            <input nz-input name="offInLieu" type="number" value="10" />
+                            <input nz-input name="offInLieu" type="number" formControlName="offInLieu" />
                         </nz-form-control>
                     </nz-form-item>
                     <nz-form-item>
                         <nz-form-label nzFor="medical">Medical</nz-form-label>
                         <nz-form-control>
-                            <input nz-input name="medical" type="number" value="10" />
+                            <input nz-input name="medical" type="number" formControlName="medical" />
                         </nz-form-control>
                     </nz-form-item>
                 </ng-container>
@@ -181,7 +189,7 @@
                     Next
                 </button>
                 <button nz-button nzType="primary" (click)="saveStaff()" *ngIf="setpCurrent === 2"
-                    [disabled]="!staffForm.valid">
+                    [disabled]="!staffForm.valid" [nzLoading]="createEditBtnLoading">
                     Save
                 </button>
             </div>

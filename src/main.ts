@@ -15,6 +15,9 @@ import { FruitEffects } from './app/store/effect/fruit.effect';
 import { fruitReducer } from './app/store/reducer/fruit.reducer';
 import { staffReducer } from './app/store/reducer/staff.reducer';
 import { StaffEffect } from './app/store/effect/staff.effect';
+import { AuthEffect } from './app/store/effect/auth.effect';
+import { authReducer } from './app/store/reducer/auth.reducer';
+import { metaReducers } from './app/store/reducer/app.reducer';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -26,9 +29,20 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       FormsModule,
       StoreModule.forRoot(
-        { fruit: fruitReducer, staff: staffReducer }
+        { staff: staffReducer ,authInfo: authReducer},
+        {
+          metaReducers,
+          runtimeChecks: {
+            strictActionImmutability: false,
+            strictStateImmutability: true
+          }
+        }
       ),
-      EffectsModule.forRoot([FruitEffects,StaffEffect]),
+      EffectsModule.forRoot([
+        FruitEffects,
+        StaffEffect,
+        AuthEffect
+      ]),
       StoreDevtoolsModule.instrument()
     )
   ]

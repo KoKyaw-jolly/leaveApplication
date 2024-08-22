@@ -20,24 +20,19 @@ export const APP_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
   {
-    path: 'user', component: MainLayoutComponent,
+    path: '', component: MainLayoutComponent,
     children: [
       { path: 'dashboard', component: UserDashboardComponent ,canActivate: [AuthGuard]},
-      { path: 'apply-leave', component: ApplyLeaveComponent },
-      { path: 'leave-transaction', component: LeaveTransactionComponent },
-      { path: 'leave-calendar', component: LeaveCalendarComponent },
-      { path: 'leave-policy', component: LeavePolicyComponent },
-      { path: 'elements', component: ElementsComponent },
-      { path: 'testRx', component: TestNgrxComponent }
-    ]
-  },
-  {
-    path: 'admin', component: MainLayoutComponent,
-    children: [
-      { path: 'staff-management', component: StaffManagementComponent },
-      { path: 'leave-report', component: LeaveReportComponent },
-      { path: 'general-setting', component: SettingComponent },
-      { path: 'holiday-management', component: HolidayManagementComponent }
+      { path: 'apply-leave', component: ApplyLeaveComponent ,canActivate: [AuthGuard]},
+      { path: 'leave-transaction', component: LeaveTransactionComponent ,canActivate: [AuthGuard]},
+      { path: 'leave-calendar', component: LeaveCalendarComponent ,canActivate: [AuthGuard]},
+      { path: 'leave-policy', component: LeavePolicyComponent ,canActivate: [AuthGuard]},
+      { path: 'elements', component: ElementsComponent ,canActivate: [AuthGuard]},
+      { path: 'testRx', component: TestNgrxComponent ,canActivate: [AuthGuard]},
+      { path: 'staff-management', component: StaffManagementComponent ,canActivate: [AuthGuard]},
+      { path: 'leave-report', component: LeaveReportComponent ,canActivate: [AuthGuard]},
+      { path: 'general-setting', component: SettingComponent ,canActivate: [AuthGuard]},
+      { path: 'holiday-management', component: HolidayManagementComponent ,canActivate: [AuthGuard]},
     ]
   },
   { path: '**', component: ErrorComponent }

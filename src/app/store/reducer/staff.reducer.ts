@@ -1,19 +1,29 @@
 import { createReducer, on } from "@ngrx/store";
 import { AppState } from "../state/app.state";
 import { loadFruitSuccess } from "../action/fruit.action";
-import { loadStaff, loadStaffSuccess } from "../action/staff.action";
-
-export const initialState: any = {
-    staffData: [],
-    loading: false
-}
+import * as staffAction from "../action/staff.action";
+import { staffInitialState } from "../state/staff.state";
+import { state } from "@angular/animations";
 
 export const staffReducer = createReducer(
-    initialState,
-    on(loadStaff, (state: any, action) =>
+    staffInitialState,
+    on(staffAction.loadStaff, (state: any) =>
         ({ ...state, loading: true })
     ),
-    on(loadStaffSuccess, (state: any, action) =>
-        ({ ...state, staffData: action.staff, loading: false })
+    on(staffAction.loadStaffSuccess, (state: any, action) =>
+        ({ ...state, staffList: action.staff, loading: false })
     ),
+    on(staffAction.loadStaffFail, (state: any, action) =>
+        ({ ...state, error: action.error, loading: false })
+    ),
+    on(staffAction.createStaff, (state: any) =>
+        ({ ...state, loading: true })
+    ),
+    on(staffAction.createStaffSuccess, (state: any, action) =>
+        ({ ...state, loading: false })
+    ),
+    on(staffAction.createStaffFail, (state: any, action) =>
+        ({ ...state, error: action, loading: false })
+    ),
+
 )

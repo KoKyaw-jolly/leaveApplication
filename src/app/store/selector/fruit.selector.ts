@@ -1,3 +1,3 @@
 import { AppState } from "../state/app.state";
 
-export const selectFriuts = (state: AppState) => state.fruit;
+export const selectFriuts = (state: AppState) => state.staff;

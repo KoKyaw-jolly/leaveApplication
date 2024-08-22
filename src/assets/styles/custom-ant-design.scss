@@ -101,3 +101,11 @@
 .ant-popover-placement-bottomRight .ant-popover-arrow {
   right: 5px;
 }
+
+//alert
+.ant-alert-action span.fi{
+    font-size: 10px;
+    height: 10px;
+    color: $black-color-30;
+    cursor: pointer;
+  }

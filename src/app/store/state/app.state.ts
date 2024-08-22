@@ -1,4 +1,8 @@
+import { AuthInfoState } from "./auth.state";
+import { StaffState } from "./staff.state";
+
 export interface AppState {
-    fruit: any;
-    staff: any;
+    // fruit: any;
+    authInfo: AuthInfoState;
+    staff: StaffState;
 }

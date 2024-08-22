@@ -9,12 +9,16 @@ import { Staff } from '../models/staff.interface';
 export class StaffService {
   constructor(private http: HttpClient) {}
 
-  // getAllStaf(): Observable<any[]> {
-  //   return of(['asd']);
-  // }
   getAllStaff(): Observable<Staff[]> {
-    return this.http.get<any[]>('assets/data/staff-temp-data.json').pipe(
-      delay(3000)
-    );
+    return this.http.get<Staff[]>('http://localhost:3200/api/staffs/all-staff/');
   }
+
+  createStaff(staff: Staff): Observable<Staff> {
+    return this.http.post<Staff>('http://localhost:3200/api/staffs/staff/create', staff);
+  }
+
+  deleteStaff(staff: Staff): Observable<Staff> {
+    return this.http.post<Staff>('http://localhost:3200/api/staffs/staff/delete', staff);
+  }
+
 }

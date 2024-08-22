@@ -21,6 +21,9 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { TruncatePipe } from "./core/pipes/truncate.pipe";
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 
 export const APP_IMPORT = [
     CommonModule,
@@ -48,5 +51,8 @@ export const APP_IMPORT = [
     NzRadioModule,
     NzTagModule,
     NzCheckboxModule,
-    NzPopoverModule
+    NzPopoverModule,
+    NzAlertModule,
+    NzMessageModule,
+    NzDropDownModule
 ]

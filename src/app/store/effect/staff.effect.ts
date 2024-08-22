@@ -19,13 +19,25 @@ export class StaffEffect {
             //ofType() listens to a single Action. ofType() filters the Action.
             ofType(staffAction.loadStaff),
             mergeMap(() => {
-                return this.staffService
-                    .getAllStaff()
-                    .pipe(
-                        map(
-                            (staff: Staff[]) => staffAction.loadStaffSuccess({ staff })),
+                return this.staffService.getAllStaff().pipe(
+                        map((staff: Staff[]) => staffAction.loadStaffSuccess({ staff })),
                         catchError(error => of(staffAction.loadStaffFail({ error: error.Message })))
                     );
+            })
+        )
+    );
+
+    createStaff$ = createEffect(() =>
+        this.actions.pipe(
+            ofType(staffAction.createStaff),
+            mergeMap((action) => {
+                return this.staffService.createStaff(action.staff).pipe(
+                    map((action: any) => { 
+                        console.log(action);
+                        return staffAction.createStaffSuccess();
+                    }),
+                    catchError(error => of(staffAction.createStaffFail({ error: error.message })))
+                )
             })
         )
     );

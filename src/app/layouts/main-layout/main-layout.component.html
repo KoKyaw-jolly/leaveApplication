@@ -46,7 +46,13 @@
                         </div>
                     </ng-template>
                 </span>
-                <span class="fi fi-rr-settings"></span>
+                <span class="fi fi-rr-settings" nz-dropdown nzTrigger="click" [nzDropdownMenu]="settingMenu" nzPlacement="bottomRight">
+                    <nz-dropdown-menu #settingMenu="nzDropdownMenu">
+                        <ul nz-menu nzSelectable>
+                          <li nz-menu-item (click)="logOut()">LogOut</li>
+                        </ul>
+                      </nz-dropdown-menu>
+                </span>
             </div>
         </div>
         <div class="inner-content">

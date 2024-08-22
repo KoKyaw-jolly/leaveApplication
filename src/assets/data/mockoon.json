@@ -18,6 +18,24 @@
         {
           "type": "route",
           "uuid": "bd4f29d1-1486-43c4-bc95-a136e372b0de"
+        },
+        {
+          "type": "route",
+          "uuid": "086f6a63-a0b4-47b9-bb4c-ab9771729862"
+        }
+      ]
+    },
+    {
+      "uuid": "71144a02-e2ae-4dee-8fb0-f573e328b9a8",
+      "name": "auth",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "45bea662-1e4e-4839-bed1-3a40bd55be42"
+        },
+        {
+          "type": "route",
+          "uuid": "816f0874-ffb1-4b1a-a2ef-61817237df62"
         }
       ]
     }
@@ -33,7 +51,7 @@
         {
           "uuid": "d90c5406-a362-42e4-89b3-4a77e71f4c28",
           "body": "[\n    {\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 2,\n        \"fullName\": \"Jane Smith\",\n        \"image\": \"sample.png\",\n        \"email\": \"jane.smith@example.com\",\n        \"phone\": \"123-456-7891\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Marketing Manager\",\n        \"department\": \"Marketing\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 3,\n        \"fullName\": \"Alice Johnson\",\n        \"image\": \"sample.png\",\n        \"email\": \"alice.johnson@example.com\",\n        \"phone\": \"123-456-7892\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"HR Specialist\",\n        \"department\": \"Human Resources\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 3,\n                \"remainingDays\": 1\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 15,\n                \"remainingDays\": 13\n            }\n        ]\n    },\n    {\n        \"staffId\": 4,\n        \"fullName\": \"Bob Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"bob.brown@example.com\",\n        \"phone\": \"123-456-7893\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Finance Manager\",\n        \"department\": \"Finance\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 25,\n                \"remainingDays\": 20\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 7\n            }\n        ]\n    },\n    {\n        \"staffId\": 5,\n        \"fullName\": \"Chris Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"chris.green@example.com\",\n        \"phone\": \"123-456-7894\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Product Manager\",\n        \"department\": \"Product\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 6,\n        \"fullName\": \"Dana White\",\n        \"image\": \"sample.png\",\n        \"email\": \"dana.white@example.com\",\n        \"phone\": \"123-456-7895\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Operations Manager\",\n        \"department\": \"Operations\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 7,\n        \"fullName\": \"Eve Black\",\n        \"image\": \"sample.png\",\n        \"email\": \"eve.black@example.com\",\n        \"phone\": \"123-456-7896\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Sales Executive\",\n        \"department\": \"Sales\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 11\n            }\n        ]\n    },\n    {\n        \"staffId\": 8,\n        \"fullName\": \"Frank Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"frank.brown@example.com\",\n        \"phone\": \"123-456-7897\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Engineering Manager\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 22,\n                \"remainingDays\": 18\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 9,\n        \"fullName\": \"Grace Blue\",\n        \"image\": \"sample.png\",\n        \"email\": \"grace.blue@example.com\",\n        \"phone\": \"123-456-7898\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 10,\n        \"fullName\": \"Henry Gray\",\n        \"image\": \"sample.png\",\n        \"email\": \"henry.gray@example.com\",\n        \"phone\": \"123-456-7899\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"QA Engineer\",\n        \"department\": \"Quality Assurance\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 16\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 11,\n        \"fullName\": \"Ivy Orange\",\n        \"image\": \"sample.png\",\n        \"email\": \"ivy.orange@example.com\",\n        \"phone\": \"123-456-7800\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Support Engineer\",\n        \"department\": \"Support\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 12,\n        \"fullName\": \"Jack Yellow\",\n        \"image\": \"sample.png\",\n        \"email\": \"jack.yellow@example.com\",\n        \"phone\": \"123-456-7801\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Network Administrator\",\n        \"department\": \"IT\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 13,\n        \"fullName\": \"Kevin White\",\n        \"image\": \"sample.png\",\n        \"email\": \"kevin.white@example.com\",\n        \"phone\": \"123-456-7802\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Data Analyst\",\n        \"department\": \"Data\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 14,\n        \"fullName\": \"Lily Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"lily.green@example.com\",\n        \"phone\": \"123-456-7803\",\n        \"address\": \"456 Oak St, Villagetown, CA 12345\",\n        \"position\": \"UX Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 15,\n        \"fullName\": \"Mike Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"mike.brown@example.com\",\n        \"phone\": \"123-456-7804\",\n        \"address\": \"789 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Backend Developer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 17\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    }\n]",
-          "latency": 0,
+          "latency": 99999,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -71,6 +89,101 @@
         {
           "uuid": "e57d11e4-9c33-4fc4-91ab-bb4cd6293ee7",
           "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "a93cae4e-4346-4093-8fc2-1510b616d120",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"details\": [\n    {\n      \"field\": \"email\",\n      \"error\": \"Email is required.\"\n    },\n    {\n      \"field\": \"password\",\n      \"error\": \"Password must be at least 8 characters long.\"\n    }\n  ],\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "45bea662-1e4e-4839-bed1-3a40bd55be42",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/auth/login",
+      "responses": [
+        {
+          "uuid": "9ac6ad87-676a-4fde-a1c2-ae2d5ca2fc37",
+          "body": "[\n    {\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 2,\n        \"fullName\": \"Jane Smith\",\n        \"image\": \"sample.png\",\n        \"email\": \"jane.smith@example.com\",\n        \"phone\": \"123-456-7891\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Marketing Manager\",\n        \"department\": \"Marketing\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 3,\n        \"fullName\": \"Alice Johnson\",\n        \"image\": \"sample.png\",\n        \"email\": \"alice.johnson@example.com\",\n        \"phone\": \"123-456-7892\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"HR Specialist\",\n        \"department\": \"Human Resources\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 3,\n                \"remainingDays\": 1\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 15,\n                \"remainingDays\": 13\n            }\n        ]\n    },\n    {\n        \"staffId\": 4,\n        \"fullName\": \"Bob Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"bob.brown@example.com\",\n        \"phone\": \"123-456-7893\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Finance Manager\",\n        \"department\": \"Finance\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 25,\n                \"remainingDays\": 20\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 7\n            }\n        ]\n    },\n    {\n        \"staffId\": 5,\n        \"fullName\": \"Chris Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"chris.green@example.com\",\n        \"phone\": \"123-456-7894\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Product Manager\",\n        \"department\": \"Product\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 6,\n        \"fullName\": \"Dana White\",\n        \"image\": \"sample.png\",\n        \"email\": \"dana.white@example.com\",\n        \"phone\": \"123-456-7895\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Operations Manager\",\n        \"department\": \"Operations\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 7,\n        \"fullName\": \"Eve Black\",\n        \"image\": \"sample.png\",\n        \"email\": \"eve.black@example.com\",\n        \"phone\": \"123-456-7896\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Sales Executive\",\n        \"department\": \"Sales\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 11\n            }\n        ]\n    },\n    {\n        \"staffId\": 8,\n        \"fullName\": \"Frank Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"frank.brown@example.com\",\n        \"phone\": \"123-456-7897\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Engineering Manager\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 22,\n                \"remainingDays\": 18\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 9,\n        \"fullName\": \"Grace Blue\",\n        \"image\": \"sample.png\",\n        \"email\": \"grace.blue@example.com\",\n        \"phone\": \"123-456-7898\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 10,\n        \"fullName\": \"Henry Gray\",\n        \"image\": \"sample.png\",\n        \"email\": \"henry.gray@example.com\",\n        \"phone\": \"123-456-7899\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"QA Engineer\",\n        \"department\": \"Quality Assurance\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 16\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 11,\n        \"fullName\": \"Ivy Orange\",\n        \"image\": \"sample.png\",\n        \"email\": \"ivy.orange@example.com\",\n        \"phone\": \"123-456-7800\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Support Engineer\",\n        \"department\": \"Support\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 12,\n        \"fullName\": \"Jack Yellow\",\n        \"image\": \"sample.png\",\n        \"email\": \"jack.yellow@example.com\",\n        \"phone\": \"123-456-7801\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Network Administrator\",\n        \"department\": \"IT\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 13,\n        \"fullName\": \"Kevin White\",\n        \"image\": \"sample.png\",\n        \"email\": \"kevin.white@example.com\",\n        \"phone\": \"123-456-7802\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Data Analyst\",\n        \"department\": \"Data\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 14,\n        \"fullName\": \"Lily Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"lily.green@example.com\",\n        \"phone\": \"123-456-7803\",\n        \"address\": \"456 Oak St, Villagetown, CA 12345\",\n        \"position\": \"UX Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 15,\n        \"fullName\": \"Mike Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"mike.brown@example.com\",\n        \"phone\": \"123-456-7804\",\n        \"address\": \"789 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Backend Developer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 17\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "816f0874-ffb1-4b1a-a2ef-61817237df62",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/auth/login",
+      "responses": [
+        {
+          "uuid": "3e891dc9-6c6c-4392-9961-45d6ce3ce31d",
+          "body": "{\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    }",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -91,19 +204,143 @@
           "rules": [
             {
               "target": "body",
-              "modifier": "dep_id",
-              "value": "Human Resources",
+              "modifier": "username",
+              "value": "kokyaw@gmail.com",
               "invert": false,
               "operator": "equals"
             },
             {
               "target": "body",
-              "modifier": "dep_prefix_name",
-              "value": "HRD",
+              "modifier": "password",
+              "value": "welcome",
               "invert": false,
               "operator": "equals"
             }
           ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "dbbf85ff-91b5-441e-a8ec-de157456979b",
+          "body": "{\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "admin@gmail.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "admin123",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "68b48a6a-df7e-4e27-b426-872e7c43d137",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"details\": [\n    {\n      \"field\": \"email\",\n      \"error\": \"Email is required.\"\n    },\n    {\n      \"field\": \"password\",\n      \"error\": \"Password must be at least 8 characters long.\"\n    }\n  ],\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "kokyaw@gmail.com",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "username",
+              "value": "admin@gmail.com",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "FALLBACK"
+    },
+    {
+      "uuid": "086f6a63-a0b4-47b9-bb4c-ab9771729862",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/staffs/staff/delete",
+      "responses": [
+        {
+          "uuid": "c32becc9-93b7-4c98-896d-919e2419f0b2",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
@@ -119,6 +356,10 @@
     {
       "type": "folder",
       "uuid": "74ad1f11-eb9b-4d2a-96f3-498e11ee7ac8"
+    },
+    {
+      "type": "folder",
+      "uuid": "71144a02-e2ae-4dee-8fb0-f573e328b9a8"
     }
   ],
   "proxyMode": false,

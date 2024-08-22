@@ -52,7 +52,7 @@ export class TestNgrxComponent implements OnInit {
     // this.store.dispatch(staffAction.loadStaff());
     this.store.dispatch(staffAction.loadStaff());
     this.store.select(selectStaff).subscribe(res => {
-      this.staffList$ = res.staffData;
+      // this.staffList$ = res.staffList ?? [];
       this.loading$ = res.loading;
       console.log(res);
     })
