@@ -7,6 +7,10 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { APP_IMPORT } from './app.import';
 import { SideMenuComponent } from "./components/sample-component/side-menu/side-menu.component";
 import { AppDataInitService } from './core/services/app-data-init.service';
+import { Store } from '@ngrx/store';
+import { AppState } from './store/state/app.state';
+import * as StaffActions from './store/action/staff.action';
+import * as holidayAction from './store/action/holiday.action';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +26,13 @@ import { AppDataInitService } from './core/services/app-data-init.service';
 export class AppComponent implements OnInit {
   title = 'sipLeaveApplication';
 
+  constructor(private store: Store<AppState>) { }
+
   // private actions = inject(AppDataInitService);
   // constructor(private appService: AppDataInitService) { }
   ngOnInit(): void {
     // this.actions.appDataInit();
+    this.store.dispatch(holidayAction.loadHolidays());
+    this.store.dispatch(StaffActions.loadStaff());
   }
 }

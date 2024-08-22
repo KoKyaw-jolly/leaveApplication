@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
-import { Holidays } from '../../core/models/holiday.interface';
+import { Holiday } from '../../core/models/holiday.interface';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzModalService } from 'ng-zorro-antd/modal';
@@ -16,11 +16,11 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 })
 export class HolidayManagementComponent implements OnInit {
 
-  holidayListData: Holidays[] = [];
+  holidayListData: Holiday[] = [];
   holidayDetailsModal: boolean = false;
   holidayCreateEditModal: boolean = false;
-  holidayDetailsObj: Holidays = {
-    id: 0,
+  holidayDetailsObj: Holiday = {
+    id: '',
     name: '',
     date: new Date(),
     description: ''
@@ -46,7 +46,7 @@ export class HolidayManagementComponent implements OnInit {
     this.holidayCreateEditModal = true;
   }
 
-  openHolidayDetails(holidayDetails: Holidays): void {
+  openHolidayDetails(holidayDetails: Holiday): void {
     this.holidayDetailsModal = true;
     this.holidayDetailsObj = holidayDetails;
   }
@@ -71,7 +71,7 @@ export class HolidayManagementComponent implements OnInit {
     this.resetHolidayForm();
   }
 
-  deleteHolidayConfirm(holidayData: Holidays): void {
+  deleteHolidayConfirm(holidayData: Holiday): void {
     this.modal.confirm({
       nzTitle: '<i>Do you Want to delete this holiday?</i>',
       // nzContent: '<b>Some descriptions</b>',

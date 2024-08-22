@@ -10,8 +10,7 @@
                 (click)="listStyle='card'"></span>
         </div>
     </div>
-    <!-- Loading -->
-    <div *ngIf="listStyle == 'loading'"> Load </div>
+    
     <!-- row list view -->
     <div class="staff-row-list-wrapper" *ngIf="listStyle == 'row'">
         <ng-container *ngFor="let staff of staffListData">

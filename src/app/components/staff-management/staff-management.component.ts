@@ -8,7 +8,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { AppState } from '../../store/state/app.state';
 import { Store } from '@ngrx/store';
 import { StaffService } from '../../core/services/staff.service';
-import { selectStaff } from '../../store/selector/staff.selector';
+import { selectStaffs } from '../../store/selector/staff.selector';
 import * as staffAction from '../../store/action/staff.action';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -76,11 +76,10 @@ export class StaffManagementComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.listStyle = 'loading';
     this.store.dispatch(staffAction.loadStaff());
-    this.store.select(selectStaff).subscribe(res => {
+    this.store.select(selectStaffs).subscribe(res => {
       this.staffListData = res.staffList;
-      this.listStyle = res.loading ? 'loading' : 'card';
+      this.staffListLoading = res.loading;
     })
   }
 
@@ -170,7 +169,7 @@ export class StaffManagementComponent implements OnInit {
       (err) => {
         this.createEditBtnLoading = false;
         this.createEditBtnError.visable = true;
-        this.createEditBtnError.message = err.error.message;
+        this.createEditBtnError.message = err.error.message? err.error.message : 'Something went wrong!';
       }
     )
   }

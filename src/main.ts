@@ -18,6 +18,8 @@ import { StaffEffect } from './app/store/effect/staff.effect';
 import { AuthEffect } from './app/store/effect/auth.effect';
 import { authReducer } from './app/store/reducer/auth.reducer';
 import { metaReducers } from './app/store/reducer/app.reducer';
+import { holidayReducer } from './app/store/reducer/holiday.reducer';
+import { HolidayEffect } from './app/store/effect/holiday.effect';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -29,7 +31,11 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       FormsModule,
       StoreModule.forRoot(
-        { staff: staffReducer ,authInfo: authReducer},
+        { 
+          authInfo: authReducer,
+          staff: staffReducer,
+          holidays: holidayReducer
+        },
         {
           metaReducers,
           runtimeChecks: {
@@ -39,9 +45,9 @@ bootstrapApplication(AppComponent, {
         }
       ),
       EffectsModule.forRoot([
-        FruitEffects,
         StaffEffect,
-        AuthEffect
+        AuthEffect,
+        HolidayEffect
       ]),
       StoreDevtoolsModule.instrument()
     )

@@ -1,3 +1,5 @@
+@import '../../../assets/styles/colors.scss';
+
 .dashboard-wrapper {
   display: flex;
   width: 100%;
@@ -23,6 +25,11 @@
         justify-content: space-between;
         padding: 10px 5px;
         border-bottom: 1px solid #e2e2e2;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $black-color-10;;
+        }
 
         span:first-child {
           display: flex;

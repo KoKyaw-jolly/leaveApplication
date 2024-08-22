@@ -38,6 +38,16 @@
           "uuid": "816f0874-ffb1-4b1a-a2ef-61817237df62"
         }
       ]
+    },
+    {
+      "uuid": "b6b48195-161f-4267-a43f-ae5da2db9519",
+      "name": "holiday",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "b7ab3382-4567-4e6c-ad63-1b8ea50bad76"
+        }
+      ]
     }
   ],
   "routes": [
@@ -51,7 +61,7 @@
         {
           "uuid": "d90c5406-a362-42e4-89b3-4a77e71f4c28",
           "body": "[\n    {\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 2,\n        \"fullName\": \"Jane Smith\",\n        \"image\": \"sample.png\",\n        \"email\": \"jane.smith@example.com\",\n        \"phone\": \"123-456-7891\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Marketing Manager\",\n        \"department\": \"Marketing\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 3,\n        \"fullName\": \"Alice Johnson\",\n        \"image\": \"sample.png\",\n        \"email\": \"alice.johnson@example.com\",\n        \"phone\": \"123-456-7892\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"HR Specialist\",\n        \"department\": \"Human Resources\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 3,\n                \"remainingDays\": 1\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 15,\n                \"remainingDays\": 13\n            }\n        ]\n    },\n    {\n        \"staffId\": 4,\n        \"fullName\": \"Bob Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"bob.brown@example.com\",\n        \"phone\": \"123-456-7893\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Finance Manager\",\n        \"department\": \"Finance\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 25,\n                \"remainingDays\": 20\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 7\n            }\n        ]\n    },\n    {\n        \"staffId\": 5,\n        \"fullName\": \"Chris Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"chris.green@example.com\",\n        \"phone\": \"123-456-7894\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Product Manager\",\n        \"department\": \"Product\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 6,\n        \"fullName\": \"Dana White\",\n        \"image\": \"sample.png\",\n        \"email\": \"dana.white@example.com\",\n        \"phone\": \"123-456-7895\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Operations Manager\",\n        \"department\": \"Operations\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 7,\n        \"fullName\": \"Eve Black\",\n        \"image\": \"sample.png\",\n        \"email\": \"eve.black@example.com\",\n        \"phone\": \"123-456-7896\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Sales Executive\",\n        \"department\": \"Sales\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 11\n            }\n        ]\n    },\n    {\n        \"staffId\": 8,\n        \"fullName\": \"Frank Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"frank.brown@example.com\",\n        \"phone\": \"123-456-7897\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Engineering Manager\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 22,\n                \"remainingDays\": 18\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 9,\n        \"fullName\": \"Grace Blue\",\n        \"image\": \"sample.png\",\n        \"email\": \"grace.blue@example.com\",\n        \"phone\": \"123-456-7898\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 10,\n        \"fullName\": \"Henry Gray\",\n        \"image\": \"sample.png\",\n        \"email\": \"henry.gray@example.com\",\n        \"phone\": \"123-456-7899\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"QA Engineer\",\n        \"department\": \"Quality Assurance\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 16\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 11,\n        \"fullName\": \"Ivy Orange\",\n        \"image\": \"sample.png\",\n        \"email\": \"ivy.orange@example.com\",\n        \"phone\": \"123-456-7800\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Support Engineer\",\n        \"department\": \"Support\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 12,\n        \"fullName\": \"Jack Yellow\",\n        \"image\": \"sample.png\",\n        \"email\": \"jack.yellow@example.com\",\n        \"phone\": \"123-456-7801\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Network Administrator\",\n        \"department\": \"IT\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 13,\n        \"fullName\": \"Kevin White\",\n        \"image\": \"sample.png\",\n        \"email\": \"kevin.white@example.com\",\n        \"phone\": \"123-456-7802\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Data Analyst\",\n        \"department\": \"Data\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 14,\n        \"fullName\": \"Lily Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"lily.green@example.com\",\n        \"phone\": \"123-456-7803\",\n        \"address\": \"456 Oak St, Villagetown, CA 12345\",\n        \"position\": \"UX Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 15,\n        \"fullName\": \"Mike Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"mike.brown@example.com\",\n        \"phone\": \"123-456-7804\",\n        \"address\": \"789 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Backend Developer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 17\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    }\n]",
-          "latency": 99999,
+          "latency": 1000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -106,7 +116,15 @@
           "filePath": "",
           "databucketID": "",
           "sendFileAsBody": false,
-          "rules": [],
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "Ko Ko Kyaw",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
@@ -125,7 +143,15 @@
           "filePath": "",
           "databucketID": "",
           "sendFileAsBody": false,
-          "rules": [],
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
@@ -134,7 +160,7 @@
           "callbacks": []
         }
       ],
-      "responseMode": null
+      "responseMode": "FALLBACK"
     },
     {
       "uuid": "45bea662-1e4e-4839-bed1-3a40bd55be42",
@@ -350,6 +376,44 @@
         }
       ],
       "responseMode": null
+    },
+    {
+      "uuid": "b7ab3382-4567-4e6c-ad63-1b8ea50bad76",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/holidays/all-holiday/",
+      "responses": [
+        {
+          "uuid": "295ba29f-bd9e-4627-ae8b-30692803ce82",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"name\": \"New Year's Day\",\n    \"date\": \"2024-01-01\",\n    \"description\": \"The first day of the year, celebrated with various festivities and traditions.\"\n  },\n  {\n    \"id\": \"2\",\n    \"name\": \"Union Day\",\n    \"date\": \"2024-02-12\",\n    \"description\": \"Commemorates the signing of the Panglong Agreement in 1947, which paved the way for independence.\"\n  },\n  {\n    \"id\": \"3\",\n    \"name\": \"Peasants' Day\",\n    \"date\": \"2024-03-02\",\n    \"description\": \"A day to honor and recognize the contributions of farmers and agricultural workers.\"\n  },\n  {\n    \"id\": \"4\",\n    \"name\": \"Full Moon Day of Tabaung\",\n    \"date\": \"2024-03-25\",\n    \"description\": \"A Buddhist festival marking the end of the month of Tabaung.\"\n  },\n  {\n    \"id\": \"5\",\n    \"name\": \"Armed Forces Day\",\n    \"date\": \"2024-03-27\",\n    \"description\": \"Celebrates the founding of the modern Myanmar military in 1945.\"\n  },\n  {\n    \"id\": \"6\",\n    \"name\": \"Thingyan Festival\",\n    \"date\": \"2024-04-13\",\n    \"description\": \"The Myanmar New Year Water Festival, celebrated with water throwing and various cultural activities.\"\n  },\n  {\n    \"id\": \"7\",\n    \"name\": \"Labor Day\",\n    \"date\": \"2024-05-01\",\n    \"description\": \"An international holiday to celebrate workers and labor movements.\"\n  },\n  {\n    \"id\": \"8\",\n    \"name\": \"Full Moon Day of Kason\",\n    \"date\": \"2024-05-23\",\n    \"description\": \"Marks the day when Buddha was born, attained enlightenment, and passed away.\"\n  },\n  {\n    \"id\": \"9\",\n    \"name\": \"Martyrs' Day\",\n    \"date\": \"2024-07-19\",\n    \"description\": \"Commemorates the assassination of General Aung San and eight others in 1947.\"\n  },\n  {\n    \"id\": \"10\",\n    \"name\": \"Full Moon Day of Waso\",\n    \"date\": \"2024-07-21\",\n    \"description\": \"Marks the beginning of the Buddhist Lent, a time of retreat and meditation.\"\n  },\n  {\n    \"id\": \"11\",\n    \"name\": \"Full Moon Day of Thadingyut\",\n    \"date\": \"2024-10-15\",\n    \"description\": \"Marks the end of the Buddhist Lent, celebrated with lighting festivals and merit-making.\"\n  },\n  {\n    \"id\": \"12\",\n    \"name\": \"Full Moon Day of Tazaungmone\",\n    \"date\": \"2024-11-13\",\n    \"description\": \"Celebrates the offering of new robes to monks and the lighting of oil lamps.\"\n  },\n  {\n    \"id\": \"13\",\n    \"name\": \"National Day\",\n    \"date\": \"2024-11-23\",\n    \"description\": \"Commemorates the start of the student-led protests against British rule in 1920.\"\n  },\n  {\n    \"id\": \"14\",\n    \"name\": \"Christmas Day\",\n    \"date\": \"2024-12-25\",\n    \"description\": \"Celebrates the birth of Jesus Christ, observed by the Christian community in Myanmar.\"\n  }\n]",
+          "latency": 1000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -360,6 +424,10 @@
     {
       "type": "folder",
       "uuid": "71144a02-e2ae-4dee-8fb0-f573e328b9a8"
+    },
+    {
+      "type": "folder",
+      "uuid": "b6b48195-161f-4267-a43f-ae5da2db9519"
     }
   ],
   "proxyMode": false,

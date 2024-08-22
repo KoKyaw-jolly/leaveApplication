@@ -6,10 +6,13 @@ import { LocalStorageConfig, localStorageSync } from "ngrx-store-localstorage";
 import * as AuthAction from "../action/auth.action";
 import { authInitialState } from "../state/auth.state";
 import { staffInitialState } from "../state/staff.state";
+import { holidayInitialState } from "../state/holiday.state";
+import { holidayReducer } from "./holiday.reducer";
 
 export const appReducer: ActionReducerMap<AppState> = {
     authInfo: authReducer,
     staff: staffReducer,
+    holidays: holidayReducer,
 }
 
 const localStorageConfig: LocalStorageConfig = {
@@ -30,7 +33,8 @@ export function clearState(reducer: ActionReducer<AppState>): ActionReducer<AppS
             state = {
                 ...state,
                 authInfo: authInitialState,
-                staff: staffInitialState
+                staff: staffInitialState,
+                holidays: holidayInitialState,
             }
         }
         return reducer(state, action);

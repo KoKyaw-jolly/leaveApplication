@@ -9,7 +9,7 @@ import { selectFriuts } from '../../../store/selector/fruit.selector';
 import { AppState } from '../../../store/state/app.state';
 import { Staff } from '../../../core/models/staff.interface';
 import * as staffAction from '../../../store/action/staff.action';
-import { selectStaff } from '../../../store/selector/staff.selector';
+import { selectStaffs } from '../../../store/selector/staff.selector';
 
 @Component({
   selector: 'app-test-ngrx',
@@ -51,7 +51,7 @@ export class TestNgrxComponent implements OnInit {
     // this.store.dispatch(loadFruit());
     // this.store.dispatch(staffAction.loadStaff());
     this.store.dispatch(staffAction.loadStaff());
-    this.store.select(selectStaff).subscribe(res => {
+    this.store.select(selectStaffs).subscribe(res => {
       // this.staffList$ = res.staffList ?? [];
       this.loading$ = res.loading;
       console.log(res);

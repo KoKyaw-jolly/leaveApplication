@@ -24,6 +24,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzDropDownModule } from "ng-zorro-antd/dropdown";
+import { NzSkeletonModule } from "ng-zorro-antd/skeleton";
 
 export const APP_IMPORT = [
     CommonModule,
@@ -54,5 +55,6 @@ export const APP_IMPORT = [
     NzPopoverModule,
     NzAlertModule,
     NzMessageModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzSkeletonModule,
 ]

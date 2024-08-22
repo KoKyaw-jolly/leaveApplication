@@ -10,13 +10,19 @@
 <nz-modal [(nzVisible)]="holidayModal" [nzFooter]="null" nzTitle="Holiday" (nzOnCancel)="closeAllModal()"
     (nzOnOk)="closeAllModal()">
     <ng-container *nzModalContent>
-        <div class="calendar-modal-content">
-            <span class="title">Name</span>:
-            <span class="description">{{holidayModalData.name}}</span>
-        </div>
-        <div class="calendar-modal-content">
-            <span class="title">Description</span>:
-            <span class="description">{{holidayModalData.description}}</span>
+        <div class="modal-conent-list">
+            <div class="content-row">
+                <span class="title">Name</span><span>:</span>
+                <span class="description">{{holidayModalData.name}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Date</span><span>:</span>
+                <span class="description">{{holidayModalData.date | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Description</span><span>:</span>
+                <span class="description">{{holidayModalData.description}}</span>
+            </div>
         </div>
     </ng-container>
 </nz-modal>

@@ -8,7 +8,7 @@
         </div>
         <ul class="dashboard-holiday-body">
             <ng-container *ngFor="let holiday of holidays">
-                <li class="dashboard-holiday-item">
+                <li class="dashboard-holiday-item" (click)="openHolidayModal(holiday)">
                     <span>
                         <span>{{holiday.date | date:'dd MMM yyyy'}}</span>
                         <span>{{holiday.date | date:'EEEE'}}</span>
@@ -19,3 +19,25 @@
         </ul>
     </div>
 </div>
+
+
+
+<nz-modal [(nzVisible)]="holidayModal" [nzFooter]="null" nzTitle="Holiday" (nzOnCancel)="closeAllModal()"
+    (nzOnOk)="closeAllModal()">
+    <ng-container *nzModalContent>
+        <div class="modal-conent-list">
+            <div class="content-row">
+                <span class="title">Name</span><span>:</span>
+                <span class="description">{{holidayModalData.name}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Date</span><span>:</span>
+                <span class="description">{{holidayModalData.date | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Description</span><span>:</span>
+                <span class="description">{{holidayModalData.description}}</span>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>
