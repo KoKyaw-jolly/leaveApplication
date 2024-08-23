@@ -20,6 +20,8 @@ import { authReducer } from './app/store/reducer/auth.reducer';
 import { metaReducers } from './app/store/reducer/app.reducer';
 import { holidayReducer } from './app/store/reducer/holiday.reducer';
 import { HolidayEffect } from './app/store/effect/holiday.effect';
+import { leaveReducer } from './app/store/reducer/leave.reducer';
+import { LeaveEffect } from './app/store/effect/leave.effect';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -34,7 +36,8 @@ bootstrapApplication(AppComponent, {
         { 
           authInfo: authReducer,
           staff: staffReducer,
-          holidays: holidayReducer
+          holidays: holidayReducer,
+          leave: leaveReducer
         },
         {
           metaReducers,
@@ -47,7 +50,8 @@ bootstrapApplication(AppComponent, {
       EffectsModule.forRoot([
         StaffEffect,
         AuthEffect,
-        HolidayEffect
+        HolidayEffect,
+        LeaveEffect
       ]),
       StoreDevtoolsModule.instrument()
     )

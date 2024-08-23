@@ -29,6 +29,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -41,6 +42,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -53,6 +55,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -65,6 +68,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -77,6 +81,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -89,6 +94,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -101,6 +107,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -113,6 +120,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     },
@@ -125,6 +133,7 @@ export class LeaveReportComponent {
       takenDays: 1,
       startDate: new Date("2024-07-01"),
       endDate: new Date("2024-07-01"),
+      phoneDuringLeave: '0912334234',
       reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
       leaveStatus: "Approved"
     }

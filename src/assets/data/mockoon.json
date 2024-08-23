@@ -48,6 +48,24 @@
           "uuid": "b7ab3382-4567-4e6c-ad63-1b8ea50bad76"
         }
       ]
+    },
+    {
+      "uuid": "98469bb1-8c77-4a46-bd51-3e5b0b527133",
+      "name": "leave",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "d89e504b-ba87-4129-b8ef-5e6c8b2b7e3d"
+        },
+        {
+          "type": "route",
+          "uuid": "b8e17911-6d4e-439e-acbf-cbc7dd6c17d0"
+        },
+        {
+          "type": "route",
+          "uuid": "9c23ea33-e4e1-4801-8cf1-238b00e5cbfc"
+        }
+      ]
     }
   ],
   "routes": [
@@ -134,7 +152,7 @@
         },
         {
           "uuid": "a93cae4e-4346-4093-8fc2-1510b616d120",
-          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"details\": [\n    {\n      \"field\": \"email\",\n      \"error\": \"Email is required.\"\n    },\n    {\n      \"field\": \"password\",\n      \"error\": \"Password must be at least 8 characters long.\"\n    }\n  ],\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
           "latency": 3000,
           "statusCode": 400,
           "label": "",
@@ -295,7 +313,7 @@
         },
         {
           "uuid": "68b48a6a-df7e-4e27-b426-872e7c43d137",
-          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"details\": [\n    {\n      \"field\": \"email\",\n      \"error\": \"Email is required.\"\n    },\n    {\n      \"field\": \"password\",\n      \"error\": \"Password must be at least 8 characters long.\"\n    }\n  ],\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "",
@@ -414,6 +432,185 @@
         }
       ],
       "responseMode": null
+    },
+    {
+      "uuid": "9c23ea33-e4e1-4801-8cf1-238b00e5cbfc",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/leave/apply-leave",
+      "responses": [
+        {
+          "uuid": "2ca7fa9d-0334-48af-b200-9a61f95e3ec1",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ce889118-30fe-44c9-b1d2-d88e038c8128",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "d89e504b-ba87-4129-b8ef-5e6c8b2b7e3d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/leave/leave-records/all",
+      "responses": [
+        {
+          "uuid": "a710cea2-37ec-4c2d-ba91-2e5d59b7fecc",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-07-01\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-07-01\",\n    \"endDate\": \"2024-07-01\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need to take a day off to compensate for working on a public holiday.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"2\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-08-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-08-04\",\n    \"endDate\": \"2024-08-06\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need medical leave to recover from a minor surgery I have undergone.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"3\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-09-01\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 5,\n    \"startDate\": \"2024-09-10\",\n    \"endDate\": \"2024-09-14\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I'm planning a trip with my family for a few days to relax and unwind.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"4\",\n    \"staffId\": \"2\",\n    \"fullName\": \"Aung Aung\",\n    \"applyDate\": \"2024-07-05\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-07-10\",\n    \"endDate\": \"2024-07-11\",\n    \"phoneDuringLeave\": \"0912334235\",\n    \"reason\": \"I have a family event that requires my presence for two days.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"5\",\n    \"staffId\": \"3\",\n    \"fullName\": \"Thiri Thiri\",\n    \"applyDate\": \"2024-07-08\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-07-15\",\n    \"endDate\": \"2024-07-17\",\n    \"phoneDuringLeave\": \"0912334236\",\n    \"reason\": \"I have a medical condition that requires immediate attention and rest.\",\n    \"leaveStatus\": \"Rejected\"\n  },\n  {\n    \"id\": \"6\",\n    \"staffId\": \"4\",\n    \"fullName\": \"Mya Mya\",\n    \"applyDate\": \"2024-07-12\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 5,\n    \"startDate\": \"2024-07-20\",\n    \"endDate\": \"2024-07-24\",\n    \"phoneDuringLeave\": \"0912334237\",\n    \"reason\": \"I am planning a vacation with my family and need time off to travel and rest.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"7\",\n    \"staffId\": \"5\",\n    \"fullName\": \"Zaw Zaw\",\n    \"applyDate\": \"2024-07-18\",\n    \"leaveType\": \"Unpaid Leave\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-07-19\",\n    \"endDate\": \"2024-07-19\",\n    \"phoneDuringLeave\": \"0912334238\",\n    \"reason\": \"I need to attend a personal event that is important and cannot be rescheduled.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"8\",\n    \"staffId\": \"6\",\n    \"fullName\": \"Hla Hla\",\n    \"applyDate\": \"2024-07-22\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-07-25\",\n    \"endDate\": \"2024-07-26\",\n    \"phoneDuringLeave\": \"0912334239\",\n    \"reason\": \"I worked extra hours last week and need time off to recover and balance work-life.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"9\",\n    \"staffId\": \"7\",\n    \"fullName\": \"Moe Moe\",\n    \"applyDate\": \"2024-07-25\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 4,\n    \"startDate\": \"2024-07-29\",\n    \"endDate\": \"2024-08-01\",\n    \"phoneDuringLeave\": \"0912334240\",\n    \"reason\": \"I have planned a family trip for relaxation and to spend quality time with loved ones.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"10\",\n    \"staffId\": \"8\",\n    \"fullName\": \"Kyaw Kyaw\",\n    \"applyDate\": \"2024-08-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-08-03\",\n    \"endDate\": \"2024-08-04\",\n    \"phoneDuringLeave\": \"0912334241\",\n    \"reason\": \"I have a scheduled doctor's appointment and need time to recover after treatment.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"11\",\n    \"staffId\": \"9\",\n    \"fullName\": \"Soe Soe\",\n    \"applyDate\": \"2024-08-05\",\n    \"leaveType\": \"Unpaid Leave\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-08-06\",\n    \"endDate\": \"2024-08-06\",\n    \"phoneDuringLeave\": \"0912334242\",\n    \"reason\": \"I have an urgent personal matter that requires my immediate attention.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"12\",\n    \"staffId\": \"10\",\n    \"fullName\": \"Nyein Nyein\",\n    \"applyDate\": \"2024-08-08\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-08-10\",\n    \"endDate\": \"2024-08-10\",\n    \"phoneDuringLeave\": \"0912334243\",\n    \"reason\": \"I worked during a public holiday and need to take compensatory leave to rest.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"13\",\n    \"staffId\": \"2\",\n    \"fullName\": \"Aung Aung\",\n    \"applyDate\": \"2024-09-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-09-03\",\n    \"endDate\": \"2024-09-04\",\n    \"phoneDuringLeave\": \"0912334235\",\n    \"reason\": \"I need to visit the doctor for a scheduled check-up and rest afterwards.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"14\",\n    \"staffId\": \"3\",\n    \"fullName\": \"Thiri Thiri\",\n    \"applyDate\": \"2024-09-05\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-09-10\",\n    \"endDate\": \"2024-09-12\",\n    \"phoneDuringLeave\": \"0912334236\",\n    \"reason\": \"I need to attend a family gathering that is scheduled for several days.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"15\",\n    \"staffId\": \"5\",\n    \"fullName\": \"Zaw Zaw\",\n    \"applyDate\": \"2024-09-07\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 4,\n    \"startDate\": \"2024-09-11\",\n    \"endDate\": \"2024-09-14\",\n    \"phoneDuringLeave\": \"0912334238\",\n    \"reason\": \"I'm planning a trip to visit relatives and need time off for travel and relaxation.\",\n    \"leaveStatus\": \"Approved\"\n  }\n]",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4d5cdf19-baa3-460f-a876-9ba70ec4e8e7",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "b8e17911-6d4e-439e-acbf-cbc7dd6c17d0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/leave/leave-records/user",
+      "responses": [
+        {
+          "uuid": "5b566fe2-3b67-4ec8-bace-29916ee48996",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-07-01\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-07-01\",\n    \"endDate\": \"2024-07-01\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need to take a day off to compensate for working on a public holiday.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"2\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-08-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-08-04\",\n    \"endDate\": \"2024-08-06\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need medical leave to recover from a minor surgery I have undergone.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"3\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-09-01\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 5,\n    \"startDate\": \"2024-09-10\",\n    \"endDate\": \"2024-09-14\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I'm planning a trip with my family for a few days to relax and unwind.\",\n    \"leaveStatus\": \"Approved\"\n  }  \n]",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7887c923-4181-43c3-a57a-7a3f7ff899c1",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -428,6 +625,10 @@
     {
       "type": "folder",
       "uuid": "b6b48195-161f-4267-a43f-ae5da2db9519"
+    },
+    {
+      "type": "folder",
+      "uuid": "98469bb1-8c77-4a46-bd51-3e5b0b527133"
     }
   ],
   "proxyMode": false,

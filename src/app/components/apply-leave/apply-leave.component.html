@@ -6,14 +6,13 @@
         <p class="header">Apply Leave</p>
         <p class="description">Company Absent from Official Work/ Leave Request Form(Per Week)</p>
     </div>
-
-    <form nz-form [nzLayout]="'vertical'">
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="applyLeaveForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <nz-form-item>
-                    <nz-form-label nzFor="Leave Type">Leave Type</nz-form-label>
-                    <nz-form-control>
-                        <nz-select name="Leave Type" nzShowSearch>
+                    <nz-form-label nzRequired>Leave Type</nz-form-label>
+                    <nz-form-control nzErrorTip="please select leave type!">
+                        <nz-select name="Leave Type" nzShowSearch  formControlName="leaveType" nzPlaceHolder="Select Leave Type">
                             <nz-option nzValue="Annual Leave" nzLabel="Annual Leave"></nz-option>
                             <nz-option nzValue="Unpaid Leave" nzLabel="Unpaid Leave"></nz-option>
                             <nz-option nzValue="Medical Leave" nzLabel="Medical Leave"></nz-option>
@@ -23,33 +22,39 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <nz-form-item>
-                    <nz-form-label nzFor="Date Range">Date Range</nz-form-label>
-                    <nz-form-control>
-                        <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"
+                    <nz-form-label nzRequired>Date Range</nz-form-label>
+                    <nz-form-control nzErrorTip="please select date range!">
+                        <nz-range-picker formControlName="dateRange" (ngModelChange)="onChange($event)"
                             name="Date Range"></nz-range-picker>
                     </nz-form-control>
                 </nz-form-item>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <nz-form-item>
-                    <nz-form-label nzFor="Contact No">Contact Number<span class="label-small">(during absent
+                    <nz-form-label>Total Days</nz-form-label>
+                    <div class="custom-readonly-input" name="Total Days">{{totalLeaveDays}}</div>
+                </nz-form-item>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <nz-form-item>
+                    <nz-form-label>Contact Number<span class="label-small">(during absent
                             period)</span></nz-form-label>
                     <nz-form-control>
-                        <input nz-input name="Contact Number" type="text" />
+                        <input nz-input name="Contact Number" type="text" formControlName="phone"/>
                     </nz-form-control>
                 </nz-form-item>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-8">
+            <div class="col-sm-12 col-md-12 col-lg-8">
                 <nz-form-item>
-                    <nz-form-label nzFor="Reason">Reason<span class="label-small">(during absent
+                    <nz-form-label nzRequired>Reason<span class="label-small">(during absent
                             period)</span></nz-form-label>
-                    <nz-form-control>
-                        <textarea nz-input name="Reason"></textarea>
+                    <nz-form-control  nzErrorTip="please enter your reason!">
+                        <textarea nz-input name="Reason" formControlName="reason"></textarea>
                     </nz-form-control>
                 </nz-form-item>
             </div>
             <div class="d-flex justify-content-end">
-                <button nz-button nzType="primary">Submit</button>
+                <button nz-button nzType="primary" [nzLoading]="submitLoading">Submit</button>
             </div>
         </div>
     </form>

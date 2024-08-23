@@ -4,7 +4,7 @@
     </div>
     <nz-tabset>
         <nz-tab nzTitle="All Leave Transaction">
-            <nz-table #leaveTransation [nzData]="listOfData" [nzScroll]="{x: '1000px'}">
+            <nz-table #leaveTransation [nzData]="leaveRecordsAll" [nzScroll]="{x: '1000px'}">
                 <thead>
                     <tr>
                         <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
@@ -42,7 +42,7 @@
             </nz-table>
         </nz-tab>
         <nz-tab nzTitle="My Leave Transaction">
-            <nz-table #myLeaveTransation [nzData]="listOfData" [nzScroll]="{x: '1000px'}">
+            <nz-table #myLeaveTransation [nzData]="leaveRecordsUser" [nzScroll]="{x: '1000px'}">
                 <thead>
                     <tr>
                         <th nzAlign="center" nzWidth="110px">Apply Date</th>
@@ -78,7 +78,7 @@
             </nz-table>
         </nz-tab>
         <nz-tab nzTitle="My Leave Summary">
-            <nz-table #myLeaveSummary [nzData]="myLeaveSummaryData">
+            <nz-table #myLeaveSummary [nzData]="userInfoState.userInfo.user.leaveBalance">
                 <thead>
                     <tr>
                         <th nzAlign="center">Leave Type</th>

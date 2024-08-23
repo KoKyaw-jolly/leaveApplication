@@ -8,11 +8,14 @@ import { authInitialState } from "../state/auth.state";
 import { staffInitialState } from "../state/staff.state";
 import { holidayInitialState } from "../state/holiday.state";
 import { holidayReducer } from "./holiday.reducer";
+import { leaveInitialState } from "../state/leave.state";
+import { leaveReducer } from "./leave.reducer";
 
 export const appReducer: ActionReducerMap<AppState> = {
     authInfo: authReducer,
     staff: staffReducer,
     holidays: holidayReducer,
+    leave: leaveReducer,
 }
 
 const localStorageConfig: LocalStorageConfig = {
@@ -35,6 +38,7 @@ export function clearState(reducer: ActionReducer<AppState>): ActionReducer<AppS
                 authInfo: authInitialState,
                 staff: staffInitialState,
                 holidays: holidayInitialState,
+                leave: leaveInitialState,
             }
         }
         return reducer(state, action);

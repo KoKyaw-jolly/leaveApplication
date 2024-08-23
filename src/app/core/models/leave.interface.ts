@@ -7,6 +7,7 @@ export interface LeaveRecord {
   takenDays: number;
   startDate: Date;
   endDate: Date;
+  phoneDuringLeave: string;
   reason?: string;
   leaveStatus: 'Pending' | 'Approved' | 'Rejected';
 }

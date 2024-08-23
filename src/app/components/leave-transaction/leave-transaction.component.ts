@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
 import { LeaveRecord, LeaveTypeDetails } from '../../core/models/leave.interface';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/state/app.state';
+import { selectAuthUserInfo } from '../../store/selector/auth.selector';
+import { AuthInfo, AuthInfoState, authInitialState } from '../../store/state/auth.state';
+import * as leaveSelect from '../../store/selector/leave.selector';
+import * as leaveActions from '../../store/action/leave.action';
 
 @Component({
   selector: 'app-leave-transaction',
@@ -9,9 +15,14 @@ import { LeaveRecord, LeaveTypeDetails } from '../../core/models/leave.interface
   templateUrl: './leave-transaction.component.html',
   styleUrl: './leave-transaction.component.scss'
 })
-export class LeaveTransactionComponent {
+export class LeaveTransactionComponent implements OnInit {
 
-  leaveDetailsModal:boolean = false;
+
+  constructor(
+    private store: Store<AppState>,
+  ) { }
+
+  leaveDetailsModal: boolean = false;
   leaveDetailsObj: LeaveRecord = {
     id: '',
     staffId: '',
@@ -21,143 +32,33 @@ export class LeaveTransactionComponent {
     takenDays: 0,
     startDate: new Date(),
     endDate: new Date(),
+    phoneDuringLeave: '',
     reason: '',
     leaveStatus: 'Pending'
   }
+  userInfoState: AuthInfoState = authInitialState;
+  leaveRecordsAll: LeaveRecord[] = [];
+  leaveRecordsUser: LeaveRecord[] = [];
 
-  myLeaveSummaryData: LeaveTypeDetails[] = [
-    {
-      leaveType: 'Annual',
-      totalDays: 10,
-      remainingDays: 8
-    },
-    {
-      leaveType: 'Off-In-Lieu',
-      totalDays: 12,
-      remainingDays: 3
-    },
-    {
-      leaveType: 'Medical',
-      totalDays: 15,
-      remainingDays: 12
-    },
-  ];
-  listOfData: LeaveRecord[] = [
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Pending"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Rejected"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    },
-    {
-      id: "1",
-      staffId: "1",
-      fullName: "Ko Ko Kyaw",
-      applyDate: new Date("2024-07-01"),
-      leaveType: "Off-In-Lieu",
-      takenDays: 1,
-      startDate: new Date("2024-07-01"),
-      endDate: new Date("2024-07-01"),
-      reason: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
-      leaveStatus: "Approved"
-    }
-  ];
-
-  leaveDetails(data:LeaveRecord){
-    this.leaveDetailsModal=true;
+  leaveDetails(data: LeaveRecord) {
+    this.leaveDetailsModal = true;
     this.leaveDetailsObj = data;
   }
-  closeModal(){
-    this.leaveDetailsModal=false;
+  closeModal() {
+    this.leaveDetailsModal = false;
+  }
+
+  ngOnInit(): void {
+    this.store.select(selectAuthUserInfo).subscribe(res => {
+      this.userInfoState = res;
+    });
+    this.store.dispatch(leaveActions.loadLeaveRecordsAll());
+    this.store.select(leaveSelect.selectLeaveRecordsAll).subscribe(res => {
+      this.leaveRecordsAll = res;
+    });
+    this.store.dispatch(leaveActions.loadLeaveRecordsUser({ staffID: this.userInfoState.userInfo.user.staffId }));
+    this.store.select(leaveSelect.selectLeaveRecordsUser).subscribe(res => {
+      this.leaveRecordsUser = res;
+    });
   }
 }

@@ -126,6 +126,7 @@ export class StaffManagementComponent implements OnInit {
     this.createEditBtnLoading = true
     if (this.staffForm.invalid) {
       this.staffForm.markAllAsTouched();
+      this.createEditBtnLoading = false;
       return;
     }
     const StaffData: Staff = {
@@ -160,16 +161,19 @@ export class StaffManagementComponent implements OnInit {
 
     // this.store.dispatch(staffAction.createStaff({ staff: StaffData }));
     this.staffService.createStaff(StaffData).subscribe(
-      (res) => {
-        this.createEditBtnLoading = false;
-        this.staffCreateEditModal = false;
-        this.message.create('success', `Staff Create Successfully!`);
-        this.store.dispatch(staffAction.loadStaff());
-      },
-      (err) => {
-        this.createEditBtnLoading = false;
-        this.createEditBtnError.visable = true;
-        this.createEditBtnError.message = err.error.message? err.error.message : 'Something went wrong!';
+      {
+        next: (res) => {
+          this.staffCreateEditModal = false;
+          this.message.create('success', `Staff Create Successfully!`);
+          this.store.dispatch(staffAction.loadStaff());
+        },
+        error: (err) => {
+          this.createEditBtnError.visable = true;
+          this.createEditBtnError.message = err.error.message ? err.error.message : 'Something went wrong!';
+        },
+        complete: () => {
+          this.createEditBtnLoading = false;
+        }
       }
     )
   }

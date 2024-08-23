@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as holidayAction from '../action/holiday.action';
 import { catchError, map, mergeMap, of } from "rxjs";
 import { Holiday } from "../../core/models/holiday.interface";
-import { HolidayService } from "../../core/services/holiday.services";
+import { HolidayService } from "../../core/services/holiday.service";
 
 @Injectable()
 export class HolidayEffect {
