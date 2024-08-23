@@ -17,7 +17,6 @@ import * as leaveActions from '../../store/action/leave.action';
 })
 export class LeaveTransactionComponent implements OnInit {
 
-
   constructor(
     private store: Store<AppState>,
   ) { }

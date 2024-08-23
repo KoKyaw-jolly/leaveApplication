@@ -21,7 +21,6 @@ export class SideMenuComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<any[]>('assets/data/sidebar-menu.json').subscribe((data) => {
       this.menuList = data;
-      console.log(data);
     });
   }
 }

@@ -32,8 +32,7 @@ export class StaffEffect {
             ofType(staffAction.createStaff),
             mergeMap((action) => {
                 return this.staffService.createStaff(action.staff).pipe(
-                    map((action: any) => { 
-                        console.log(action);
+                    map((action: any) => {
                         return staffAction.createStaffSuccess();
                     }),
                     catchError(error => of(staffAction.createStaffFail({ error: error.message })))

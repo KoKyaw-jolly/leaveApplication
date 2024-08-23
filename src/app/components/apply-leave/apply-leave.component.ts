@@ -46,7 +46,6 @@ export class ApplyLeaveComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(selectAuthUserInfo).subscribe(res => {
       this.userInfo = res.userInfo;
-      console.log('userInfo: ', this.userInfo);
     })
   }
 

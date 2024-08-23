@@ -38,11 +38,9 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.staffForm.valid) {
-      console.log('submit', this.staffForm.value);
       this.appService.appDataInit(this.staffForm.value);
     } else {
       Object.values(this.staffForm.controls).forEach(control => {
-        console.log('control', control);
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });

@@ -23,8 +23,6 @@ export class AuthGuard implements CanActivate {
     return this.store.pipe(
       select(selectAuthUserInfo),
       map((authInfo: any) => {
-        // console.log('userInfo', authInfo.userInfo);
-        // console.log('routePath', route.routeConfig?.path!)
         if (authInfo.userInfo.user.role == 'Admin') {
           return true;
         } else if (authInfo.userInfo.user.role == 'Staff' &&
