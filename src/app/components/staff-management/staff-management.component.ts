@@ -3,8 +3,8 @@ import { IMAGES } from '../../core/constants/images-url';
 import { APP_IMPORT } from '../../app.import';
 import { HttpClient } from '@angular/common/http';
 import { Staff } from '../../core/models/staff.interface';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NzModalService } from 'ng-zorro-antd/modal';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { AppState } from '../../store/state/app.state';
 import { Store } from '@ngrx/store';
 import { StaffService } from '../../core/services/staff.service';
@@ -46,40 +46,45 @@ export class StaffManagementComponent implements OnInit {
   setpCurrent: number = 0;
 
   //form
-  staffForm = new FormGroup({
-    fullName: new FormControl('asd', [Validators.required]),
-    gender: new FormControl('male'),
-    position: new FormControl('', [Validators.required]),
-    department: new FormControl('', [Validators.required]),
-    // image: new FormControl(''),
-    email: new FormControl('', [Validators.required]),
-    phone: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
-    role: new FormControl('', [Validators.required]),
-    annual: new FormControl(0, [Validators.required]),
-    offInLieu: new FormControl(0, [Validators.required]),
-    medical: new FormControl(0, [Validators.required]),
-  });
+  staffForm: FormGroup;
 
   createEditBtnLoading: boolean = false;
-  createEditBtnError = {
+  createEditError = {
     visable: false,
     message: ''
   };
+  createEditStatus: string = 'create';
+  deleteConfirmModal?: NzModalRef;
 
   constructor(
     private staffService: StaffService,
     private store: Store<AppState>,
     private http: HttpClient,
     private modal: NzModalService,
-    private message: NzMessageService
-  ) { }
+    private message: NzMessageService,
+    private fb: FormBuilder
+  ) {
+    this.staffForm = this.fb.group({
+      fullName: ['asd', Validators.required],
+      gender: ['male'],
+      position: ['', Validators.required],
+      department: ['', Validators.required],
+      // image: ['',
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      address: ['', Validators.required],
+      role: ['', Validators.required],
+      annual: [0, Validators.required],
+      offInLieu: [0, Validators.required],
+      medical: [0, Validators.required],
+    })
+  }
 
   ngOnInit(): void {
     this.store.dispatch(staffAction.loadStaff());
     this.store.select(selectStaffs).subscribe(res => {
       this.staffListData = res.staffList;
-      this.staffListLoading = res.loading;
+      this.staffListLoading = res.listLoading;
     })
   }
 
@@ -106,11 +111,31 @@ export class StaffManagementComponent implements OnInit {
     this.staffDetailsModal = false;
   }
 
-  staffCreateClick(): void {
+  createStaff(): void {
     this.staffCreateEditModal = true;
     this.resetStaffForm();
     this.setpCurrent = 0;
-    this.createEditBtnError.visable = false;
+    this.createEditError.visable = false;
+    this.createEditStatus = 'create';
+  }
+
+  editStaff(staffData: Staff): void {
+    this.createEditStatus = 'edit';
+    this.staffCreateEditModal = true;
+    this.setpCurrent = 0;
+    this.staffForm.setValue({
+      fullName: staffData.fullName,
+      gender: staffData.gender,
+      position: staffData.position,
+      department: staffData.department,
+      email: staffData.email,
+      phone: staffData.phone,
+      address: staffData.address,
+      role: staffData.role,
+      annual: 0,
+      offInLieu: 0,
+      medical: 0,
+    });
   }
 
   //step
@@ -158,9 +183,7 @@ export class StaffManagementComponent implements OnInit {
         },
       ]
     }
-
-    // this.store.dispatch(staffAction.createStaff({ staff: StaffData }));
-    this.staffService.createStaff(StaffData).subscribe(
+    this.staffService.createEditStaff(StaffData, this.createEditStatus).subscribe(
       {
         next: (res) => {
           this.staffCreateEditModal = false;
@@ -168,8 +191,9 @@ export class StaffManagementComponent implements OnInit {
           this.store.dispatch(staffAction.loadStaff());
         },
         error: (err) => {
-          this.createEditBtnError.visable = true;
-          this.createEditBtnError.message = err.error.message ? err.error.message : 'Something went wrong!';
+          this.createEditError.visable = true;
+          this.createEditError.message = err.error.message ? err.error.message : 'Something went wrong!';
+          this.createEditBtnLoading = false;
         },
         complete: () => {
           this.createEditBtnLoading = false;
@@ -178,36 +202,33 @@ export class StaffManagementComponent implements OnInit {
     )
   }
 
-  editStaff(staffData: Staff): void {
-    this.staffCreateEditModal = true;
-    this.setpCurrent = 0;
-    this.staffForm.setValue({
-      fullName: staffData.fullName,
-      gender: staffData.gender,
-      position: staffData.position,
-      department: staffData.department,
-      email: staffData.email,
-      phone: staffData.phone,
-      address: staffData.address,
-      role: staffData.role,
-      annual: 0,
-      offInLieu: 0,
-      medical: 0,
-    });
-  }
-
   openStaffDetails(staff: Staff): void {
     this.staffDetailsObj = staff;
     this.staffDetailsModal = true;
   }
 
   deleteStaffConfirm(staffData: Staff): void {
-    this.modal.confirm({
-      nzTitle: '<i>Do you Want to delete this staff?</i>',
-      // nzContent: '<b>Some descriptions</b>',
-      nzOnOk: () => {
-        console.log('Name - ', staffData.fullName)
-      }
+    this.deleteConfirmModal = this.modal.confirm({
+      nzTitle: 'Do you Want to delete these items?',
+      nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
+      nzOnOk: () =>
+        new Promise((resolve, reject) => {
+          this.staffService.deleteStaff(staffData).subscribe({
+            next: (res) => {
+              this.message.create('success', 'Staff Delete Successfully!');
+              this.store.dispatch(staffAction.loadStaff());
+              console.log(res);
+              resolve(res);
+            },
+            error: (err) => {
+              this.message.create('error', 'Staff Delete Fail!');
+              reject(err);
+            },
+            complete: () => {
+
+            }
+          });
+        }).catch(() => console.log('Oops errors!'))
     });
   }
 

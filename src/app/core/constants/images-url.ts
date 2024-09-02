@@ -1,5 +1,5 @@
 export const IMAGES = {
-  SIP_LOGO: `assets/images/sip-logo.png`,
+  SIP_LOGO: `assets/images/sip-logo-small.png`,
   PROFILE: `assets/images/profile.png`,
 }
 

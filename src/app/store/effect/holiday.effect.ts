@@ -31,6 +31,7 @@ export class HolidayEffect {
     //         mergeMap((action) => {
     //             return this.holidayServices.createHoliday(action.holiday).pipe(
     //                 map((action: any) => { 
+    //                     holidayAction.loadHolidays();
     //                     return holidayAction.createHolidaySuccess();
     //                 }),
     //                 catchError(error => of(holidayAction.createHolidayFail({ error: error.message })))

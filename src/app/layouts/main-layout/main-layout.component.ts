@@ -10,6 +10,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
 import { selectAuthUserInfo } from '../../store/selector/auth.selector';
 import * as AuthAction from '../../store/action/auth.action';
+import * as  StaffActions from '../../store/action/staff.action';
+import * as  holidayAction from '../../store/action/holiday.action';
+import * as  leaveAction from '../../store/action/leave.action';
 import { SideMenuList } from '../../core/models/menu.interface';
 
 @Component({
@@ -57,6 +60,9 @@ export class MainLayoutComponent implements OnInit {
     this.http.get<any[]>('assets/data/notification-temp-data.json').subscribe((data) => {
       this.notificationList = data;
     });
+    // this.store.dispatch(holidayAction.loadHolidays());
+    // this.store.dispatch(StaffActions.loadStaff());
+    // this.store.dispatch(leaveAction.loadLeaveRecordsAll());
   }
 
   notificationDetailsModal(notiData: Notification): void {

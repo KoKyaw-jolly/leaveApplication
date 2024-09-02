@@ -1,17 +1,15 @@
-
 <div class="page-wrapper-card">
     <div class="card-header">
         <p class="header">Leave Report</p>
     </div>
-    
+
     <form nz-form [nzLayout]="'vertical'">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <nz-form-item>
                     <nz-form-label nzFor="Date Range">Date Range</nz-form-label>
                     <nz-form-control>
-                        <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"
-                            name="Date Range"></nz-range-picker>
+                        <nz-range-picker [(ngModel)]="dateRange" name="Date Range"></nz-range-picker>
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -19,7 +17,7 @@
                 <nz-form-item>
                     <nz-form-label nzFor="Leave Type">Leave Type</nz-form-label>
                     <nz-form-control>
-                        <nz-select name="Leave Type" nzShowSearch>
+                        <nz-select name="Leave Type" nzShowSearch [(ngModel)]="leaveType">
                             <nz-option nzValue="Annual Leave" nzLabel="Annual Leave"></nz-option>
                             <nz-option nzValue="Unpaid Leave" nzLabel="Unpaid Leave"></nz-option>
                             <nz-option nzValue="Medical Leave" nzLabel="Medical Leave"></nz-option>
@@ -28,12 +26,16 @@
                 </nz-form-item>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <button nz-button nzType="primary" class="mt-30">Search</button>
+                <nz-form-item>
+                    <nz-form-control>
+                        <button nz-button nzType="primary" class="search-btn" (click)="searchClick()">Search</button>
+                    </nz-form-control>
+                </nz-form-item>
             </div>
         </div>
     </form>
 
-    <nz-table #leaveTransation [nzData]="listOfData" [nzScroll]="{x: '1000px'}">
+    <nz-table #leaveTransation [nzData]="leaveReportData" [nzScroll]="{x: '1000px'}">
         <thead>
             <tr>
                 <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
@@ -44,7 +46,7 @@
                 <th nzAlign="center" nzWidth="110px">End Date</th>
                 <th nzAlign="center" nzWidth="330px">Reason</th>
                 <th nzAlign="center" nzWidth="100px">Status</th>
-                <th nzAlign="center" nzWidth="90px"nzRight>Action</th>
+                <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
             </tr>
         </thead>
         <tbody>

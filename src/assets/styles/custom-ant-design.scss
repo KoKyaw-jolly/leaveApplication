@@ -40,9 +40,12 @@
 
 .ant-select-single.ant-select-show-arrow .ant-select-selection-search,
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector,
+.ant-select-disabled.ant-select:not(.ant-select-customize-input)
   .ant-select-selector {
-  height: 38px;
+  height: 38px !important;
 }
+
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
   .ant-select-selector {
   min-width: 200px;
@@ -103,9 +106,9 @@
 }
 
 //alert
-.ant-alert-action span.fi{
-    font-size: 10px;
-    height: 10px;
-    color: $black-color-30;
-    cursor: pointer;
-  }
+.ant-alert-action span.fi {
+  font-size: 10px;
+  height: 10px;
+  color: $black-color-30;
+  cursor: pointer;
+}

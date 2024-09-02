@@ -25,7 +25,7 @@ export class ApplyLeaveComponent implements OnInit {
 
   applyLeaveForm: FormGroup;
   userInfo: any;
-  submitLoading: boolean = false;
+  applyLeaveLoading: boolean = false;
 
   totalLeaveDays: number = 0;
 
@@ -69,16 +69,20 @@ export class ApplyLeaveComponent implements OnInit {
       this.totalLeaveDays = 0;
     }
   }
+
   onSubmit() {
-    this.submitLoading = true;
+    this.applyLeaveLoading = true;
+    this.applyLeaveForm.disable();
+
     if (this.applyLeaveForm.invalid) {
-      this.submitLoading = false;
       Object.values(this.applyLeaveForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
         }
       });
+      this.applyLeaveLoading = false;
+      this.applyLeaveForm.enable();
       return;
     } else {
       const applyLeaveData: LeaveRecord = {
@@ -95,19 +99,21 @@ export class ApplyLeaveComponent implements OnInit {
         leaveStatus: 'Pending'
       }
 
-      this.leaveService.applyLeave(applyLeaveData).subscribe({
-        next: (res) => {
-          this.message.create('success', `Leave Apply Successfully!`);
-          this.restartForm();
-        },
-        error: (err) => {
-          this.message.create('error', `Leave Apply Failed!`);
-          this.submitLoading = false;
-        },
-        complete: () => {
-          this.submitLoading = false;
-        }
-      })
+      // this.leaveService.applyLeave(applyLeaveData).subscribe({
+      //   next: (res) => {
+      //     this.message.create('success', `Leave Apply Successfully!`);
+      //     this.restartForm();
+      //   },
+      //   error: (err) => {
+      //     this.message.create('error', `Leave Apply Failed!`);
+      //     this.applyLeaveLoading = false;
+      //     this.applyLeaveForm.enable();
+      //   },
+      //   complete: () => {
+      //     this.applyLeaveLoading = false;
+      //     this.applyLeaveForm.enable();
+      //   }
+      // })
     }
   }
 

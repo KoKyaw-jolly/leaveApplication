@@ -12,6 +12,18 @@ export class LeaveEffect {
 
     private leaveService = inject(LeaveService)
 
+    applyLeave$ = createEffect(() =>
+        this.actions.pipe(
+            ofType(leaveAction.applyLeave),
+            mergeMap((action) => {
+                return this.leaveService.applyLeave(action.leaveData).pipe(
+                        map(() => leaveAction.applyLeaveSuccess()),
+                        catchError(error => of(leaveAction.applyLeaveFail({ error: error.error })))
+                    );
+            })
+        )
+    );
+
     getLeavesAll$ = createEffect(() =>
         this.actions.pipe(
             ofType(leaveAction.loadLeaveRecordsAll),
@@ -31,6 +43,30 @@ export class LeaveEffect {
                 return this.leaveService.getUserLeaveRecords(action.staffID).pipe(
                         map((leaveRecordsUser: LeaveRecord[]) => leaveAction.loadLeaveRecordsUserSuccess({ leaveRecordsUser })),
                         catchError(error => of(leaveAction.loadLeaveRecordsUserFail({ error: error.error })))
+                    );
+            })
+        )
+    );
+
+    getCalendarEvents$ = createEffect(() =>
+        this.actions.pipe(
+            ofType(leaveAction.loadLeaveCalendar),
+            mergeMap(() => {
+                return this.leaveService.getLeaveCalendar().pipe(
+                        map((calendarEvents: any[]) => leaveAction.loadLeaveCalendarSuccess({ calendarEvents })),
+                        catchError(error => of(leaveAction.loadLeaveCalendarFail({ error: error.error })))
+                    );
+            })
+        )
+    );
+
+    getLeaveReportData$ = createEffect(() =>
+        this.actions.pipe(
+            ofType(leaveAction.loadLeaveReport),
+            mergeMap((action) => {
+                return this.leaveService.getLeaveReportData(action.filterData).pipe(
+                        map((leaveReportData: any[]) => leaveAction.loadLeaveReportSuccess({ leaveReportData })),
+                        catchError(error => of(leaveAction.loadLeaveReportFail({ error: error.error })))
                     );
             })
         )

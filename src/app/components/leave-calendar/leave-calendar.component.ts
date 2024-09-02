@@ -43,49 +43,34 @@ export class LeaveCalendarComponent implements OnInit {
     weekends: true,
     // eventContent: this.renderEventContent.bind(this),
   };
+  allEvents: any[] = [];
 
   constructor(
     private store: Store<AppState>,
   ) { }
 
   ngOnInit(): void {
-
-    this.store.dispatch(leaveActions.loadLeaveRecordsAll());
+    this.store.dispatch(leaveActions.loadLeaveCalendar());
     this.initHolidays();
-    this.initLeaveRecords();
   }
 
   initHolidays(): void {
-    this.store.select(holidaySelect.selectHolidays).subscribe(
+    this.store.select(leaveSelect.selectLeaveCalendar).subscribe(
       (res) => {
-        if (res && res.holidays) {
-          const holidayEvents = res.holidays.map(
-            (item: Holiday) => {
-              return {
+        if (res) {
+          console.log(res)
+          const holidayEvents = res.map(
+            (item: any) => {
+              return item.eventType == 'holiday' ? {
                 title: item.name + '',
-                start: item.date,
+                start: item.startDate,
                 display: 'background',
                 extendedProps: {
                   name: item.name,
-                  date: item.date,
+                  date: item.startDate,
                   description: item.description
                 }
-              }
-            }
-          )
-          this.calendarOptions.events = [...(this.calendarOptions.events as any[] || []), ...holidayEvents];
-        }
-      }
-    )
-  }
-
-  initLeaveRecords(): void {
-    this.store.select(leaveSelect.selectLeaveRecordsAll).subscribe(
-      (res) => {
-        if (res) {
-          const leaveRecordsEvent = res.map(
-            (item: LeaveRecord) => {
-              return {
+              } : {
                 title: item.fullName + '',
                 start: item.startDate,
                 end: item.endDate,
@@ -99,7 +84,8 @@ export class LeaveCalendarComponent implements OnInit {
               }
             }
           )
-          this.calendarOptions.events = [...(this.calendarOptions.events as any[] || []), ...leaveRecordsEvent];
+          console.log(holidayEvents);
+          this.calendarOptions.events = holidayEvents
         }
       }
     )
@@ -128,77 +114,3 @@ export class LeaveCalendarComponent implements OnInit {
     }
   }
 }
-
-
-// events: [
-//   // Background events for holidays
-//   {
-//     title: 'Holiday 1', start: '2024-07-04', display: 'background', extendedProps: {
-//       name: 'Holiday',
-//       description: 'This is Holiday'
-//     }
-//   },
-//   {
-//     title: 'Holiday 2', start: '2024-07-20', display: 'background', extendedProps: {
-//       name: 'Holiday',
-//       description: 'This is Holiday'
-//     }
-//   },
-//   // Other events
-//   {
-//     title: 'Ko Ko Kyaw', date: '2024-07-04', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   },
-//   {
-//     title: 'Ko Ko Kyaw 2', date: '2024-07-02', display: '', extendedProps: {
-//       fullName: 'Ko Ko Kyaw 2',
-//       leaveType: 'Annual',
-//       phone: '09-87654321',
-//       reason: 'Personal'
-//     }
-//   }
-// ],

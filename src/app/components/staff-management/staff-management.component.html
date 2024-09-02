@@ -3,14 +3,15 @@
         <p class="header">Staff List</p>
     </div>
     <div class="d-flex align-items-center justify-content-between mb-4">
-        <button nz-button nzType="primary" (click)="staffCreateClick()">Create Staff</button>
+        <button nz-button nzType="primary" (click)="createStaff()">Create Staff</button>
         <div class="list-style">
             <span class="fi fi-rr-list" [class.active]="listStyle == 'row'" (click)="listStyle='row'"></span>
             <span class="fi fi-rr-rectangles-mixed" [class.active]="listStyle == 'card'"
                 (click)="listStyle='card'"></span>
         </div>
     </div>
-    
+    <!-- <p *ngIf="staffListLoading">loading...</p> -->
+    <nz-skeleton *ngIf="staffListLoading" [nzActive]="true"></nz-skeleton>
     <!-- row list view -->
     <div class="staff-row-list-wrapper" *ngIf="listStyle == 'row'">
         <ng-container *ngFor="let staff of staffListData">
@@ -69,13 +70,12 @@
 <nz-modal [(nzVisible)]="staffCreateEditModal" [nzFooter]="null" nzTitle="Staff" (nzOnCancel)="closeModal()"
     (nzOnOk)="closeModal()">
     <ng-container *nzModalContent>
-        <nz-alert class="mb-4" *ngIf="createEditBtnError.visable"
-         nzType="error" [nzMessage]="createEditBtnError.message" [nzAction]="errorAlertClose">
+        <nz-alert class="mb-4" *ngIf="createEditError.visable"
+         nzType="error" [nzMessage]="createEditError.message" [nzAction]="errorAlertClose">
             <ng-template #errorAlertClose>
-                <span class="fi fi-br-cross" (click)="createEditBtnError.visable = !createEditBtnError.visable"></span>
+                <span class="fi fi-br-cross" (click)="createEditError.visable = !createEditError.visable"></span>
             </ng-template>
         </nz-alert>
-        <!-- <p style="color:red" >{{createEditBtnError.message}}</p> -->
         <form nz-form [nzLayout]="'horizontal'" [formGroup]="staffForm">
             <div class="step-container">
                 <nz-steps [nzCurrent]="setpCurrent" [nzSize]="'small'">

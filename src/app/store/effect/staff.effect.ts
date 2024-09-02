@@ -20,25 +20,25 @@ export class StaffEffect {
             ofType(staffAction.loadStaff),
             mergeMap(() => {
                 return this.staffService.getAllStaff().pipe(
-                        map((staff: Staff[]) => staffAction.loadStaffSuccess({ staff })),
+                        map((staffList: Staff[]) => staffAction.loadStaffSuccess({ staffList })),
                         catchError(error => of(staffAction.loadStaffFail({ error: error.Message })))
                     );
             })
         )
     );
 
-    createStaff$ = createEffect(() =>
-        this.actions.pipe(
-            ofType(staffAction.createStaff),
-            mergeMap((action) => {
-                return this.staffService.createStaff(action.staff).pipe(
-                    map((action: any) => {
-                        return staffAction.createStaffSuccess();
-                    }),
-                    catchError(error => of(staffAction.createStaffFail({ error: error.message })))
-                )
-            })
-        )
-    );
+    // createStaff$ = createEffect(() =>
+    //     this.actions.pipe(
+    //         ofType(staffAction.createStaff),
+    //         mergeMap((action) => {
+    //             return this.staffService.createStaff(action.staff).pipe(
+    //                 map((action: any) => {
+    //                     return staffAction.createStaffSuccess();
+    //                 }),
+    //                 catchError(error => of(staffAction.createStaffFail({ error: error.message })))
+    //             )
+    //         })
+    //     )
+    // );
 
 }

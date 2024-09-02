@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   // constructor(private appService: AppDataInitService) { }
   ngOnInit(): void {
     // this.actions.appDataInit();
-    this.store.dispatch(holidayAction.loadHolidays());
-    this.store.dispatch(StaffActions.loadStaff());
+    // this.store.dispatch(holidayAction.loadHolidays());
+    // this.store.dispatch(StaffActions.loadStaff());
   }
 }

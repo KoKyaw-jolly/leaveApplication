@@ -50,10 +50,10 @@ export class TestNgrxComponent implements OnInit {
   ngOnInit(): void {
     // this.store.dispatch(loadFruit());
     // this.store.dispatch(staffAction.loadStaff());
-    this.store.dispatch(staffAction.loadStaff());
+    // this.store.dispatch(staffAction.loadStaff());
     this.store.select(selectStaffs).subscribe(res => {
       // this.staffList$ = res.staffList ?? [];
-      this.loading$ = res.loading;
+      this.loading$ = res.listLoading;
       console.log(res);
     })
   }

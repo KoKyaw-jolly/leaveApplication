@@ -22,6 +22,7 @@ import { holidayReducer } from './app/store/reducer/holiday.reducer';
 import { HolidayEffect } from './app/store/effect/holiday.effect';
 import { leaveReducer } from './app/store/reducer/leave.reducer';
 import { LeaveEffect } from './app/store/effect/leave.effect';
+import { generalSettingReducer } from './app/store/reducer/general-setting.reducer';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -37,7 +38,8 @@ bootstrapApplication(AppComponent, {
           authInfo: authReducer,
           staff: staffReducer,
           holidays: holidayReducer,
-          leave: leaveReducer
+          leave: leaveReducer,
+          generalSetting: generalSettingReducer
         },
         {
           metaReducers,

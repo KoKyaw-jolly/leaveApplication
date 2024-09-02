@@ -21,6 +21,10 @@
         },
         {
           "type": "route",
+          "uuid": "d5277abc-4147-4da9-9b1a-c55e3f13c17b"
+        },
+        {
+          "type": "route",
           "uuid": "086f6a63-a0b4-47b9-bb4c-ab9771729862"
         }
       ]
@@ -46,6 +50,18 @@
         {
           "type": "route",
           "uuid": "b7ab3382-4567-4e6c-ad63-1b8ea50bad76"
+        },
+        {
+          "type": "route",
+          "uuid": "d2652445-49d4-48ce-bebe-ed8dd67f231e"
+        },
+        {
+          "type": "route",
+          "uuid": "14de7023-c549-4b1c-942b-7c29f57a8d59"
+        },
+        {
+          "type": "route",
+          "uuid": "5f74bf27-4900-4452-8bcd-23d24911bc0a"
         }
       ]
     },
@@ -64,6 +80,14 @@
         {
           "type": "route",
           "uuid": "9c23ea33-e4e1-4801-8cf1-238b00e5cbfc"
+        },
+        {
+          "type": "route",
+          "uuid": "88152ad2-aee1-428e-9602-2a81e8d8696c"
+        },
+        {
+          "type": "route",
+          "uuid": "8937017c-0725-4188-82e8-864a271cece3"
         }
       ]
     }
@@ -78,8 +102,8 @@
       "responses": [
         {
           "uuid": "d90c5406-a362-42e4-89b3-4a77e71f4c28",
-          "body": "[\n    {\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 2,\n        \"fullName\": \"Jane Smith\",\n        \"image\": \"sample.png\",\n        \"email\": \"jane.smith@example.com\",\n        \"phone\": \"123-456-7891\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Marketing Manager\",\n        \"department\": \"Marketing\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 3,\n        \"fullName\": \"Alice Johnson\",\n        \"image\": \"sample.png\",\n        \"email\": \"alice.johnson@example.com\",\n        \"phone\": \"123-456-7892\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"HR Specialist\",\n        \"department\": \"Human Resources\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 3,\n                \"remainingDays\": 1\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 15,\n                \"remainingDays\": 13\n            }\n        ]\n    },\n    {\n        \"staffId\": 4,\n        \"fullName\": \"Bob Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"bob.brown@example.com\",\n        \"phone\": \"123-456-7893\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Finance Manager\",\n        \"department\": \"Finance\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 25,\n                \"remainingDays\": 20\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 7\n            }\n        ]\n    },\n    {\n        \"staffId\": 5,\n        \"fullName\": \"Chris Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"chris.green@example.com\",\n        \"phone\": \"123-456-7894\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Product Manager\",\n        \"department\": \"Product\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 6,\n        \"fullName\": \"Dana White\",\n        \"image\": \"sample.png\",\n        \"email\": \"dana.white@example.com\",\n        \"phone\": \"123-456-7895\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Operations Manager\",\n        \"department\": \"Operations\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 7,\n        \"fullName\": \"Eve Black\",\n        \"image\": \"sample.png\",\n        \"email\": \"eve.black@example.com\",\n        \"phone\": \"123-456-7896\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Sales Executive\",\n        \"department\": \"Sales\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 11\n            }\n        ]\n    },\n    {\n        \"staffId\": 8,\n        \"fullName\": \"Frank Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"frank.brown@example.com\",\n        \"phone\": \"123-456-7897\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Engineering Manager\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 22,\n                \"remainingDays\": 18\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 9,\n        \"fullName\": \"Grace Blue\",\n        \"image\": \"sample.png\",\n        \"email\": \"grace.blue@example.com\",\n        \"phone\": \"123-456-7898\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 10,\n        \"fullName\": \"Henry Gray\",\n        \"image\": \"sample.png\",\n        \"email\": \"henry.gray@example.com\",\n        \"phone\": \"123-456-7899\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"QA Engineer\",\n        \"department\": \"Quality Assurance\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 16\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 11,\n        \"fullName\": \"Ivy Orange\",\n        \"image\": \"sample.png\",\n        \"email\": \"ivy.orange@example.com\",\n        \"phone\": \"123-456-7800\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Support Engineer\",\n        \"department\": \"Support\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 12,\n        \"fullName\": \"Jack Yellow\",\n        \"image\": \"sample.png\",\n        \"email\": \"jack.yellow@example.com\",\n        \"phone\": \"123-456-7801\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Network Administrator\",\n        \"department\": \"IT\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 13,\n        \"fullName\": \"Kevin White\",\n        \"image\": \"sample.png\",\n        \"email\": \"kevin.white@example.com\",\n        \"phone\": \"123-456-7802\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Data Analyst\",\n        \"department\": \"Data\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 14,\n        \"fullName\": \"Lily Green\",\n        \"image\": \"sample.png\",\n        \"email\": \"lily.green@example.com\",\n        \"phone\": \"123-456-7803\",\n        \"address\": \"456 Oak St, Villagetown, CA 12345\",\n        \"position\": \"UX Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 15,\n        \"fullName\": \"Mike Brown\",\n        \"image\": \"sample.png\",\n        \"email\": \"mike.brown@example.com\",\n        \"phone\": \"123-456-7804\",\n        \"address\": \"789 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Backend Developer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 17\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    }\n]",
-          "latency": 1000,
+          "body": "[\n    {\n        \"staffId\": 1,\n        \"fullName\": \"John Doe\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"john.doe@example.com\",\n        \"phone\": \"123-456-7890\",\n        \"address\": \"123 Main St, Cityville, CA 12345\",\n        \"position\": \"Software Engineer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 2,\n        \"fullName\": \"Jane Smith\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"jane.smith@example.com\",\n        \"phone\": \"123-456-7891\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Marketing Manager\",\n        \"department\": \"Marketing\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 3,\n        \"fullName\": \"Alice Johnson\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"alice.johnson@example.com\",\n        \"phone\": \"123-456-7892\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"HR Specialist\",\n        \"department\": \"Human Resources\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 3,\n                \"remainingDays\": 1\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 15,\n                \"remainingDays\": 13\n            }\n        ]\n    },\n    {\n        \"staffId\": 4,\n        \"fullName\": \"Bob Brown\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"bob.brown@example.com\",\n        \"phone\": \"123-456-7893\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Finance Manager\",\n        \"department\": \"Finance\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 25,\n                \"remainingDays\": 20\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 7\n            }\n        ]\n    },\n    {\n        \"staffId\": 5,\n        \"fullName\": \"Chris Green\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"chris.green@example.com\",\n        \"phone\": \"123-456-7894\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Product Manager\",\n        \"department\": \"Product\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 6,\n        \"fullName\": \"Dana White\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"dana.white@example.com\",\n        \"phone\": \"123-456-7895\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Operations Manager\",\n        \"department\": \"Operations\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 7,\n        \"fullName\": \"Eve Black\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"eve.black@example.com\",\n        \"phone\": \"123-456-7896\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Sales Executive\",\n        \"department\": \"Sales\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 11\n            }\n        ]\n    },\n    {\n        \"staffId\": 8,\n        \"fullName\": \"Frank Brown\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"frank.brown@example.com\",\n        \"phone\": \"123-456-7897\",\n        \"address\": \"456 Elm St, Townsville, CA 12345\",\n        \"position\": \"Engineering Manager\",\n        \"department\": \"Engineering\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 22,\n                \"remainingDays\": 18\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 9,\n        \"fullName\": \"Grace Blue\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"grace.blue@example.com\",\n        \"phone\": \"123-456-7898\",\n        \"address\": \"789 Oak St, Villagetown, CA 12345\",\n        \"position\": \"Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 6,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 10,\n        \"fullName\": \"Henry Gray\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"henry.gray@example.com\",\n        \"phone\": \"123-456-7899\",\n        \"address\": \"123 Pine St, Smalltown, CA 12345\",\n        \"position\": \"QA Engineer\",\n        \"department\": \"Quality Assurance\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 16\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 11,\n        \"fullName\": \"Ivy Orange\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"ivy.orange@example.com\",\n        \"phone\": \"123-456-7800\",\n        \"address\": \"456 Maple St, Uptown, CA 12345\",\n        \"position\": \"Support Engineer\",\n        \"department\": \"Support\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 12\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 8\n            }\n        ]\n    },\n    {\n        \"staffId\": 12,\n        \"fullName\": \"Jack Yellow\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"jack.yellow@example.com\",\n        \"phone\": \"123-456-7801\",\n        \"address\": \"789 Birch St, Downtown, CA 12345\",\n        \"position\": \"Network Administrator\",\n        \"department\": \"IT\",\n        \"role\": \"Admin\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 15\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 3\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 12,\n                \"remainingDays\": 10\n            }\n        ]\n    },\n    {\n        \"staffId\": 13,\n        \"fullName\": \"Kevin White\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"kevin.white@example.com\",\n        \"phone\": \"123-456-7802\",\n        \"address\": \"123 Cedar St, Midtown, CA 12345\",\n        \"position\": \"Data Analyst\",\n        \"department\": \"Data\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 15,\n                \"remainingDays\": 10\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 4,\n                \"remainingDays\": 4\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    },\n    {\n        \"staffId\": 14,\n        \"fullName\": \"Lily Green\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"lily.green@example.com\",\n        \"phone\": \"123-456-7803\",\n        \"address\": \"456 Oak St, Villagetown, CA 12345\",\n        \"position\": \"UX Designer\",\n        \"department\": \"Design\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 18,\n                \"remainingDays\": 14\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 5\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 8,\n                \"remainingDays\": 6\n            }\n        ]\n    },\n    {\n        \"staffId\": 15,\n        \"fullName\": \"Mike Brown\",\n        \"image\": \"sample.png\",\n        \"gender\": \"male\",\n        \"email\": \"mike.brown@example.com\",\n        \"phone\": \"123-456-7804\",\n        \"address\": \"789 Pine St, Smalltown, CA 12345\",\n        \"position\": \"Backend Developer\",\n        \"department\": \"Engineering\",\n        \"role\": \"Staff\",\n        \"leaveBalance\": [\n            {\n                \"leaveType\": \"Annual\",\n                \"totalDays\": 20,\n                \"remainingDays\": 17\n            },\n            {\n                \"leaveType\": \"OffInLieu\",\n                \"totalDays\": 5,\n                \"remainingDays\": 2\n            },\n            {\n                \"leaveType\": \"Medical\",\n                \"totalDays\": 10,\n                \"remainingDays\": 9\n            }\n        ]\n    }\n]",
+          "latency": 9000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -117,7 +141,7 @@
         {
           "uuid": "e57d11e4-9c33-4fc4-91ab-bb4cd6293ee7",
           "body": "{\n  \"status\": \"OK\"\n}",
-          "latency": 3000,
+          "latency": 9000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -314,7 +338,7 @@
         {
           "uuid": "68b48a6a-df7e-4e27-b426-872e7c43d137",
           "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
-          "latency": 0,
+          "latency": 3000,
           "statusCode": 400,
           "label": "",
           "headers": [
@@ -367,7 +391,7 @@
         {
           "uuid": "c32becc9-93b7-4c98-896d-919e2419f0b2",
           "body": "{\n  \"status\": \"OK\"\n}",
-          "latency": 0,
+          "latency": 3000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -389,6 +413,25 @@
           "disableTemplating": false,
           "fallbackTo404": false,
           "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "75fa9614-ee59-4827-897b-a0036cc5a3d9",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
           "crudKey": "id",
           "callbacks": []
         }
@@ -443,7 +486,7 @@
         {
           "uuid": "2ca7fa9d-0334-48af-b200-9a61f95e3ec1",
           "body": "{\n  \"status\": \"OK\"\n}",
-          "latency": 3000,
+          "latency": 9000,
           "statusCode": 200,
           "label": "",
           "headers": [
@@ -503,7 +546,7 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "api/leave/leave-records/all",
+      "endpoint": "api/leave/leave-records/all-leave-records",
       "responses": [
         {
           "uuid": "a710cea2-37ec-4c2d-ba91-2e5d59b7fecc",
@@ -560,7 +603,7 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "api/leave/leave-records/user",
+      "endpoint": "api/leave/leave-records/user-leave-records",
       "responses": [
         {
           "uuid": "5b566fe2-3b67-4ec8-bace-29916ee48996",
@@ -606,6 +649,377 @@
           "disableTemplating": false,
           "fallbackTo404": false,
           "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "d2652445-49d4-48ce-bebe-ed8dd67f231e",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/holidays/holiday/create",
+      "responses": [
+        {
+          "uuid": "78258d44-c085-4cd3-902c-b91d3b4f5bfc",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "holiday",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0b0a1b2e-6e81-4f72-810c-e117f35283f7",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "FALLBACK"
+    },
+    {
+      "uuid": "5f74bf27-4900-4452-8bcd-23d24911bc0a",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/holidays/holiday/delete",
+      "responses": [
+        {
+          "uuid": "b9272f5a-bdfc-4b0e-9f84-793b2069ae75",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0eed2449-a30b-49f5-ade5-3befcf3e7220",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "14de7023-c549-4b1c-942b-7c29f57a8d59",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/holidays/holiday/edit",
+      "responses": [
+        {
+          "uuid": "f0d010b6-76d6-4f34-be46-8b169ee875ac",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "holiday",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "db842a46-42d6-4820-b868-1c343d1cdd4b",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "FALLBACK"
+    },
+    {
+      "uuid": "d5277abc-4147-4da9-9b1a-c55e3f13c17b",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/staffs/staff/edit",
+      "responses": [
+        {
+          "uuid": "70fa7025-32cd-41c1-9bfb-6ee0191824e4",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "Ko Ko Kyaw",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "45e924f3-bef7-4c26-8674-26fbf9997284",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "FALLBACK"
+    },
+    {
+      "uuid": "88152ad2-aee1-428e-9602-2a81e8d8696c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/leave/leave-calendar/all",
+      "responses": [
+        {
+          "uuid": "cd97b927-ad04-4943-8788-5de3063cb859",
+          "body": "[\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Ko Ko Kyaw\",\n        \"applyDate\": \"2024-07-01\",\n        \"leaveType\": \"Off-In-Lieu\",\n        \"takenDays\": 1,\n        \"startDate\": \"2024-07-01\",\n        \"endDate\": \"2024-07-03\",\n        \"phoneDuringLeave\": \"0912334234\",\n        \"reason\": \"I need to take a day off to compensate for working on a public holiday.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Ko Ko Kyaw\",\n        \"applyDate\": \"2024-08-01\",\n        \"leaveType\": \"Medical Leave\",\n        \"takenDays\": 3,\n        \"startDate\": \"2024-08-04\",\n        \"endDate\": \"2024-08-06\",\n        \"phoneDuringLeave\": \"0912334234\",\n        \"reason\": \"I need medical leave to recover from a minor surgery I have undergone.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Ko Ko Kyaw\",\n        \"applyDate\": \"2024-09-01\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 5,\n        \"startDate\": \"2024-09-10\",\n        \"endDate\": \"2024-09-14\",\n        \"phoneDuringLeave\": \"0912334234\",\n        \"reason\": \"I'm planning a trip with my family for a few days to relax and unwind.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Aung Aung\",\n        \"applyDate\": \"2024-07-05\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 2,\n        \"startDate\": \"2024-07-10\",\n        \"endDate\": \"2024-07-11\",\n        \"phoneDuringLeave\": \"0912334235\",\n        \"reason\": \"I have a family event that requires my presence for two days.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Thiri Thiri\",\n        \"applyDate\": \"2024-07-08\",\n        \"leaveType\": \"Medical Leave\",\n        \"takenDays\": 3,\n        \"startDate\": \"2024-07-15\",\n        \"endDate\": \"2024-07-17\",\n        \"phoneDuringLeave\": \"0912334236\",\n        \"reason\": \"I have a medical condition that requires immediate attention and rest.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Mya Mya\",\n        \"applyDate\": \"2024-07-12\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 5,\n        \"startDate\": \"2024-07-20\",\n        \"endDate\": \"2024-07-24\",\n        \"phoneDuringLeave\": \"0912334237\",\n        \"reason\": \"I am planning a vacation with my family and need time off to travel and rest.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Zaw Zaw\",\n        \"applyDate\": \"2024-07-18\",\n        \"leaveType\": \"Unpaid Leave\",\n        \"takenDays\": 1,\n        \"startDate\": \"2024-07-19\",\n        \"endDate\": \"2024-07-19\",\n        \"phoneDuringLeave\": \"0912334238\",\n        \"reason\": \"I need to attend a personal event that is important and cannot be rescheduled.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Hla Hla\",\n        \"applyDate\": \"2024-07-22\",\n        \"leaveType\": \"Off-In-Lieu\",\n        \"takenDays\": 2,\n        \"startDate\": \"2024-07-25\",\n        \"endDate\": \"2024-07-26\",\n        \"phoneDuringLeave\": \"0912334239\",\n        \"reason\": \"I worked extra hours last week and need time off to recover and balance work-life.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Moe Moe\",\n        \"applyDate\": \"2024-07-25\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 4,\n        \"startDate\": \"2024-07-29\",\n        \"endDate\": \"2024-08-01\",\n        \"phoneDuringLeave\": \"0912334240\",\n        \"reason\": \"I have planned a family trip for relaxation and to spend quality time with loved ones.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Kyaw Kyaw\",\n        \"applyDate\": \"2024-07-29\",\n        \"leaveType\": \"Medical Leave\",\n        \"takenDays\": 2,\n        \"startDate\": \"2024-08-01\",\n        \"endDate\": \"2024-08-02\",\n        \"phoneDuringLeave\": \"0912334241\",\n        \"reason\": \"I have a scheduled doctor's appointment and need time to recover after treatment.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Soe Soe\",\n        \"applyDate\": \"2024-08-05\",\n        \"leaveType\": \"Unpaid Leave\",\n        \"takenDays\": 1,\n        \"startDate\": \"2024-08-06\",\n        \"endDate\": \"2024-08-06\",\n        \"phoneDuringLeave\": \"0912334242\",\n        \"reason\": \"I have an urgent personal matter that requires my immediate attention.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Nyein Nyein\",\n        \"applyDate\": \"2024-08-08\",\n        \"leaveType\": \"Off-In-Lieu\",\n        \"takenDays\": 1,\n        \"startDate\": \"2024-08-10\",\n        \"endDate\": \"2024-08-10\",\n        \"phoneDuringLeave\": \"0912334243\",\n        \"reason\": \"I worked during a public holiday and need to take compensatory leave to rest.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Aung Aung\",\n        \"applyDate\": \"2024-09-01\",\n        \"leaveType\": \"Medical Leave\",\n        \"takenDays\": 2,\n        \"startDate\": \"2024-09-03\",\n        \"endDate\": \"2024-09-04\",\n        \"phoneDuringLeave\": \"0912334235\",\n        \"reason\": \"I need to visit the doctor for a scheduled check-up and rest afterwards.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Thiri Thiri\",\n        \"applyDate\": \"2024-09-05\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 3,\n        \"startDate\": \"2024-09-10\",\n        \"endDate\": \"2024-09-12\",\n        \"phoneDuringLeave\": \"0912334236\",\n        \"reason\": \"I need to attend a family gathering that is scheduled for several days.\"\n    },\n    {\n        \"eventType\": \"leave\",\n        \"fullName\": \"Zaw Zaw\",\n        \"applyDate\": \"2024-09-07\",\n        \"leaveType\": \"Annual Leave\",\n        \"takenDays\": 4,\n        \"startDate\": \"2024-09-11\",\n        \"endDate\": \"2024-09-14\",\n        \"phoneDuringLeave\": \"0912334238\",\n        \"reason\": \"I'm planning a trip to visit relatives and need time off for travel and relaxation.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"New Year's Day\",\n        \"startDate\": \"2024-01-01\",\n        \"endDate\": \"\",\n        \"description\": \"The first day of the year, celebrated with various festivities and traditions.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Union Day\",\n        \"startDate\": \"2024-02-12\",\n        \"endDate\": \"\",\n        \"description\": \"Commemorates the signing of the Panglong Agreement in 1947, which paved the way for independence.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Peasants' Day\",\n        \"startDate\": \"2024-03-02\",\n        \"endDate\": \"\",\n        \"description\": \"A day to honor and recognize the contributions of farmers and agricultural workers.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Full Moon Day of Tabaung\",\n        \"startDate\": \"2024-03-25\",\n        \"endDate\": \"\",\n        \"description\": \"A Buddhist festival marking the end of the month of Tabaung.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Armed Forces Day\",\n        \"startDate\": \"2024-03-27\",\n        \"endDate\": \"\",\n        \"description\": \"Celebrates the founding of the modern Myanmar military in 1945.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Thingyan Festival\",\n        \"startDate\": \"2024-04-13\",\n        \"endDate\": \"\",\n        \"description\": \"The Myanmar New Year Water Festival, celebrated with water throwing and various cultural activities.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Labor Day\",\n        \"startDate\": \"2024-05-01\",\n        \"endDate\": \"\",\n        \"description\": \"An international holiday to celebrate workers and labor movements.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Full Moon Day of Kason\",\n        \"startDate\": \"2024-05-23\",\n        \"endDate\": \"\",\n        \"description\": \"Marks the day when Buddha was born, attained enlightenment, and passed away.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Martyrs' Day\",\n        \"startDate\": \"2024-07-19\",\n        \"endDate\": \"\",\n        \"description\": \"Commemorates the assassination of General Aung San and eight others in 1947.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Full Moon Day of Waso\",\n        \"startDate\": \"2024-07-21\",\n        \"endDate\": \"\",\n        \"description\": \"Marks the beginning of the Buddhist Lent, a time of retreat and meditation.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Full Moon Day of Thadingyut\",\n        \"startDate\": \"2024-10-15\",\n        \"endDate\": \"\",\n        \"description\": \"Marks the end of the Buddhist Lent, celebrated with lighting festivals and merit-making.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Full Moon Day of Tazaungmone\",\n        \"startDate\": \"2024-11-13\",\n        \"endDate\": \"\",\n        \"description\": \"Celebrates the offering of new robes to monks and the lighting of oil lamps.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"National Day\",\n        \"startDate\": \"2024-11-23\",\n        \"endDate\": \"\",\n        \"description\": \"Commemorates the start of the student-led protests against British rule in 1920.\"\n    },\n    {\n        \"eventType\": \"holiday\",\n        \"name\": \"Christmas Day\",\n        \"startDate\": \"2024-12-25\",\n        \"endDate\": \"\",\n        \"description\": \"Celebrates the birth of Jesus Christ, observed by the Christian community in Myanmar.\"\n    }\n]",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f7b984b1-024f-4bc2-b0d7-9754f5ff10bc",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "8937017c-0725-4188-82e8-864a271cece3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/leave/leave-report",
+      "responses": [
+        {
+          "uuid": "5d3a54ce-b296-4780-a635-42a1d89ef3f4",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-07-01\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-07-01\",\n    \"endDate\": \"2024-07-03\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need to take a day off to compensate for working on a public holiday.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"2\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-08-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-08-04\",\n    \"endDate\": \"2024-08-06\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I need medical leave to recover from a minor surgery I have undergone.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"3\",\n    \"staffId\": \"1\",\n    \"fullName\": \"Ko Ko Kyaw\",\n    \"applyDate\": \"2024-09-01\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 5,\n    \"startDate\": \"2024-09-10\",\n    \"endDate\": \"2024-09-14\",\n    \"phoneDuringLeave\": \"0912334234\",\n    \"reason\": \"I'm planning a trip with my family for a few days to relax and unwind.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"4\",\n    \"staffId\": \"2\",\n    \"fullName\": \"Aung Aung\",\n    \"applyDate\": \"2024-07-05\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-07-10\",\n    \"endDate\": \"2024-07-11\",\n    \"phoneDuringLeave\": \"0912334235\",\n    \"reason\": \"I have a family event that requires my presence for two days.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"5\",\n    \"staffId\": \"3\",\n    \"fullName\": \"Thiri Thiri\",\n    \"applyDate\": \"2024-07-08\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-07-15\",\n    \"endDate\": \"2024-07-17\",\n    \"phoneDuringLeave\": \"0912334236\",\n    \"reason\": \"I have a medical condition that requires immediate attention and rest.\",\n    \"leaveStatus\": \"Rejected\"\n  },\n  {\n    \"id\": \"6\",\n    \"staffId\": \"4\",\n    \"fullName\": \"Mya Mya\",\n    \"applyDate\": \"2024-07-12\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 5,\n    \"startDate\": \"2024-07-20\",\n    \"endDate\": \"2024-07-24\",\n    \"phoneDuringLeave\": \"0912334237\",\n    \"reason\": \"I am planning a vacation with my family and need time off to travel and rest.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"7\",\n    \"staffId\": \"5\",\n    \"fullName\": \"Zaw Zaw\",\n    \"applyDate\": \"2024-07-18\",\n    \"leaveType\": \"Unpaid Leave\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-07-19\",\n    \"endDate\": \"2024-07-19\",\n    \"phoneDuringLeave\": \"0912334238\",\n    \"reason\": \"I need to attend a personal event that is important and cannot be rescheduled.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"8\",\n    \"staffId\": \"6\",\n    \"fullName\": \"Hla Hla\",\n    \"applyDate\": \"2024-07-22\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-07-25\",\n    \"endDate\": \"2024-07-26\",\n    \"phoneDuringLeave\": \"0912334239\",\n    \"reason\": \"I worked extra hours last week and need time off to recover and balance work-life.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"9\",\n    \"staffId\": \"7\",\n    \"fullName\": \"Moe Moe\",\n    \"applyDate\": \"2024-07-25\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 4,\n    \"startDate\": \"2024-07-29\",\n    \"endDate\": \"2024-08-01\",\n    \"phoneDuringLeave\": \"0912334240\",\n    \"reason\": \"I have planned a family trip for relaxation and to spend quality time with loved ones.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"10\",\n    \"staffId\": \"8\",\n    \"fullName\": \"Kyaw Kyaw\",\n    \"applyDate\": \"2024-07-29\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-08-01\",\n    \"endDate\": \"2024-08-02\",\n    \"phoneDuringLeave\": \"0912334241\",\n    \"reason\": \"I have a scheduled doctor's appointment and need time to recover after treatment.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"11\",\n    \"staffId\": \"9\",\n    \"fullName\": \"Soe Soe\",\n    \"applyDate\": \"2024-08-05\",\n    \"leaveType\": \"Unpaid Leave\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-08-06\",\n    \"endDate\": \"2024-08-06\",\n    \"phoneDuringLeave\": \"0912334242\",\n    \"reason\": \"I have an urgent personal matter that requires my immediate attention.\",\n    \"leaveStatus\": \"Pending\"\n  },\n  {\n    \"id\": \"12\",\n    \"staffId\": \"10\",\n    \"fullName\": \"Nyein Nyein\",\n    \"applyDate\": \"2024-08-08\",\n    \"leaveType\": \"Off-In-Lieu\",\n    \"takenDays\": 1,\n    \"startDate\": \"2024-08-10\",\n    \"endDate\": \"2024-08-10\",\n    \"phoneDuringLeave\": \"0912334243\",\n    \"reason\": \"I worked during a public holiday and need to take compensatory leave to rest.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"13\",\n    \"staffId\": \"2\",\n    \"fullName\": \"Aung Aung\",\n    \"applyDate\": \"2024-09-01\",\n    \"leaveType\": \"Medical Leave\",\n    \"takenDays\": 2,\n    \"startDate\": \"2024-09-03\",\n    \"endDate\": \"2024-09-04\",\n    \"phoneDuringLeave\": \"0912334235\",\n    \"reason\": \"I need to visit the doctor for a scheduled check-up and rest afterwards.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"14\",\n    \"staffId\": \"3\",\n    \"fullName\": \"Thiri Thiri\",\n    \"applyDate\": \"2024-09-05\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 3,\n    \"startDate\": \"2024-09-10\",\n    \"endDate\": \"2024-09-12\",\n    \"phoneDuringLeave\": \"0912334236\",\n    \"reason\": \"I need to attend a family gathering that is scheduled for several days.\",\n    \"leaveStatus\": \"Approved\"\n  },\n  {\n    \"id\": \"15\",\n    \"staffId\": \"5\",\n    \"fullName\": \"Zaw Zaw\",\n    \"applyDate\": \"2024-09-07\",\n    \"leaveType\": \"Annual Leave\",\n    \"takenDays\": 4,\n    \"startDate\": \"2024-09-11\",\n    \"endDate\": \"2024-09-14\",\n    \"phoneDuringLeave\": \"0912334238\",\n    \"reason\": \"I'm planning a trip to visit relatives and need time off for travel and relaxation.\",\n    \"leaveStatus\": \"Approved\"\n  }\n]",
+          "latency": 3000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
           "crudKey": "id",
           "callbacks": []
         }

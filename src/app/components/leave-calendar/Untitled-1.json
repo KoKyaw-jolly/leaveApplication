@@ -1,0 +1,152 @@
+[
+    {
+        "fullName": "Ko Ko Kyaw",
+        "applyDate": "2024-07-01",
+        "leaveType": "Off-In-Lieu",
+        "takenDays": 1,
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-03",
+        "phoneDuringLeave": "0912334234",
+        "reason": "I need to take a day off to compensate for working on a public holiday."
+    },
+    {
+        "fullName": "Ko Ko Kyaw",
+        "applyDate": "2024-08-01",
+        "leaveType": "Medical Leave",
+        "takenDays": 3,
+        "startDate": "2024-08-04",
+        "endDate": "2024-08-06",
+        "phoneDuringLeave": "0912334234",
+        "reason": "I need medical leave to recover from a minor surgery I have undergone."
+    },
+    {
+        "fullName": "Ko Ko Kyaw",
+        "applyDate": "2024-09-01",
+        "leaveType": "Annual Leave",
+        "takenDays": 5,
+        "startDate": "2024-09-10",
+        "endDate": "2024-09-14",
+        "phoneDuringLeave": "0912334234",
+        "reason": "I'm planning a trip with my family for a few days to relax and unwind."
+    },
+    {
+        "fullName": "Aung Aung",
+        "applyDate": "2024-07-05",
+        "leaveType": "Annual Leave",
+        "takenDays": 2,
+        "startDate": "2024-07-10",
+        "endDate": "2024-07-11",
+        "phoneDuringLeave": "0912334235",
+        "reason": "I have a family event that requires my presence for two days."
+    },
+    {
+        "fullName": "Thiri Thiri",
+        "applyDate": "2024-07-08",
+        "leaveType": "Medical Leave",
+        "takenDays": 3,
+        "startDate": "2024-07-15",
+        "endDate": "2024-07-17",
+        "phoneDuringLeave": "0912334236",
+        "reason": "I have a medical condition that requires immediate attention and rest."
+    },
+    {
+        "fullName": "Mya Mya",
+        "applyDate": "2024-07-12",
+        "leaveType": "Annual Leave",
+        "takenDays": 5,
+        "startDate": "2024-07-20",
+        "endDate": "2024-07-24",
+        "phoneDuringLeave": "0912334237",
+        "reason": "I am planning a vacation with my family and need time off to travel and rest."
+    },
+    {
+        "fullName": "Zaw Zaw",
+        "applyDate": "2024-07-18",
+        "leaveType": "Unpaid Leave",
+        "takenDays": 1,
+        "startDate": "2024-07-19",
+        "endDate": "2024-07-19",
+        "phoneDuringLeave": "0912334238",
+        "reason": "I need to attend a personal event that is important and cannot be rescheduled."
+    },
+    {
+        "fullName": "Hla Hla",
+        "applyDate": "2024-07-22",
+        "leaveType": "Off-In-Lieu",
+        "takenDays": 2,
+        "startDate": "2024-07-25",
+        "endDate": "2024-07-26",
+        "phoneDuringLeave": "0912334239",
+        "reason": "I worked extra hours last week and need time off to recover and balance work-life."
+    },
+    {
+        "fullName": "Moe Moe",
+        "applyDate": "2024-07-25",
+        "leaveType": "Annual Leave",
+        "takenDays": 4,
+        "startDate": "2024-07-29",
+        "endDate": "2024-08-01",
+        "phoneDuringLeave": "0912334240",
+        "reason": "I have planned a family trip for relaxation and to spend quality time with loved ones."
+    },
+    {
+        "fullName": "Kyaw Kyaw",
+        "applyDate": "2024-07-29",
+        "leaveType": "Medical Leave",
+        "takenDays": 2,
+        "startDate": "2024-08-01",
+        "endDate": "2024-08-02",
+        "phoneDuringLeave": "0912334241",
+        "reason": "I have a scheduled doctor's appointment and need time to recover after treatment."
+    },
+    {
+        "fullName": "Soe Soe",
+        "applyDate": "2024-08-05",
+        "leaveType": "Unpaid Leave",
+        "takenDays": 1,
+        "startDate": "2024-08-06",
+        "endDate": "2024-08-06",
+        "phoneDuringLeave": "0912334242",
+        "reason": "I have an urgent personal matter that requires my immediate attention."
+    },
+    {
+        "fullName": "Nyein Nyein",
+        "applyDate": "2024-08-08",
+        "leaveType": "Off-In-Lieu",
+        "takenDays": 1,
+        "startDate": "2024-08-10",
+        "endDate": "2024-08-10",
+        "phoneDuringLeave": "0912334243",
+        "reason": "I worked during a public holiday and need to take compensatory leave to rest."
+    },
+    {
+        "fullName": "Aung Aung",
+        "applyDate": "2024-09-01",
+        "leaveType": "Medical Leave",
+        "takenDays": 2,
+        "startDate": "2024-09-03",
+        "endDate": "2024-09-04",
+        "phoneDuringLeave": "0912334235",
+        "reason": "I need to visit the doctor for a scheduled check-up and rest afterwards."
+    },
+    {
+        "fullName": "Thiri Thiri",
+        "applyDate": "2024-09-05",
+        "leaveType": "Annual Leave",
+        "takenDays": 3,
+        "startDate": "2024-09-10",
+        "endDate": "2024-09-12",
+        "phoneDuringLeave": "0912334236",
+        "reason": "I need to attend a family gathering that is scheduled for several days."
+    },
+    {
+        "fullName": "Zaw Zaw",
+        "applyDate": "2024-09-07",
+        "leaveType": "Annual Leave",
+        "takenDays": 4,
+        "startDate": "2024-09-11",
+        "endDate": "2024-09-14",
+        "phoneDuringLeave": "0912334238",
+        "reason": "I'm planning a trip to visit relatives and need time off for travel and relaxation."
+    }
+]

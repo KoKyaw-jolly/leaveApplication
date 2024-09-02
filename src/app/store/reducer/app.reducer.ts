@@ -10,12 +10,15 @@ import { holidayInitialState } from "../state/holiday.state";
 import { holidayReducer } from "./holiday.reducer";
 import { leaveInitialState } from "../state/leave.state";
 import { leaveReducer } from "./leave.reducer";
+import { generalSettingReducer } from "./general-setting.reducer";
+import { generalSettingInitialState } from "../state/general-setting.state";
 
 export const appReducer: ActionReducerMap<AppState> = {
     authInfo: authReducer,
     staff: staffReducer,
     holidays: holidayReducer,
     leave: leaveReducer,
+    generalSetting: generalSettingReducer
 }
 
 const localStorageConfig: LocalStorageConfig = {
@@ -25,7 +28,10 @@ const localStorageConfig: LocalStorageConfig = {
     restoreDates: false,
     keys: [
         'authInfo',
-        'staff'
+        'staff',
+        'holidays',
+        'leave',
+        'generalSetting'
     ]
 }
 
@@ -39,6 +45,7 @@ export function clearState(reducer: ActionReducer<AppState>): ActionReducer<AppS
                 staff: staffInitialState,
                 holidays: holidayInitialState,
                 leave: leaveInitialState,
+                generalSetting : generalSettingInitialState
             }
         }
         return reducer(state, action);
@@ -49,4 +56,4 @@ export function storageSyncReducer(reducer: ActionReducer<AppState>) {
     return localStorageSync(localStorageConfig)(reducer);
 }
 
-export const metaReducers: MetaReducer<AppState>[] = [storageSyncReducer,clearState];
+export const metaReducers: MetaReducer<AppState>[] = [storageSyncReducer, clearState];

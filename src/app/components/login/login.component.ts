@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
 import { logOut } from '../../store/action/auth.action';
 import { Router } from '@angular/router';
+import { selectAuthUserInfo } from '../../store/selector/auth.selector';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   images = IMAGES;
+  loginLoding: boolean = false;
+  loginError: any;
+  loginForm!: FormGroup;
 
-  staffForm!: FormGroup;
   private appService = inject(AppDataInitService);
+
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
@@ -30,22 +34,28 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.staffForm = this.fb.group({
+    this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  submitForm(): void {
-    if (this.staffForm.valid) {
-      this.appService.appDataInit(this.staffForm.value);
+  loginClick(): void {
+    this.loginLoding = true;
+    if (this.loginForm.valid) {
+      this.appService.appDataInit(this.loginForm.value);
+      this.store.select(selectAuthUserInfo).subscribe(res => {
+        this.loginLoding = res.loading;
+        this.loginError = res.error;
+      })
     } else {
-      Object.values(this.staffForm.controls).forEach(control => {
+      Object.values(this.loginForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
         }
       });
+      this.loginLoding = false;
     }
   }
 }

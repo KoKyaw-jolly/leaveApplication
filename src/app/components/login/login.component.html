@@ -3,7 +3,11 @@
         <img [src]="images.SIP_LOGO" class="login-logo" alt="">
         <!-- <div class="login-header">Login</div> -->
         <div class="login-description">Login to Leave Application</div>
-        <form nz-form [formGroup]="staffForm" (submit)="submitForm()" [nzLayout]="'vertical'" class="login-form">
+        
+        <p nz-typography nzType="danger" *ngIf="loginError != null">
+            {{loginError.message ?? 'User Name or Password wrong!'}}
+        </p>
+        <form nz-form [formGroup]="loginForm" (submit)="loginClick()" [nzLayout]="'vertical'" class="login-form">
             <nz-form-item>
                 <nz-form-label nzFor="User Name">User Name</nz-form-label>
                 <nz-form-control [nzErrorTip]="usernameError">
@@ -32,7 +36,7 @@
                     </ng-container>
                 </ng-template>
             </nz-form-item>
-            <button nz-button nzType="primary" type="submit" class="mt-1 mb-3">Login</button>
+            <button nz-button nzType="primary" type="submit" class="mt-1 mb-3" [nzLoading]="loginLoding">Login</button>
         </form>
         <a href="www.startinpoint.com">Forget Password?</a>
     </div>
