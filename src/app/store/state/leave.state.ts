@@ -6,6 +6,7 @@ export interface LeaveState {
     calendarEvents: any[];
     leaveReportData: LeaveRecord[];
     loading: boolean;
+    applyLeaveLoading: boolean;
     error:any
 }
 export const leaveInitialState: LeaveState = {
@@ -14,5 +15,6 @@ export const leaveInitialState: LeaveState = {
     calendarEvents: [],
     leaveReportData: [],
     loading: false,
+    applyLeaveLoading: false,
     error: null
 }

@@ -13,3 +13,17 @@ export interface Staff {
     role: 'Admin' | 'Staff' | '';
     leaveBalance: LeaveTypeDetails[];
 }
+
+export const staffEmptyInitialObj: Staff = {
+    staffId: '',
+    fullName: '',
+    image: '',
+    gender: '',
+    position: '',
+    department: '',
+    email: '',
+    phone: '',
+    address: '',
+    role: '',
+    leaveBalance: []
+  }

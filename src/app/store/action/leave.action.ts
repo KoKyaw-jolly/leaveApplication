@@ -2,8 +2,8 @@ import { createAction, props } from "@ngrx/store";
 import { LeaveRecord } from "../../core/models/leave.interface";
 
 export const applyLeave = createAction('[Leave] apply leave', props<{ leaveData: LeaveRecord }>());
-export const applyLeaveSuccess = createAction('[Leave] apply leave');
-export const applyLeaveFail = createAction('[Leave] apply leave', props<{ error: any }>());
+export const applyLeaveSuccess = createAction('[Leave] apply leave success', props<{ msg: any }>());
+export const applyLeaveFail = createAction('[Leave] apply leave fail', props<{ error: any }>());
 
 export const loadLeaveRecordsAll = createAction('[Leave] load leave records all');
 export const loadLeaveRecordsAllSuccess = createAction('[Leave] load leave records all success', props<{ leaveRecordsAll: LeaveRecord[] }>());

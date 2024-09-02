@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
 import { UserLeaveSummaryComponent } from '../../share/components/user-leave-summary/user-leave-summary.component';
-import { DatePipe } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LeaveTypes } from '../../core/constants/leave.constant';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
 import { selectAuthUserInfo } from '../../store/selector/auth.selector';
 import { LeaveRecord } from '../../core/models/leave.interface';
-import { LeaveService } from '../../core/services/leave.service';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import * as leaveActions from '../../store/action/leave.action';
+import { Subscription } from 'rxjs';
+import { selectLeave } from '../../store/selector/leave.selector';
 
 @Component({
   selector: 'app-apply-leave',
@@ -21,7 +20,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   templateUrl: './apply-leave.component.html',
   styleUrl: './apply-leave.component.scss'
 })
-export class ApplyLeaveComponent implements OnInit {
+export class ApplyLeaveComponent implements OnInit, OnDestroy {
 
   applyLeaveForm: FormGroup;
   userInfo: any;
@@ -29,11 +28,11 @@ export class ApplyLeaveComponent implements OnInit {
 
   totalLeaveDays: number = 0;
 
+  private subscribe: Subscription = new Subscription();
+
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
-    private leaveService: LeaveService,
-    private message: NzMessageService
   ) {
     this.applyLeaveForm = this.fb.group({
       leaveType: ['', Validators.required],
@@ -44,21 +43,25 @@ export class ApplyLeaveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.select(selectAuthUserInfo).subscribe(res => {
-      this.userInfo = res.userInfo;
-    })
-  }
-
-  restartForm() {
-    this.applyLeaveForm.setValue({
-      leaveType: '',
-      dateRange: [],
-      phone: '',
-      reason: '',
-    });
-    this.applyLeaveForm.markAsUntouched();
-    this.applyLeaveForm.markAsPristine();
-    this.applyLeaveForm.reset();
+    this.subscribe.add(
+      this.store.select(selectAuthUserInfo).subscribe(res => {
+        this.userInfo = res.userInfo;
+      })
+    )
+    this.subscribe.add(
+      this.store.select(selectLeave).subscribe(res => {
+        this.applyLeaveLoading = res.applyLeaveLoading;
+        if (res.applyLeaveLoading) {
+          this.applyLeaveForm.disable();
+        } else if (res.applyLeaveLoading == false && res.error === null) {
+          this.applyLeaveForm.enable();
+          this.totalLeaveDays = 0;
+          this.applyLeaveForm.reset();
+        } else if (res.applyLeaveLoading == false && res.error != null) {
+          this.applyLeaveForm.enable();
+        }
+      })
+    )
   }
 
   onChange(result: any[]): void {
@@ -71,20 +74,15 @@ export class ApplyLeaveComponent implements OnInit {
   }
 
   onSubmit() {
-    this.applyLeaveLoading = true;
-    this.applyLeaveForm.disable();
-
-    if (this.applyLeaveForm.invalid) {
+    if (!this.applyLeaveForm.valid) {
       Object.values(this.applyLeaveForm.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
-        }
+        control.markAsDirty();
+        control.updateValueAndValidity();
       });
-      this.applyLeaveLoading = false;
-      this.applyLeaveForm.enable();
       return;
     } else {
+      this.applyLeaveForm.disable();
+      console.log('this.applyLeaveForm.value', this.applyLeaveForm.value);
       const applyLeaveData: LeaveRecord = {
         id: '',
         staffId: this.userInfo.staffId,
@@ -93,27 +91,12 @@ export class ApplyLeaveComponent implements OnInit {
         leaveType: this.undefinedCheck(this.applyLeaveForm.get('leaveType')?.value),
         takenDays: this.totalLeaveDays,
         startDate: this.undefinedCheck(this.applyLeaveForm.get('dateRange')?.value[0]),
-        endDate: this.undefinedCheck(this.applyLeaveForm.get('dateRange')?.value[0]),
+        endDate: this.undefinedCheck(this.applyLeaveForm.get('dateRange')?.value[1]),
         phoneDuringLeave: this.undefinedCheck(this.applyLeaveForm.get('phone')?.value),
         reason: this.undefinedCheck(this.applyLeaveForm.get('reason')?.value),
         leaveStatus: 'Pending'
       }
-
-      // this.leaveService.applyLeave(applyLeaveData).subscribe({
-      //   next: (res) => {
-      //     this.message.create('success', `Leave Apply Successfully!`);
-      //     this.restartForm();
-      //   },
-      //   error: (err) => {
-      //     this.message.create('error', `Leave Apply Failed!`);
-      //     this.applyLeaveLoading = false;
-      //     this.applyLeaveForm.enable();
-      //   },
-      //   complete: () => {
-      //     this.applyLeaveLoading = false;
-      //     this.applyLeaveForm.enable();
-      //   }
-      // })
+      this.store.dispatch(leaveActions.applyLeave({ leaveData: applyLeaveData }));
     }
   }
 
@@ -122,5 +105,9 @@ export class ApplyLeaveComponent implements OnInit {
       return '';
     }
     return value;
+  }
+
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
   }
 }

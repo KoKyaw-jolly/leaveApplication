@@ -141,17 +141,21 @@ export class LeaveReportComponent implements OnInit {
   ];
   leaveReportData: LeaveRecord[] = [];
   private leaveReportSubscription: Subscription | undefined;
+  private subscription: Subscription = new Subscription();
+
   constructor(
     private store: Store<AppState>,
   ) { }
 
   ngOnInit(): void {
     this.store.dispatch(leaveAction.loadLeaveReport({ filterData: { fromDate: '', toDate: '', leaveType: '' } }));
-    this.leaveReportSubscription = this.store.select(leaveSelect.selectLeaveReportData).subscribe(res => {
-      if (res && res.length > 0) {
-        this.leaveReportData = res;
-      }
-    });
+    this.subscription.add(
+      this.store.select(leaveSelect.selectLeaveReportData).subscribe(res => {
+        if (res && res.length > 0) {
+          this.leaveReportData = res;
+        }
+      })
+    )
   }
 
   onChange(event: any) {
@@ -168,8 +172,6 @@ export class LeaveReportComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    if (this.leaveReportSubscription) {
-      this.leaveReportSubscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 }

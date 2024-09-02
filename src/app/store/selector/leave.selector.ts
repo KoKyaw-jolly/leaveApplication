@@ -6,3 +6,5 @@ export const selectLeaveRecordsUser = (state: AppState) => state.leave.leaveReco
 export const selectLeaveCalendar = (state: AppState) => state.leave.calendarEvents;
 
 export const selectLeaveReportData = (state: AppState) => state.leave.leaveReportData;
+
+export const selectLeave = (state: AppState) => state.leave ;

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IMAGES } from '../../core/constants/images-url';
 import { APP_IMPORT } from '../../app.import';
 import { HttpClient } from '@angular/common/http';
-import { Staff } from '../../core/models/staff.interface';
+import { Staff, staffEmptyInitialObj } from '../../core/models/staff.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { AppState } from '../../store/state/app.state';
@@ -11,6 +11,8 @@ import { StaffService } from '../../core/services/staff.service';
 import { selectStaffs } from '../../store/selector/staff.selector';
 import * as staffAction from '../../store/action/staff.action';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { Subscription } from 'rxjs';
+import { staffInitialState } from '../../store/state/staff.state';
 
 @Component({
   selector: 'app-staff-management',
@@ -21,7 +23,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   templateUrl: './staff-management.component.html',
   styleUrl: './staff-management.component.scss'
 })
-export class StaffManagementComponent implements OnInit {
+export class StaffManagementComponent implements OnInit, OnDestroy {
 
   images = IMAGES;
   listStyle: string = 'card';
@@ -29,19 +31,9 @@ export class StaffManagementComponent implements OnInit {
   staffListData: Staff[] = [];
   staffCreateEditModal: boolean = false;
   staffDetailsModal: boolean = false;
-  staffDetailsObj: Staff = {
-    staffId: '',
-    fullName: '',
-    image: '',
-    gender: '',
-    position: '',
-    department: '',
-    email: '',
-    phone: '',
-    address: '',
-    role: '',
-    leaveBalance: []
-  }
+  staffDeleteModal: boolean = false;
+  staffDetailsObj: Staff = staffEmptyInitialObj;
+
   //staff create/edit step
   setpCurrent: number = 0;
 
@@ -53,13 +45,13 @@ export class StaffManagementComponent implements OnInit {
     visable: false,
     message: ''
   };
+
   createEditStatus: string = 'create';
   deleteConfirmModal?: NzModalRef;
 
   constructor(
     private staffService: StaffService,
     private store: Store<AppState>,
-    private http: HttpClient,
     private modal: NzModalService,
     private message: NzMessageService,
     private fb: FormBuilder
@@ -80,42 +72,39 @@ export class StaffManagementComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(staffAction.loadStaff());
-    this.store.select(selectStaffs).subscribe(res => {
-      this.staffListData = res.staffList;
-      this.staffListLoading = res.listLoading;
-    })
-  }
+  private subscription: Subscription = new Subscription();
 
-  resetStaffForm(): void {
-    this.staffForm.setValue({
-      fullName: '',
-      gender: 'male',
-      position: 'Developer',
-      department: 'Dev Team',
-      email: '',
-      phone: '',
-      address: '',
-      role: '',
-      annual: 0,
-      offInLieu: 0,
-      medical: 0,
-    });
-    this.staffForm.markAsUntouched();
-    this.staffForm.markAsPristine();
+  ngOnInit(): void {
+    this.subscription.add(
+      this.store.select(selectStaffs).subscribe(res => {
+        this.staffListData = res.staffList;
+        this.staffListLoading = res.listLoading;
+        this.createEditBtnLoading = res.crudLoading;
+        if (res.crudLoading == false && res.error == null) {
+          this.closeModal();
+        }
+        if (res.error != null) {
+          this.createEditError.visable = true;
+          this.createEditError.message = res.error;
+        } else {
+          this.createEditError.visable = false;
+        }
+      })
+    );
   }
 
   closeModal(): void {
     this.staffCreateEditModal = false;
+    this.createEditError.visable = false;
     this.staffDetailsModal = false;
+    this.staffDeleteModal = false;
+    this.staffDetailsObj = staffEmptyInitialObj;
+    this.staffForm.reset();
   }
 
   createStaff(): void {
     this.staffCreateEditModal = true;
-    this.resetStaffForm();
     this.setpCurrent = 0;
-    this.createEditError.visable = false;
     this.createEditStatus = 'create';
   }
 
@@ -150,86 +139,57 @@ export class StaffManagementComponent implements OnInit {
   saveStaff(): void {
     this.createEditBtnLoading = true
     if (this.staffForm.invalid) {
-      this.staffForm.markAllAsTouched();
+      Object.values(this.staffForm.controls).forEach(control => {
+        control.markAsDirty();
+        control.updateValueAndValidity();
+      });
       this.createEditBtnLoading = false;
       return;
+    } else {
+      const staffData: Staff = {
+        staffId: '',
+        fullName: this.undefinedCheck(this.staffForm.get('fullName')?.value),
+        image: '',
+        gender: this.undefinedCheck(this.staffForm.get('gender')?.value),
+        position: this.undefinedCheck(this.staffForm.get('position')?.value),
+        department: this.undefinedCheck(this.staffForm.get('department')?.value),
+        email: this.undefinedCheck(this.staffForm.get('email')?.value),
+        phone: this.undefinedCheck(this.staffForm.get('phone')?.value),
+        address: this.undefinedCheck(this.staffForm.get('address')?.value),
+        role: this.undefinedCheck(this.staffForm.get('role')?.value),
+        leaveBalance: [
+          {
+            leaveType: 'Annual',
+            totalDays: this.undefinedCheck(this.staffForm.get('annual')?.value),
+            remainingDays: this.undefinedCheck(this.staffForm.get('annual')?.value)
+          },
+          {
+            leaveType: 'Off-In-Lieu',
+            totalDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value),
+            remainingDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value)
+          },
+          {
+            leaveType: 'Medical',
+            totalDays: this.undefinedCheck(this.staffForm.get('medical')?.value),
+            remainingDays: this.undefinedCheck(this.staffForm.get('medical')?.value)
+          },
+        ]
+      };
+      this.store.dispatch(staffAction.createStaff({ staff: staffData, createEditStatus: this.createEditStatus }));
     }
-    const StaffData: Staff = {
-      staffId: '',
-      fullName: this.undefinedCheck(this.staffForm.get('fullName')?.value),
-      image: '',
-      gender: this.undefinedCheck(this.staffForm.get('gender')?.value),
-      position: this.undefinedCheck(this.staffForm.get('position')?.value),
-      department: this.undefinedCheck(this.staffForm.get('department')?.value),
-      email: this.undefinedCheck(this.staffForm.get('email')?.value),
-      phone: this.undefinedCheck(this.staffForm.get('phone')?.value),
-      address: this.undefinedCheck(this.staffForm.get('address')?.value),
-      role: this.undefinedCheck(this.staffForm.get('role')?.value),
-      leaveBalance: [
-        {
-          leaveType: 'Annual',
-          totalDays: this.undefinedCheck(this.staffForm.get('annual')?.value),
-          remainingDays: this.undefinedCheck(this.staffForm.get('annual')?.value)
-        },
-        {
-          leaveType: 'Off-In-Lieu',
-          totalDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value),
-          remainingDays: this.undefinedCheck(this.staffForm.get('offInLieu')?.value)
-        },
-        {
-          leaveType: 'Medical',
-          totalDays: this.undefinedCheck(this.staffForm.get('medical')?.value),
-          remainingDays: this.undefinedCheck(this.staffForm.get('medical')?.value)
-        },
-      ]
-    }
-    this.staffService.createEditStaff(StaffData, this.createEditStatus).subscribe(
-      {
-        next: (res) => {
-          this.staffCreateEditModal = false;
-          this.message.create('success', `Staff Create Successfully!`);
-          this.store.dispatch(staffAction.loadStaff());
-        },
-        error: (err) => {
-          this.createEditError.visable = true;
-          this.createEditError.message = err.error.message ? err.error.message : 'Something went wrong!';
-          this.createEditBtnLoading = false;
-        },
-        complete: () => {
-          this.createEditBtnLoading = false;
-        }
-      }
-    )
   }
 
   openStaffDetails(staff: Staff): void {
     this.staffDetailsObj = staff;
     this.staffDetailsModal = true;
   }
+  deleteStaff(staff: Staff): void {
+    this.staffDeleteModal = true;
+    this.staffDetailsObj = staff;
+  }
 
-  deleteStaffConfirm(staffData: Staff): void {
-    this.deleteConfirmModal = this.modal.confirm({
-      nzTitle: 'Do you Want to delete these items?',
-      nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
-      nzOnOk: () =>
-        new Promise((resolve, reject) => {
-          this.staffService.deleteStaff(staffData).subscribe({
-            next: (res) => {
-              this.message.create('success', 'Staff Delete Successfully!');
-              this.store.dispatch(staffAction.loadStaff());
-              console.log(res);
-              resolve(res);
-            },
-            error: (err) => {
-              this.message.create('error', 'Staff Delete Fail!');
-              reject(err);
-            },
-            complete: () => {
-
-            }
-          });
-        }).catch(() => console.log('Oops errors!'))
-    });
+  deleteStaffConfirm(): void {
+    this.store.dispatch(staffAction.deleteStaff({ staff: this.staffDetailsObj }));
   }
 
   undefinedCheck(value: any) {
@@ -237,5 +197,8 @@ export class StaffManagementComponent implements OnInit {
       return '';
     }
     return value;
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

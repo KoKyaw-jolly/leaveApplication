@@ -123,6 +123,17 @@ svg {
   }
 }
 
+.delete-modal-content {
+  padding: 10px 20px 0px 20px;
+  display: flex;
+  gap: 15px;
+  .delete-icon{
+    font-size: 20px;
+    height: 20px;
+    color: $primary-color;
+  }
+}
+
 //input
 .custom-readonly-input {
   height: 38px;

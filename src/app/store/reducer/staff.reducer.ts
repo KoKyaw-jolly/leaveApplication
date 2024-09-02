@@ -13,5 +13,23 @@ export const staffReducer = createReducer(
     ),
     on(staffAction.loadStaffFail, (state: StaffState, action: { error: any }) =>
         ({ ...state, listLoading: false, error: action.error })
-    )
+    ),
+    on(staffAction.createStaff, (state: StaffState) =>
+        ({ ...state, crudLoading: true, error: null })
+    ),
+    on(staffAction.createStaffSuccess, (state: StaffState, action: { msg:any }) =>
+        ({ ...state, crudLoading: false, error: null })
+    ),
+    on(staffAction.createStaffFail, (state: StaffState, action: { error: any }) =>
+        ({ ...state, crudLoading: false, error: action.error })
+    ),
+    on(staffAction.deleteStaff, (state: StaffState) =>
+        ({ ...state, crudLoading: true, error: null })
+    ),
+    on(staffAction.deleteStaffSuccess, (state: StaffState, action: { msg:any }) =>
+        ({ ...state, crudLoading: false, error: null })
+    ),
+    on(staffAction.deleteStaffFail, (state: StaffState, action: { error: any }) =>
+        ({ ...state, crudLoading: false, error: action.error })
+    ),
 );
