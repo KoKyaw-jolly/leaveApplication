@@ -4,3 +4,10 @@ export interface Holiday {
     date: Date;
     description?: string;
 }
+
+export const holidayEmptyInitalObj: Holiday = {
+    id: '',
+    name: '',
+    date: new Date(),
+    description: ''
+  }

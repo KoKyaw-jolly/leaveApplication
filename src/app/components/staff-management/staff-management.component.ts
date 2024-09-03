@@ -84,10 +84,15 @@ export class StaffManagementComponent implements OnInit, OnDestroy {
           this.closeModal();
         }
         if (res.error != null) {
-          this.createEditError.visable = true;
-          this.createEditError.message = res.error;
+          this.createEditError = {
+            visable: true,
+            message: res.error
+          }
         } else {
-          this.createEditError.visable = false;
+          this.createEditError = {
+            visable: false,
+            message: ''
+          }
         }
       })
     );

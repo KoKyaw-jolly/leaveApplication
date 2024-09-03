@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
-import { Holiday } from '../../core/models/holiday.interface';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Holiday, holidayEmptyInitalObj } from '../../core/models/holiday.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
@@ -9,6 +9,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { HolidayService } from '../../core/services/holiday.service';
 import { selectHolidays } from '../../store/selector/holiday.selector';
 import * as holidayAction from '../../store/action/holiday.action';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-management',
@@ -19,23 +20,20 @@ import * as holidayAction from '../../store/action/holiday.action';
   templateUrl: './holiday-management.component.html',
   styleUrl: './holiday-management.component.scss'
 })
-export class HolidayManagementComponent implements OnInit {
+export class HolidayManagementComponent implements OnInit, OnDestroy {
 
   holidayListData: Holiday[] = [];
   holidayDetailsModal: boolean = false;
-  createHolidayEditModal: boolean = false;
+  holidayCreateEditModal: boolean = false;
+  holidayDeleteModal: boolean = false;
   createEditState: string = '';
-  holidayDetailsObj: Holiday = {
-    id: '',
-    name: '',
-    date: new Date(),
-    description: ''
-  }
+  holidayDetailsObj: Holiday = holidayEmptyInitalObj;
+  holidayLoading: boolean = false;
 
   //form
   holidayForm: FormGroup;
   deleteConfirmModal?: NzModalRef;
-  createLoading: boolean = false;
+  // holidayLoading: boolean = false;
   createEditError = {
     visable: false,
     message: ''
@@ -54,16 +52,33 @@ export class HolidayManagementComponent implements OnInit {
       description: [''],
     });
   }
+  private subscribe: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.store.select(selectHolidays).subscribe(res => {
-      this.holidayListData = res.holidays;
-    })
+    this.subscribe.add(
+      this.store.select(selectHolidays).subscribe(res => {
+        this.holidayListData = res.holidays;
+        this.holidayLoading = res.loading;
+        if (res.loading == false && res.error == null) {
+          this.closeModal();
+        }
+        if (res.error != null) {
+          this.createEditError = {
+            visable: true,
+            message: res.error
+          }
+        } else {
+          this.createEditError = {
+            visable: false,
+            message: ''
+          }
+        }
+      })
+    )
   }
 
   createHoliday(): void {
-    this.resetForm();
-    this.createHolidayEditModal = true;
+    this.holidayCreateEditModal = true;
     this.createEditState = 'create';
   }
 
@@ -73,7 +88,7 @@ export class HolidayManagementComponent implements OnInit {
       date: new Date(holidayDetails.date),
       description: holidayDetails.description
     });
-    this.createHolidayEditModal = true;
+    this.holidayCreateEditModal = true;
     this.createEditState = 'edit';
   }
 
@@ -84,10 +99,16 @@ export class HolidayManagementComponent implements OnInit {
 
   closeModal() {
     this.holidayDetailsModal = false;
-    this.createHolidayEditModal = false;
+    this.holidayCreateEditModal = false;
+    this.holidayDeleteModal = false;
+    this.resetForm();
   }
 
   resetForm(): void {
+    this.createEditError = {
+      visable: false,
+      message: ''
+    }
     this.holidayForm.setValue({
       name: '',
       date: new Date(),
@@ -96,8 +117,7 @@ export class HolidayManagementComponent implements OnInit {
     this.holidayForm.reset();
   }
 
-  saveHoliday() {
-    this.createLoading = true;
+  createEditHoliday() {
     if (this.holidayForm.invalid) {
       Object.values(this.holidayForm.controls).forEach(control => {
         if (control.invalid) {
@@ -105,7 +125,6 @@ export class HolidayManagementComponent implements OnInit {
           control.updateValueAndValidity({ onlySelf: true });
         }
       });
-      this.createLoading = false;
       return;
     } else {
       const holidayData: Holiday = {
@@ -115,47 +134,15 @@ export class HolidayManagementComponent implements OnInit {
         description: this.undefinedCheck(this.holidayForm.get('description')?.value)
       }
 
-      this.holidayService.createEditHoliday(holidayData, this.createEditState).subscribe({
-        next: (res) => {
-          this.message.create('success', `Create Holiday Successfully!`);
-          this.resetForm();
-          this.createHolidayEditModal = false;
-          this.createLoading = false;
-          this.store.dispatch(holidayAction.loadHolidays());
-        },
-        error: (err) => {
-          this.createEditError.visable = true;
-          this.createEditError.message = err.error.message ? err.error.message : 'Something went wrong!';
-          this.createLoading = false;
-        },
-        complete: () => {
-        }
-      })
+      this.store.dispatch(holidayAction.createEditHoliday({ holiday: holidayData, createEditStatus: this.createEditState }));
     }
   }
-
-  deleteHolidayConfirm(holidayData: Holiday): void {
-    this.deleteConfirmModal = this.modal.confirm({
-      nzTitle: 'Do you Want to delete this holiday?',
-      // nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
-      nzOnOk: () =>
-        new Promise((resolve, reject) => {
-          this.holidayService.deleteHoliday(holidayData).subscribe({
-            next: (res) => {
-              this.message.create('success', 'Holiday Delete Successfully!');
-              this.store.dispatch(holidayAction.loadHolidays());
-              resolve(res);
-            },
-            error: (err) => {
-              this.message.create('error', 'Holiday Delete Fail!');
-              reject(err);
-            },
-            complete: () => {
-
-            }
-          });
-        }).catch(() => console.log('Oops errors!'))
-    });
+  deleteHoliday(holidayDetails: Holiday): void {
+    this.holidayDeleteModal = true;
+    this.holidayDetailsObj = holidayDetails;
+  }
+  deleteHolidayConfirm(): void {
+    this.store.dispatch(holidayAction.deleteHoliday({ holiday: this.holidayDetailsObj }));
   }
 
   undefinedCheck(value: any) {
@@ -163,5 +150,9 @@ export class HolidayManagementComponent implements OnInit {
       return '';
     }
     return value;
+  }
+
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
   }
 }

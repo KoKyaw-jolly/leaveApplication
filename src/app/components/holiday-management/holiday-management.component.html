@@ -4,35 +4,39 @@
     </div>
 
     <div class="mb-4">
-        <button nz-button nzType="primary" (click)="createHoliday()">Create Holiday</button>
+        <button nz-button nzType="primary" (click)="createHoliday()" [disabled]="holidayLoading">Create Holiday</button>
     </div>
-    <nz-table #holidayList [nzData]="holidayListData" [nzScroll]="{x: '1000px'}">
-        <thead>
-            <tr>
-                <th nzAlign="center" nzWidth="250px">Holiday Name</th>
-                <th nzAlign="center" nzWidth="150px">Date</th>
-                <th nzAlign="center" nzWidth="500px">Description</th>
-                <th nzAlign="center" nzWidth="100px">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let holiday of holidayList.data">
-                <td nzAlign="center">{{ holiday.name }}</td>
-                <td nzAlign="center">{{ holiday.date | date:'dd MMM yyyy'}}</td>
-                <td nzAlign="center">{{ holiday.description }}</td>
-                <td nzAlign="center">
-                    <div class="action-wrapper">
-                        <span class="fi fi-rr-edit" (click)="editHoliday(holiday)"></span>
-                        <span class="fi fi-rr-trash" (click)="deleteHolidayConfirm(holiday)"></span>
-                        <span class="fi fi-rr-info" (click)="openHolidayDetails(holiday)"></span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </nz-table>
+
+    <nz-spin nzTip="Loading..." [nzSpinning]="holidayLoading">
+        <nz-table #holidayList [nzData]="holidayListData" [nzScroll]="{x: '1000px'}">
+            <thead>
+                <tr>
+                    <th nzAlign="center" nzWidth="250px">Holiday Name</th>
+                    <th nzAlign="center" nzWidth="150px">Date</th>
+                    <th nzAlign="center" nzWidth="500px">Description</th>
+                    <th nzAlign="center" nzWidth="100px" nzRight>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let holiday of holidayList.data">
+                    <td nzAlign="center">{{ holiday.name }}</td>
+                    <td nzAlign="center">{{ holiday.date | date:'dd MMM yyyy'}}</td>
+                    <td nzAlign="center">{{ holiday.description }}</td>
+                    <td nzAlign="center" nzRight>
+                        <div class="action-wrapper">
+                            <span class="fi fi-rr-edit" (click)="editHoliday(holiday)"></span>
+                            <span class="fi fi-rr-trash" (click)="deleteHoliday(holiday)"></span>
+                            <span class="fi fi-rr-info" (click)="openHolidayDetails(holiday)"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-spin>
 </div>
-<nz-modal [(nzVisible)]="createHolidayEditModal" [nzTitle]="createEditState == 'create' ? 'Holiday Create' : 'Holiday Edit'"
-    (nzOnCancel)="closeModal()" (nzOnOk)="closeModal()" [nzFooter]="null">
+<nz-modal [(nzVisible)]="holidayCreateEditModal"
+    [nzTitle]="createEditState == 'create' ? 'Holiday Create' : 'Holiday Edit'" (nzOnCancel)="closeModal()"
+    (nzOnOk)="closeModal()" [nzFooter]="null">
     <ng-container *nzModalContent>
         <nz-alert class="mb-4" *ngIf="createEditError.visable" nzType="error" [nzMessage]="createEditError.message"
             [nzAction]="errorAlertClose">
@@ -64,7 +68,8 @@
                 <button nz-button nzType="default" class="me-3" (click)="closeModal()">
                     Cancel
                 </button>
-                <button nz-button nzType="primary" (click)="saveHoliday()" [disabled]="!holidayForm.valid" [nzLoading]="createLoading">
+                <button nz-button nzType="primary" (click)="createEditHoliday()" [disabled]="!holidayForm.valid"
+                    [nzLoading]="holidayLoading">
                     Save
                 </button>
             </div>
@@ -93,4 +98,19 @@
             </div>
         </div>
     </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="holidayDeleteModal" [nzFooter]="deleteModalFooter" (nzOnCancel)="closeModal()">
+    <ng-container *nzModalContent>
+        <div class="delete-modal-content">
+            <span class="fi fi-rr-triangle-warning delete-icon"></span>
+            <div>
+                <h6>Do you Want to delete this staff [ {{holidayDetailsObj.name}} ] ?</h6>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #deleteModalFooter>
+        <button nz-button nzType="default" (click)="closeModal()" [disabled]="holidayLoading">No</button>
+        <button nz-button nzType="primary" (click)="deleteHolidayConfirm()"  [nzLoading]="holidayLoading">Yes</button>
+    </ng-template>
 </nz-modal>
