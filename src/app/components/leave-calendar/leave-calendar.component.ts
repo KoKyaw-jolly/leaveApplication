@@ -50,7 +50,6 @@ export class LeaveCalendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initHolidays();
-    this.calendarLoading = true;
   }
 
   initHolidays(): void {

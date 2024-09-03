@@ -17,7 +17,7 @@
                 <nz-form-item>
                     <nz-form-label nzFor="Leave Type">Leave Type</nz-form-label>
                     <nz-form-control>
-                        <nz-select name="Leave Type" nzShowSearch [(ngModel)]="leaveType">
+                        <nz-select name="Leave Type" nzShowSearch [(ngModel)]="leaveType" nzPlaceHolder="select one">
                             <nz-option nzValue="Annual Leave" nzLabel="Annual Leave"></nz-option>
                             <nz-option nzValue="Unpaid Leave" nzLabel="Unpaid Leave"></nz-option>
                             <nz-option nzValue="Medical Leave" nzLabel="Medical Leave"></nz-option>
@@ -34,40 +34,94 @@
             </div>
         </div>
     </form>
-
-    <nz-table #leaveTransation [nzData]="leaveReportData" [nzScroll]="{x: '1000px'}">
-        <thead>
-            <tr>
-                <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
-                <th nzAlign="center" nzWidth="110px">Apply Date</th>
-                <th nzAlign="center" nzWidth="110px">Leave Type</th>
-                <th nzAlign="center" nzWidth="80px">Taken</th>
-                <th nzAlign="center" nzWidth="110px">Start Date</th>
-                <th nzAlign="center" nzWidth="110px">End Date</th>
-                <th nzAlign="center" nzWidth="330px">Reason</th>
-                <th nzAlign="center" nzWidth="100px">Status</th>
-                <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let data of leaveTransation.data">
-                <td nzAlign="left" nzLeft>{{ data.fullName }}</td>
-                <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyy' }}</td>
-                <td nzAlign="center">{{ data.leaveType }}</td>
-                <td nzAlign="center">{{ data.takenDays }}</td>
-                <td nzAlign="center">{{ data.startDate | date:'dd MMM yyy' }}</td>
-                <td nzAlign="center">{{ data.endDate | date:'dd MMM yyy' }}</td>
-                <td nzAlign="center">{{ data.reason }}</td>
-                <td nzAlign="center">
-                    <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
+    <nz-spin nzTip="Loading..." [nzSpinning]="leaveReportLoading">
+        <nz-table #leaveTransation [nzData]="leaveReportData" [nzScroll]="{x: '1000px'}">
+            <thead>
+                <tr>
+                    <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
+                    <th nzAlign="center" nzWidth="110px">Apply Date</th>
+                    <th nzAlign="center" nzWidth="110px">Leave Type</th>
+                    <th nzAlign="center" nzWidth="80px">Taken</th>
+                    <th nzAlign="center" nzWidth="110px">Start Date</th>
+                    <th nzAlign="center" nzWidth="110px">End Date</th>
+                    <th nzAlign="center" nzWidth="330px">Reason</th>
+                    <th nzAlign="center" nzWidth="100px">Status</th>
+                    <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of leaveTransation.data">
+                    <td nzAlign="left" nzLeft>{{ data.fullName }}</td>
+                    <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyy' }}</td>
+                    <td nzAlign="center">{{ data.leaveType }}</td>
+                    <td nzAlign="center">{{ data.takenDays }}</td>
+                    <td nzAlign="center">{{ data.startDate | date:'dd MMM yyy' }}</td>
+                    <td nzAlign="center">{{ data.endDate | date:'dd MMM yyy' }}</td>
+                    <td nzAlign="center">{{ data.reason }}</td>
+                    <td nzAlign="center">
+                        <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
                             data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
-                </td>
-                <td nzAlign="center" nzRight>
-                    <div class="table-action-wrapper">
-                        <span class="fi fi-rr-info"></span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </nz-table>
+                    </td>
+                    <td nzAlign="center" nzRight>
+                        <div class="table-action-wrapper">
+                            <span class="fi fi-rr-info" (click)="leaveDetails(data)"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-spin>
 </div>
+
+<nz-modal [(nzVisible)]="leaveDetailsModal" nzTitle="Leave Details" (nzOnCancel)="closeModal()" [nzFooter]="null"
+    (nzOnOk)="closeModal()">
+    <ng-container *nzModalContent>
+        <div class="modal-conent-list">
+            <div class="content-row">
+                <span class="title">Leave ID</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.id}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Staff ID</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.staffId}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Staff Name</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.fullName}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Apply Date</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.applyDate | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Leave Type</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.leaveType}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Taken Days</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.takenDays}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Start Date</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.startDate | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">End Date</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.endDate | date:'dd MMM yyyy'}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Reason</span><span>:</span>
+                <span class="description">{{leaveDetailsObj.reason}}</span>
+            </div>
+            <div class="content-row">
+                <span class="title">Status</span><span>:</span>
+                <span class="description">
+                    <nz-tag [nzColor]="leaveDetailsObj.leaveStatus === 'Pending' ? 'orange' : 
+                    leaveDetailsObj.leaveStatus === 'Approved' ? 'green' : 'red'">
+                        {{leaveDetailsObj.leaveStatus}}
+                    </nz-tag>
+                </span>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
-import { LeaveRecord } from '../../core/models/leave.interface';
+import { LeaveRecord, leaveRecordEmptyInitialObj } from '../../core/models/leave.interface';
 import * as leaveAction from '../../store/action/leave.action';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
@@ -20,6 +20,10 @@ export class LeaveReportComponent implements OnInit {
 
   dateRange = null;
   leaveType: string = '';
+  leaveReportLoading: boolean = false;
+  leaveReportData: LeaveRecord[] = [];
+  leaveDetailsModal: boolean = false;
+  leaveDetailsObj: LeaveRecord = leaveRecordEmptyInitialObj;
   listOfData: LeaveRecord[] = [
     {
       id: "1",
@@ -139,8 +143,6 @@ export class LeaveReportComponent implements OnInit {
       leaveStatus: "Approved"
     }
   ];
-  leaveReportData: LeaveRecord[] = [];
-  private leaveReportSubscription: Subscription | undefined;
   private subscription: Subscription = new Subscription();
 
   constructor(
@@ -150,9 +152,10 @@ export class LeaveReportComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(leaveAction.loadLeaveReport({ filterData: { fromDate: '', toDate: '', leaveType: '' } }));
     this.subscription.add(
-      this.store.select(leaveSelect.selectLeaveReportData).subscribe(res => {
-        if (res && res.length > 0) {
-          this.leaveReportData = res;
+      this.store.select(leaveSelect.selectLeave).subscribe(res => {
+        if (res && res.leaveReportData.length > 0) {
+          this.leaveReportData = res.leaveReportData;
+          this.leaveReportLoading = res.loading;
         }
       })
     )
@@ -169,6 +172,15 @@ export class LeaveReportComponent implements OnInit {
       leaveType: this.leaveType
     };
     this.store.dispatch(leaveAction.loadLeaveReport({ filterData: filterFormData }));
+  }
+
+  leaveDetails(data: LeaveRecord): void {
+    this.leaveDetailsModal = true;
+    this.leaveDetailsObj = data;
+  }
+
+  closeModal(): void {
+    this.leaveDetailsModal = false;
   }
 
   ngOnDestroy(): void {
