@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
 import { Router, RouterModule } from '@angular/router';
-import { ICONS, IMAGES } from '../../core/constants/images-url';
+import { IMAGES } from '../../core/constants/images-url';
 import { SideMenuComponent } from "../../components/sample-component/side-menu/side-menu.component";
 import { HttpClient } from '@angular/common/http';
 import { Notification } from '../../core/models/notification.interface';
@@ -10,9 +10,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
 import { selectAuthUserInfo } from '../../store/selector/auth.selector';
 import * as AuthAction from '../../store/action/auth.action';
-import * as  StaffActions from '../../store/action/staff.action';
-import * as  holidayAction from '../../store/action/holiday.action';
-import * as  leaveAction from '../../store/action/leave.action';
+import * as StaffActions from '../../store/action/staff.action';
+import * as holidayActions from '../../store/action/holiday.action';
+import * as leaveActions from '../../store/action/leave.action';
 import { SideMenuList } from '../../core/models/menu.interface';
 
 @Component({
@@ -42,15 +42,14 @@ export class MainLayoutComponent implements OnInit {
   headerContent = {
     fullName: '',
     position: '',
-    image:''
+    image: ''
   }
 
   staffActiveRoute = AtaffActiveRouteInit;
 
   constructor(
     private http: HttpClient,
-    private store: Store<AppState>,
-    private router: Router
+    private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class MainLayoutComponent implements OnInit {
         position: authInfo.userInfo.user.position,
         image: authInfo.userInfo.user.image
       }
-      this.store.dispatch(leaveAction.loadLeaveRecordsUser({staffID: authInfo.userInfo.user.staffId}));
+      this.store.dispatch(leaveActions.loadLeaveRecordsUser({ staffID: authInfo.userInfo.user.staffId }));
     })
     // this.http.get<any[]>('assets/data/sidebar-menu.json').subscribe((data) => {
     //   this.menuList = data.filter((item) => this.staffActiveRoute.includes(item.routelink));
@@ -71,9 +70,10 @@ export class MainLayoutComponent implements OnInit {
     this.http.get<any[]>('assets/data/notification-temp-data.json').subscribe((data) => {
       this.notificationList = data;
     });
-    this.store.dispatch(holidayAction.loadHolidays());
+    this.store.dispatch(holidayActions.loadHolidays());
     this.store.dispatch(StaffActions.loadStaff());
-    this.store.dispatch(leaveAction.loadLeaveRecordsAll());
+    this.store.dispatch(leaveActions.loadLeaveRecordsAll());
+    this.store.dispatch(leaveActions.loadLeaveCalendar());
   }
 
   notificationDetailsModal(notiData: Notification): void {

@@ -2,9 +2,11 @@
     <div class="card-header">
         <p class="header">Leave Calendar</p>
     </div>
-    <div class="calendar-container">
-        <full-calendar [options]="calendarOptions"></full-calendar>
-    </div>
+    <nz-spin nzTip="Loading..." [nzSpinning]="calendarLoading">
+        <div class="calendar-container">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+    </nz-spin>
 </div>
 
 <nz-modal [(nzVisible)]="holidayModal" [nzFooter]="null" nzTitle="Holiday" (nzOnCancel)="closeAllModal()"

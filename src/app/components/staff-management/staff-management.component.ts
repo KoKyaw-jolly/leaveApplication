@@ -57,7 +57,7 @@ export class StaffManagementComponent implements OnInit, OnDestroy {
     private fb: FormBuilder
   ) {
     this.staffForm = this.fb.group({
-      fullName: ['asd', Validators.required],
+      fullName: ['', Validators.required],
       gender: ['male'],
       position: ['', Validators.required],
       department: ['', Validators.required],
