@@ -12,7 +12,7 @@ export class LeaveEffect {
     private actions = inject(Actions);
     private leaveService = inject(LeaveService)
 
-    constructor(private message: NzMessageService){}
+    constructor(private message: NzMessageService) { }
 
     applyLeave$ = createEffect(() =>
         this.actions.pipe(
@@ -22,7 +22,7 @@ export class LeaveEffect {
                     map((action: any) => {
                         this.message.create('success', action.msg ? action.msg : 'Leave Apply Successfully!');
                         return leaveAction.applyLeaveSuccess({ msg: action.msg ? action.msg : 'Leave Apply Successfully!' });
-                        
+
                     }),
                     catchError(error => {
                         this.message.create('error', error.message ? error.message : 'Something went wrong!');
@@ -80,4 +80,24 @@ export class LeaveEffect {
             })
         )
     );
+
+    approveRejectLeave$ = createEffect(() =>
+        this.actions.pipe(
+            ofType(leaveAction.approveRejectLeave),
+            mergeMap((action) => {
+                return this.leaveService.approveRejectLeave(action.leaveRecord, action.approveRejectStatus).pipe(
+                    map((action: any) => {
+                        const resMsg = action.msg ? action.msg : 'Approve or Reject Successfully!';
+                        this.message.create('success', resMsg);
+                        return leaveAction.approveRejectLeaveSuccess({ msg: resMsg });
+                    }),
+                    catchError(error => {
+                        const resErr = error.message ? error.message : 'Something went wrong!';
+                        this.message.create('error', resErr);
+                        return of(leaveAction.approveRejectLeaveFail({ error: resErr }))
+                    })
+                )
+            })
+        )
+    )
 }

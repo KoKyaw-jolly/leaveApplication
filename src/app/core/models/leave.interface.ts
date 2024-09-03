@@ -17,3 +17,17 @@ export interface LeaveTypeDetails {
   totalDays: number;
   remainingDays: number;
 }
+
+export const leaveRecordEmptyInitialObj : LeaveRecord = {
+  id: '',
+  staffId: '',
+  fullName: '',
+  applyDate: new Date(),
+  leaveType: 'Annual',
+  takenDays: 0,
+  startDate: new Date(),
+  endDate: new Date(),
+  phoneDuringLeave: '',
+  reason: '',
+  leaveStatus: 'Pending'
+}

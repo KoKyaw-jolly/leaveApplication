@@ -49,4 +49,13 @@ export const leaveReducer = createReducer(
     on(leaveAction.loadLeaveReportFail, (state: any, action) =>
         ({ ...state, loading: false, error: action.error })
     ),
+    on(leaveAction.approveRejectLeave, (state: any) =>
+        ({ ...state, loading: true, error: null })
+    ),
+    on(leaveAction.approveRejectLeaveSuccess, (state: any) =>
+        ({ ...state, loading: false , error: null })
+    ),
+    on(leaveAction.approveRejectLeaveFail, (state: any, action) =>
+        ({ ...state, loading: false, error: action.error })
+    ),
 )

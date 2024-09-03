@@ -25,6 +25,7 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 import { NzSkeletonModule } from "ng-zorro-antd/skeleton";
+import { NzSpinModule } from "ng-zorro-antd/spin";
 
 export const APP_IMPORT = [
     CommonModule,
@@ -57,4 +58,5 @@ export const APP_IMPORT = [
     NzMessageModule,
     NzDropDownModule,
     NzSkeletonModule,
+    NzSpinModule
 ]

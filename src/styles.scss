@@ -94,6 +94,16 @@ a {
     &:hover {
       color: $primary-color;
     }
+    &.disable{
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  .check-icon,.check-icon:hover{
+    color: green;
+  }
+  .cross-icon,.cross-icon:hover{
+    color: red;
   }
 }
 

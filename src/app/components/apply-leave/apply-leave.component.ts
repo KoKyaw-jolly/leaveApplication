@@ -85,8 +85,8 @@ export class ApplyLeaveComponent implements OnInit, OnDestroy {
       console.log('this.applyLeaveForm.value', this.applyLeaveForm.value);
       const applyLeaveData: LeaveRecord = {
         id: '',
-        staffId: this.userInfo.staffId,
-        fullName: this.userInfo.fullName,
+        staffId: this.userInfo.user.staffId,
+        fullName: this.userInfo.user.fullName,
         applyDate: new Date(),
         leaveType: this.undefinedCheck(this.applyLeaveForm.get('leaveType')?.value),
         takenDays: this.totalLeaveDays,

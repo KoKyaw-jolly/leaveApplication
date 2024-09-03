@@ -2,102 +2,105 @@
     <div class="card-header">
         <p class="header">Leave Transaction</p>
     </div>
-    <nz-tabset>
-        <nz-tab nzTitle="All Leave Transaction">
-            <nz-table #leaveTransation [nzData]="leaveRecordsAll" [nzScroll]="{x: '1000px'}">
-                <thead>
-                    <tr>
-                        <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
-                        <th nzAlign="center" nzWidth="110px">Apply Date</th>
-                        <th nzAlign="center" nzWidth="110px">Leave Type</th>
-                        <th nzAlign="center" nzWidth="80px">Taken</th>
-                        <th nzAlign="center" nzWidth="110px">Start Date</th>
-                        <th nzAlign="center" nzWidth="110px">End Date</th>
-                        <th nzAlign="center" nzWidth="330px">Reason</th>
-                        <th nzAlign="center" nzWidth="100px">Status</th>
-                        <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of leaveTransation.data">
-                        <td nzAlign="left" nzLeft>{{ data.fullName }}</td>
-                        <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="center">{{ data.leaveType }}</td>
-                        <td nzAlign="center">{{ data.takenDays }}</td>
-                        <td nzAlign="center">{{ data.startDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="center">{{ data.endDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="center">{{ data.reason }}</td>
-                        <td nzAlign="center">
-                            <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
-                            data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
-                        </td>
-                        <td nzAlign="center" nzRight>
-                            <div class="table-action-wrapper">
-                                <span class="fi fi-rr-info" (click)="leaveDetails(data)"></span>
-                                <span class="fi fi-rr-trash"></span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </nz-table>
-        </nz-tab>
-        <nz-tab nzTitle="My Leave Transaction">
-            <nz-table #myLeaveTransation [nzData]="leaveRecordsUser" [nzScroll]="{x: '1000px'}">
-                <thead>
-                    <tr>
-                        <th nzAlign="center" nzWidth="110px">Apply Date</th>
-                        <th nzAlign="center" nzWidth="110px">Leave Type</th>
-                        <th nzAlign="center" nzWidth="80px">Taken</th>
-                        <th nzAlign="center" nzWidth="110px">Start Date</th>
-                        <th nzAlign="center" nzWidth="110px">End Date</th>
-                        <th nzAlign="left" nzWidth="330px">Reason</th>
-                        <th nzAlign="center" nzWidth="100px">Status</th>
-                        <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of myLeaveTransation.data">
-                        <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="center">{{ data.leaveType }}</td>
-                        <td nzAlign="center">{{ data.takenDays }}</td>
-                        <td nzAlign="center">{{ data.startDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="center">{{ data.endDate | date:'dd MMM yyyy' }}</td>
-                        <td nzAlign="left">{{ data.reason }}</td>
-                        <td nzAlign="center">
-                            <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
-                            data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
-                        </td>
-                        <td nzAlign="center" nzRight>
-                            <div class="table-action-wrapper">
-                                <span class="fi fi-rr-info" (click)="leaveDetails(data)"></span>
-                                <span class="fi fi-rr-trash"></span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </nz-table>
-        </nz-tab>
-        <nz-tab nzTitle="My Leave Summary">
-            <nz-table #myLeaveSummary [nzData]="userInfoState.userInfo.user.leaveBalance">
-                <thead>
-                    <tr>
-                        <th nzAlign="center">Leave Type</th>
-                        <th nzAlign="center">Total Days</th>
-                        <th nzAlign="center">Used Days</th>
-                        <th nzAlign="center">Remain Days</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of myLeaveSummary.data">
-                        <td nzAlign="center">{{ data.leaveType }}</td>
-                        <td nzAlign="center">{{ data.totalDays }}</td>
-                        <td nzAlign="center">{{ data.totalDays - data.remainingDays }}</td>
-                        <td nzAlign="center">{{ data.remainingDays }}</td>
-                    </tr>
-                </tbody>
-            </nz-table>
-        </nz-tab>
-    </nz-tabset>
+    <nz-spin nzTip="Loading..." [nzSpinning]="loading">
+        <nz-tabset>
+            <nz-tab nzTitle="All Leave Transaction">
+                <nz-table #leaveTransation [nzData]="leaveRecordsAll" [nzScroll]="{x: '1000px'}">
+                    <thead>
+                        <tr>
+                            <th nzAlign="center" nzWidth="180px" nzLeft>Staff Name</th>
+                            <th nzAlign="center" nzWidth="110px">Apply Date</th>
+                            <th nzAlign="center" nzWidth="110px">Leave Type</th>
+                            <th nzAlign="center" nzWidth="80px">Taken</th>
+                            <th nzAlign="center" nzWidth="110px">Start Date</th>
+                            <th nzAlign="center" nzWidth="110px">End Date</th>
+                            <th nzAlign="center" nzWidth="330px">Reason</th>
+                            <th nzAlign="center" nzWidth="100px">Status</th>
+                            <th nzAlign="center" nzWidth="120px" nzRight>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of leaveTransation.data">
+                            <td nzAlign="left" nzLeft>{{ data.fullName }}</td>
+                            <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="center">{{ data.leaveType }}</td>
+                            <td nzAlign="center">{{ data.takenDays }}</td>
+                            <td nzAlign="center">{{ data.startDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="center">{{ data.endDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="center">{{ data.reason }}</td>
+                            <td nzAlign="center">
+                                <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
+                                data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
+                            </td>
+                            <td nzAlign="center" nzRight>
+                                <div class="table-action-wrapper">
+                                    <span class="fi fi-ss-check-circle check-icon" [class.disable]="data.leaveStatus != 'Pending'" (click)="approveRejectLeave(data,'approve')"></span>
+                                    <span class="fi fi-sr-cross-circle cross-icon" [class.disable]="data.leaveStatus != 'Pending'" (click)="approveRejectLeave(data,'reject')"></span>
+                                    <span class="fi fi-rr-info" (click)="leaveDetails(data)"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+            <nz-tab nzTitle="My Leave Transaction">
+                <nz-table #myLeaveTransation [nzData]="leaveRecordsUser" [nzScroll]="{x: '1000px'}">
+                    <thead>
+                        <tr>
+                            <th nzAlign="center" nzWidth="110px">Apply Date</th>
+                            <th nzAlign="center" nzWidth="110px">Leave Type</th>
+                            <th nzAlign="center" nzWidth="80px">Taken</th>
+                            <th nzAlign="center" nzWidth="110px">Start Date</th>
+                            <th nzAlign="center" nzWidth="110px">End Date</th>
+                            <th nzAlign="left" nzWidth="330px">Reason</th>
+                            <th nzAlign="center" nzWidth="100px">Status</th>
+                            <th nzAlign="center" nzWidth="90px" nzRight>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of myLeaveTransation.data">
+                            <td nzAlign="center">{{ data.applyDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="center">{{ data.leaveType }}</td>
+                            <td nzAlign="center">{{ data.takenDays }}</td>
+                            <td nzAlign="center">{{ data.startDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="center">{{ data.endDate | date:'dd MMM yyyy' }}</td>
+                            <td nzAlign="left">{{ data.reason }}</td>
+                            <td nzAlign="center">
+                                <nz-tag [nzColor]="data.leaveStatus === 'Pending' ? 'orange' : 
+                                data.leaveStatus === 'Approved' ? 'green' : 'red'">{{data.leaveStatus}}</nz-tag>
+                            </td>
+                            <td nzAlign="center" nzRight>
+                                <div class="table-action-wrapper">
+                                    <span class="fi fi-rr-info" (click)="leaveDetails(data)"></span>
+                                    <span class="fi fi-rr-trash"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+            <nz-tab nzTitle="My Leave Summary">
+                <nz-table #myLeaveSummary [nzData]="userInfoState.userInfo.user.leaveBalance">
+                    <thead>
+                        <tr>
+                            <th nzAlign="center">Leave Type</th>
+                            <th nzAlign="center">Total Days</th>
+                            <th nzAlign="center">Used Days</th>
+                            <th nzAlign="center">Remain Days</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of myLeaveSummary.data">
+                            <td nzAlign="center">{{ data.leaveType }}</td>
+                            <td nzAlign="center">{{ data.totalDays }}</td>
+                            <td nzAlign="center">{{ data.totalDays - data.remainingDays }}</td>
+                            <td nzAlign="center">{{ data.remainingDays }}</td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+        </nz-tabset>
+    </nz-spin>
 </div>
 
 <nz-modal [(nzVisible)]="leaveDetailsModal" nzTitle="Leave Details" (nzOnCancel)="closeModal()" [nzFooter]="null"

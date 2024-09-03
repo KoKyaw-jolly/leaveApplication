@@ -31,4 +31,12 @@ export class LeaveService {
   getLeaveCalendar(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:3200/api/leave/leave-calendar/all');
   }
+
+  approveRejectLeave(leaveRecord: LeaveRecord, approveRejectStatus: string): Observable<LeaveRecord> {
+    if (approveRejectStatus === 'approve') {
+      return this.http.post<LeaveRecord>('http://localhost:3200/api/leave/apporve-reject-leave', leaveRecord);
+    } else {
+      return this.http.post<LeaveRecord>('http://localhost:3200/api/leave/apporve-reject-leave', leaveRecord);
+    }
+  }
 }

@@ -38,6 +38,11 @@ export class MainLayoutComponent implements OnInit {
     title: '',
     description: '',
     notifyTo: 'All'
+  };
+  headerContent = {
+    fullName: '',
+    position: '',
+    image:''
   }
 
   staffActiveRoute = AtaffActiveRouteInit;
@@ -52,6 +57,12 @@ export class MainLayoutComponent implements OnInit {
 
     this.store.select(selectAuthUserInfo).subscribe(authInfo => {
       this.menuList = authInfo.userInfo.user.role == 'Admin' ? SideMenuList : SideMenuList.filter((menu) => this.staffActiveRoute.includes(menu.routelink));
+      this.headerContent = {
+        fullName: authInfo.userInfo.user.fullName,
+        position: authInfo.userInfo.user.position,
+        image: authInfo.userInfo.user.image
+      }
+      this.store.dispatch(leaveAction.loadLeaveRecordsUser({staffID: authInfo.userInfo.user.staffId}));
     })
     // this.http.get<any[]>('assets/data/sidebar-menu.json').subscribe((data) => {
     //   this.menuList = data.filter((item) => this.staffActiveRoute.includes(item.routelink));

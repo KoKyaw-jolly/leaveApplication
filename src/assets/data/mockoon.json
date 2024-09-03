@@ -88,6 +88,10 @@
         {
           "type": "route",
           "uuid": "8937017c-0725-4188-82e8-864a271cece3"
+        },
+        {
+          "type": "route",
+          "uuid": "b606dcab-5575-41f8-babe-cb8002e4cc43"
         }
       ]
     }
@@ -1020,6 +1024,71 @@
           "disableTemplating": false,
           "fallbackTo404": false,
           "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "b606dcab-5575-41f8-babe-cb8002e4cc43",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/leave/apporve-reject-leave",
+      "responses": [
+        {
+          "uuid": "6fe94409-742e-4589-bab4-4ddfd27c62a9",
+          "body": "{\n  \"status\": \"OK\"\n}",
+          "latency": 1000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "53855e27-ceff-4eeb-ab72-c9edcc2135af",
+          "body": "{\n  \"status\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"Invalid request payload.\",\n  \"timestamp\": \"2024-08-19T12:34:56Z\"\n}",
+          "latency": 3000,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "fullName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
           "crudKey": "id",
           "callbacks": []
         }
