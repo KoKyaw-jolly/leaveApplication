@@ -38,7 +38,7 @@ To run and test the project, follow these steps:
 
 3. **Set Up Mockoon**:
    - Download and install **Mockoon** (if not installed).
-   - Use the `database.json` file located under `src/assets/data/database.json`.
+   - Use the `mockoon.json` file located under `src/assets/data/mockoon.json`.
    - Create a **Mockoon** environment using this file, and set the server port to `3200`.
 
 4. **Run the Project**:
