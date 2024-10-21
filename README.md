@@ -1,27 +1,68 @@
-# Leave Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+# Leave Application System (Front-End)
 
-## Development server
+This repository contains the front-end of the **Leave Application System**, developed using **Angular 18** and **Ant Design System** (ng-zorro) for UI components. **NgRx** is used for state management. This project focuses exclusively on the front-end, and requires **Mockoon** for simulating the back-end APIs.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Technologies Used:
+- **Angular** (v18)
+- **Ant Design System** (ng-zorro)
+- **NgRx** for state management
+- **Mockoon** for back-end API simulation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Features:
+- Leave Application and Management
+- Leave Reports
+- Holiday Management
+- Notifications
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Setup and Installation:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run and test the project, follow these steps:
 
-## Running end-to-end tests
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-link>
+   cd leave-application-system
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Further help
+3. **Set Up Mockoon**:
+   - Download and install **Mockoon** (if not installed).
+   - Use the `database.json` file located under `src/assets/data/database.json`.
+   - Create a **Mockoon** environment using this file, and set the server port to `3200`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+4. **Run the Project**:
+   ```bash
+   npm start
+   ```
+
+5. **Login Credentials**:
+   - **Staff role**:  
+     - **Username**: `koyaw@gmail.com`  
+     - **Password**: `welcome`
+   - **Admin role**:  
+     - **Username**: `admin@gmail.com`  
+     - **Password**: `admin123`
+
+---
+
+## Live Demo:
+
+You can explore the Leave Application System using the credentials above. The system includes features such as applying for leave, viewing leave reports, managing holidays, and receiving notifications.
+
+---
+
+## Note:
+
+- Ensure that **Mockoon** is running with the correct configuration to simulate the back-end environment.
+- This project is for front-end development and testing only. The back-end integration is not included.
