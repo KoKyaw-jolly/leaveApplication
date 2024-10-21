@@ -2,8 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
 import { QuillEditorComponent } from 'ngx-quill'
 import { HttpClient } from '@angular/common/http';
-import { Notification } from '../../core/models/notification.interface';
+import { AppNotification, appNotificationEmptyInitialObj } from '../../core/models/notification.interface';
 import { differenceInCalendarDays } from 'date-fns';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/state/app.state';
+import * as generalSettingActions from '../../store/action/general-setting.action';
+import { selectGeneralSetting } from '../../store/selector/general-setting.selector';
+import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,89 +24,24 @@ import { differenceInCalendarDays } from 'date-fns';
 })
 export class SettingComponent implements OnInit {
 
-  date: Date = new Date();
-  oldContent: string = "";
-  content: string = "";
-  editState: boolean = false;
+  generalSettingLoding: boolean = false;
+
+  // notification
   notiScheduled: boolean = true;
+  notificationForm: FormGroup;
+  date: Date = new Date();
+  notificationList: AppNotification[] = [];
+  notificationObj: AppNotification = appNotificationEmptyInitialObj;
+  notificationModal: boolean = false;
 
-  listOfData: Notification[] = [
-    {
-      id: 1,
-      date: new Date('2024-07-29T10:00:00Z'),
-      title: 'System Maintenance',
-      description: 'The system will be down for maintenance from 10 PM to 12 AM.',
-      notifyTo: 'All'
-    },
-    {
-      id: 2,
-      date: new Date('2024-07-28T14:30:00Z'),
-      title: 'New Policy Update',
-      description: 'Please review the updated leave policy document.',
-      notifyTo: 'Staff'
-    },
-    {
-      id: 3,
-      date: new Date('2024-07-27T09:00:00Z'),
-      title: 'Meeting Reminder',
-      description: 'Reminder for the staff meeting scheduled at 3 PM today.',
-      notifyTo: 'Staff'
-    },
-    {
-      id: 4,
-      date: new Date('2024-07-26T16:45:00Z'),
-      title: 'New Feature Release',
-      description: 'A new feature has been released on the platform. Please check it out.',
-      notifyTo: 'All'
-    },
-    {
-      id: 5,
-      date: new Date('2024-07-25T11:15:00Z'),
-      title: 'Holiday Announcement',
-      description: 'The office will be closed on Friday for a public holiday.',
-      notifyTo: 'All'
-    },
-    {
-      id: 6,
-      date: new Date('2024-07-24T08:00:00Z'),
-      title: 'Training Session',
-      description: 'A training session on the new software will be held at 2 PM.',
-      notifyTo: 'Staff'
-    },
-    {
-      id: 7,
-      date: new Date('2024-07-23T13:30:00Z'),
-      title: 'Password Change Reminder',
-      description: 'Please change your password before the end of the month.',
-      notifyTo: 'All'
-    },
-    {
-      id: 8,
-      date: new Date('2024-07-22T17:00:00Z'),
-      title: 'Performance Reviews',
-      description: 'Annual performance reviews will begin next week.',
-      notifyTo: 'Staff'
-    },
-    {
-      id: 9,
-      date: new Date('2024-07-21T15:45:00Z'),
-      title: 'Office Relocation',
-      description: 'The office will be relocated to a new address next month.',
-      notifyTo: 'All'
-    },
-    {
-      id: 10,
-      date: new Date('2024-07-20T12:30:00Z'),
-      title: 'Feedback Request',
-      description: 'Please provide your feedback on the recent company event.',
-      notifyTo: 'Staff'
-    }
-  ];
-
+  //Leave Policy
+  leavePolicyOldContent: string = '';
+  leavePolicyContent: string = '';
+  leavePolicyEditState: boolean = false;
   quillConfig = {
     modules: {
       toolbar: [
-        [{ header: [1, 2, 3, false] }],
+        // [{ header: [1, 2, 3, 4, 5, 6] }],
         ['bold', 'italic', 'underline', 'strike'],
         [{ color: [] }, { background: [] }],
         [{ list: 'ordered' }, { list: 'bullet' }],
@@ -112,24 +53,91 @@ export class SettingComponent implements OnInit {
     theme: 'snow'
   };
 
-  constructor(private http: HttpClient) { }
+  private subscription: Subscription = new Subscription();
 
-  ngOnInit(): void {
-    this.http.get<any>('assets/data/policy-temp-data.json').subscribe((data) => {
-      this.oldContent = data.data;
-      this.content = this.oldContent;
+  constructor(
+    private store: Store<AppState>,
+    private fb: FormBuilder
+  ) {
+    this.notificationForm = this.fb.group({
+      notiScheduled: [false],
+      notiScheduledDate: [null],
+      notifyTo: ['all', Validators.required],
+      title: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
-  test(): void {
-    console.log(this.notiScheduled);
+  ngOnInit(): void {
+    this.store.dispatch(generalSettingActions.loadNotificationAll());
+    this.store.dispatch(generalSettingActions.loadLeavePolicy());
+    this.subscription.add(
+      this.store.select(selectGeneralSetting).subscribe(res => {
+        if (res && res != null) {
+          // Notification
+          this.generalSettingLoding = res.loading;
+          this.notificationList = res.notificationsAll;
+          // LeavePolicy
+          this.leavePolicyOldContent = res.leavePolicy;
+
+          if (res.loading == false && res.error === null) {
+            this.clearNotiForm();
+            this.leavePolicyContent = res.leavePolicy;
+            this.leavePolicyEditState = false;
+          }
+        }
+      })
+    )
   }
 
-  disabledDate = (current: Date): boolean =>
-    differenceInCalendarDays(current, this.date) <= 0;
+  //notification
+  onSubmitNotification(): void {
+    if (!this.notificationForm.valid) {
+      Object.values(this.notificationForm.controls).forEach(control => {
+        control.markAsDirty();
+        control.updateValueAndValidity();
+      });
+      return;
+    } else {
+      console.log('this.notificationForm.value', this.notificationForm.value);
+      const notificationData: AppNotification = {
+        id: '',
+        date: this.notiScheduled ? this.notificationForm.value.notiScheduledDate : new Date(),
+        title: this.notificationForm.value.title,
+        description: this.notificationForm.value.description,
+        notifyTo: this.notificationForm.value.notifyTo
+      }
+      this.store.dispatch(generalSettingActions.createEditNotification({ notification: notificationData }));
+    }
+  }
 
+  clearNotiForm(): void {
+    this.notificationForm.reset();
+    this.notificationForm.setValue({
+      notiScheduled: false,
+      notiScheduledDate: null,
+      notifyTo: 'all',
+      title: '',
+      description: ''
+    });
+  }
+
+  disabledDate = (current: Date): boolean => differenceInCalendarDays(current, this.date) <= 0;
+
+  notiDetails(notiData: AppNotification): void {
+    this.notificationModal = true;
+    this.notificationObj = notiData;
+  }
+  // Leave Policy
   leavePolicySave(): void {
-    this.editState = false;
-    console.log(this.content);
+    if (this.leavePolicyContent === this.leavePolicyOldContent) {
+      this.leavePolicyEditState = false;
+    } else {
+      this.store.dispatch(generalSettingActions.createEditLeavePolicy({ leavePolicy: this.leavePolicyContent }));
+    }
+  }
+
+  closeModal(): void {
+    this.notificationModal = false;
   }
 }

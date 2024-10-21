@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sipLeaveApplication": {
+    "leaveApplication": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/sip-leave-application",
+            "outputPath": "dist/leave-application",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "sipLeaveApplication:build:production"
+              "buildTarget": "leaveApplication:build:production"
             },
             "development": {
-              "buildTarget": "sipLeaveApplication:build:development"
+              "buildTarget": "leaveApplication:build:development"
             }
           },
           "defaultConfiguration": "development"

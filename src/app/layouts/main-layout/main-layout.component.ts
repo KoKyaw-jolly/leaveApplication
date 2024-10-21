@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { APP_IMPORT } from '../../app.import';
 import { Router, RouterModule } from '@angular/router';
 import { IMAGES } from '../../core/constants/images-url';
-import { SideMenuComponent } from "../../components/sample-component/side-menu/side-menu.component";
 import { HttpClient } from '@angular/common/http';
-import { Notification } from '../../core/models/notification.interface';
+import { AppNotification, appNotificationEmptyInitialObj } from '../../core/models/notification.interface';
 import { AtaffActiveRouteInit } from '../../core/models/auth.interface';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/state/app.state';
@@ -13,15 +12,16 @@ import * as AuthAction from '../../store/action/auth.action';
 import * as StaffActions from '../../store/action/staff.action';
 import * as holidayActions from '../../store/action/holiday.action';
 import * as leaveActions from '../../store/action/leave.action';
+import * as generalSettingActions from '../../store/action/general-setting.action';
 import { SideMenuList } from '../../core/models/menu.interface';
+import { selectGeneralSetting } from '../../store/selector/general-setting.selector';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
   imports: [
     APP_IMPORT,
-    RouterModule,
-    SideMenuComponent
+    RouterModule
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
@@ -30,15 +30,9 @@ export class MainLayoutComponent implements OnInit {
   images = IMAGES;
   isCollapsed = false;
   menuList: any[] = [];
-  notificationList: Notification[] = [];
+  notificationList: AppNotification[] = [];
   notificationModal: boolean = false;
-  notificationObj: Notification = {
-    id: 0,
-    date: new Date(),
-    title: '',
-    description: '',
-    notifyTo: 'All'
-  };
+  notificationObj: AppNotification = appNotificationEmptyInitialObj
   headerContent = {
     fullName: '',
     position: '',
@@ -62,21 +56,18 @@ export class MainLayoutComponent implements OnInit {
         image: authInfo.userInfo.user.image
       }
       this.store.dispatch(leaveActions.loadLeaveRecordsUser({ staffID: authInfo.userInfo.user.staffId }));
+      this.store.dispatch(generalSettingActions.loadNotificationUser({ staffID: authInfo.userInfo.user.staffId }));
     })
-    // this.http.get<any[]>('assets/data/sidebar-menu.json').subscribe((data) => {
-    //   this.menuList = data.filter((item) => this.staffActiveRoute.includes(item.routelink));
-    // });
-
-    this.http.get<any[]>('assets/data/notification-temp-data.json').subscribe((data) => {
-      this.notificationList = data;
-    });
+    this.store.select(selectGeneralSetting).subscribe(generalSetting=>{
+      this.notificationList = generalSetting.notificationsUser;
+    })
     this.store.dispatch(holidayActions.loadHolidays());
     this.store.dispatch(StaffActions.loadStaff());
     this.store.dispatch(leaveActions.loadLeaveRecordsAll());
     this.store.dispatch(leaveActions.loadLeaveCalendar());
   }
 
-  notificationDetailsModal(notiData: Notification): void {
+  notificationDetailsModal(notiData: AppNotification): void {
     this.notificationModal = true;
     this.notificationObj = notiData;
   }

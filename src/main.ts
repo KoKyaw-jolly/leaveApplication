@@ -23,6 +23,7 @@ import { HolidayEffect } from './app/store/effect/holiday.effect';
 import { leaveReducer } from './app/store/reducer/leave.reducer';
 import { LeaveEffect } from './app/store/effect/leave.effect';
 import { generalSettingReducer } from './app/store/reducer/general-setting.reducer';
+import { GeneralSettingEffect } from './app/store/effect/general-setting.effect';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -53,7 +54,8 @@ bootstrapApplication(AppComponent, {
         StaffEffect,
         AuthEffect,
         HolidayEffect,
-        LeaveEffect
+        LeaveEffect,
+        GeneralSettingEffect
       ]),
       StoreDevtoolsModule.instrument()
     )

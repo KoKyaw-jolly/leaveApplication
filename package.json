@@ -1,5 +1,5 @@
 {
-  "name": "sip-leave-application",
+  "name": "leave-application",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",

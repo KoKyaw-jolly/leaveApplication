@@ -27,6 +27,8 @@ export class LeaveTransactionComponent implements OnInit, OnDestroy {
 
   loading: boolean = false;
 
+  isAdmin: boolean = false;
+
   constructor(
     private store: Store<AppState>,
   ) { }
@@ -35,6 +37,7 @@ export class LeaveTransactionComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.store.select(selectAuthUserInfo).subscribe(res => {
         this.userInfoState = res;
+        this.isAdmin = this.userInfoState.userInfo.user.role == "Admin" ? true : false;
       })
     )
     this.subscription.add(

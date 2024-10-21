@@ -33,7 +33,6 @@ export class HolidayManagementComponent implements OnInit, OnDestroy {
   //form
   holidayForm: FormGroup;
   deleteConfirmModal?: NzModalRef;
-  // holidayLoading: boolean = false;
   createEditError = {
     visable: false,
     message: ''
@@ -41,10 +40,7 @@ export class HolidayManagementComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<AppState>,
-    private holidayService: HolidayService,
-    private message: NzMessageService,
-    private modal: NzModalService
+    private store: Store<AppState>
   ) {
     this.holidayForm = this.fb.group({
       name: ['', Validators.required],

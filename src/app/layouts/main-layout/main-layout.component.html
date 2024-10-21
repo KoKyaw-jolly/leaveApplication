@@ -5,8 +5,8 @@
             <span nz-icon nzType="right" nzTheme="outline" [class]="isCollapsed?'d-block':'d-none'"></span>
         </span>
         <div class="side-menu-header">
-            <img [src]="images.SIP_LOGO" alt="">
-            <h6>SIP Leave Application</h6>
+            <img [src]="images.LEAVE_LOGO" alt="">
+            <h6>Leave Application</h6>
         </div>
         <div class="side-menu-items-wrapper">
             <ng-container *ngFor="let item of menuList">
@@ -46,12 +46,13 @@
                         </div>
                     </ng-template>
                 </span>
-                <span class="fi fi-rr-settings" nz-dropdown nzTrigger="click" [nzDropdownMenu]="settingMenu" nzPlacement="bottomRight">
+                <span class="fi fi-rr-settings" nz-dropdown nzTrigger="click" [nzDropdownMenu]="settingMenu"
+                    nzPlacement="bottomRight">
                     <nz-dropdown-menu #settingMenu="nzDropdownMenu">
                         <ul nz-menu nzSelectable>
-                          <li nz-menu-item (click)="logOut()">LogOut</li>
+                            <li nz-menu-item (click)="logOut()">LogOut</li>
                         </ul>
-                      </nz-dropdown-menu>
+                    </nz-dropdown-menu>
                 </span>
             </div>
         </div>
@@ -61,7 +62,7 @@
     </div>
 </div>
 
-<nz-modal [(nzVisible)]="notificationModal" nzTitle="Holiday" (nzOnCancel)="closeModal()" (nzOnOk)="closeModal()"
+<nz-modal [(nzVisible)]="notificationModal" nzTitle="Notification" (nzOnCancel)="closeModal()" (nzOnOk)="closeModal()"
     [nzFooter]="null">
     <ng-container *nzModalContent>
         <div class="modal-conent-list">

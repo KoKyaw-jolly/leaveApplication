@@ -1,3 +1,3 @@
 import { AppState } from "../state/app.state";
 
-export const selectHolidays = (state: AppState) => state.generalSetting;
+export const selectGeneralSetting = (state: AppState) => state.generalSetting;

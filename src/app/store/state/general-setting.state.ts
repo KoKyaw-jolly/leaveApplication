@@ -1,8 +1,9 @@
-import { Notification } from "../../core/models/notification.interface";
+import { AppNotification } from "../../core/models/notification.interface";
 
-export interface GeneralSettingState{
-    notificationsAll: Notification[];
-    notificationsUser: Notification[];
+export interface GeneralSettingState {
+    notificationsAll: AppNotification[];
+    notificationsUser: AppNotification[];
+    leavePolicy: any;
     loading: boolean;
     error: any;
 }
@@ -10,6 +11,7 @@ export interface GeneralSettingState{
 export const generalSettingInitialState: GeneralSettingState = {
     notificationsAll: [],
     notificationsUser: [],
+    leavePolicy: '',
     loading: false,
     error: null
 }
